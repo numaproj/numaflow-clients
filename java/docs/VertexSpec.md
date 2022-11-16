@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **containerTemplate** | [**ContainerTemplate**](ContainerTemplate.md) |  |  [optional]
 **fromEdges** | [**List&lt;Edge&gt;**](Edge.md) |  |  [optional]
 **imagePullSecrets** | **List&lt;V1LocalObjectReference&gt;** | ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. For example, in the case of docker, only DockerConfig type secrets are honored. More info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod |  [optional]
+**initContainerTemplate** | [**ContainerTemplate**](ContainerTemplate.md) |  |  [optional]
+**initContainers** | **List&lt;V1Container&gt;** | List of init containers belonging to the pod. More info: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/ |  [optional]
 **interStepBufferServiceName** | **String** |  |  [optional]
 **limits** | [**VertexLimits**](VertexLimits.md) |  |  [optional]
 **metadata** | [**Metadata**](Metadata.md) |  |  [optional]
@@ -22,13 +24,14 @@ Name | Type | Description | Notes
 **replicas** | **Integer** |  |  [optional]
 **scale** | [**Scale**](Scale.md) |  |  [optional]
 **securityContext** | **V1PodSecurityContext** |  |  [optional]
-**serviceAccountName** | **String** | ServiceAccountName to apply to the StatefulSet |  [optional]
+**serviceAccountName** | **String** | ServiceAccountName applied to the pod |  [optional]
 **sink** | [**Sink**](Sink.md) |  |  [optional]
 **source** | [**Source**](Source.md) |  |  [optional]
 **toEdges** | [**List&lt;Edge&gt;**](Edge.md) |  |  [optional]
 **tolerations** | **List&lt;V1Toleration&gt;** | If specified, the pod&#39;s tolerations. |  [optional]
 **udf** | [**UDF**](UDF.md) |  |  [optional]
 **volumes** | **List&lt;V1Volume&gt;** |  |  [optional]
+**watermark** | [**Watermark**](Watermark.md) |  |  [optional]
 
 
 

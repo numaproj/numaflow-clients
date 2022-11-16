@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **config** | [**BufferServiceConfig**](BufferServiceConfig.md) |  |  [optional]
 **message** | **String** |  |  [optional]
 **phase** | **String** |  |  [optional]
+**type** | **String** |  |  [optional]
 
 
 

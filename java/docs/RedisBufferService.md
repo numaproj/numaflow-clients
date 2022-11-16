@@ -1,6 +1,6 @@
 
 
-# RedisBuferService
+# RedisBufferService
 
 
 ## Properties

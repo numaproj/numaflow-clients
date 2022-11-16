@@ -11,6 +11,10 @@ Name | Type | Description | Notes
 **lastUpdated** | **java.time.Instant** |  |  [optional]
 **message** | **String** |  |  [optional]
 **phase** | **String** |  |  [optional]
+**sinkCount** | **Long** |  |  [optional]
+**sourceCount** | **Long** |  |  [optional]
+**udfCount** | **Long** |  |  [optional]
+**vertexCount** | **Long** |  |  [optional]
 
 
 

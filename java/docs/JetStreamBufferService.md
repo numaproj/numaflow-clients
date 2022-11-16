@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **reloaderContainerTemplate** | [**ContainerTemplate**](ContainerTemplate.md) |  |  [optional]
 **replicas** | **Integer** | Redis StatefulSet size |  [optional]
 **securityContext** | **V1PodSecurityContext** |  |  [optional]
-**serviceAccountName** | **String** | ServiceAccountName to apply to the StatefulSet |  [optional]
+**serviceAccountName** | **String** | ServiceAccountName applied to the pod |  [optional]
 **settings** | **String** | JetStream configuration, if not specified, global settings in numaflow-controller-config will be used. See https://docs.nats.io/running-a-nats-service/configuration#jetstream. Only configure \&quot;max_memory_store\&quot; or \&quot;max_file_store\&quot;, do not set \&quot;store_dir\&quot; as it has been hardcoded. |  [optional]
 **startArgs** | **List&lt;String&gt;** | Optional arguments to start nats-server. For example, \&quot;-D\&quot; to enable debugging output, \&quot;-DV\&quot; to enable debugging and tracing. Check https://docs.nats.io/ for all the available arguments. |  [optional]
 **tls** | **Boolean** | Whether enable TLS, defaults to false Enabling TLS might impact the performance |  [optional]

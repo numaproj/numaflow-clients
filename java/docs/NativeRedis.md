@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **affinity** | **V1Affinity** |  |  [optional]
 **imagePullSecrets** | **List&lt;V1LocalObjectReference&gt;** | ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. For example, in the case of docker, only DockerConfig type secrets are honored. More info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod |  [optional]
+**initContainerTemplate** | [**ContainerTemplate**](ContainerTemplate.md) |  |  [optional]
 **metadata** | [**Metadata**](Metadata.md) |  |  [optional]
 **metricsContainerTemplate** | [**ContainerTemplate**](ContainerTemplate.md) |  |  [optional]
 **nodeSelector** | **Map&lt;String, String&gt;** | NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node&#39;s labels for the pod to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/ |  [optional]
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 **replicas** | **Integer** | Redis StatefulSet size |  [optional]
 **securityContext** | **V1PodSecurityContext** |  |  [optional]
 **sentinelContainerTemplate** | [**ContainerTemplate**](ContainerTemplate.md) |  |  [optional]
-**serviceAccountName** | **String** | ServiceAccountName to apply to the StatefulSet |  [optional]
+**serviceAccountName** | **String** | ServiceAccountName applied to the pod |  [optional]
 **settings** | [**RedisSettings**](RedisSettings.md) |  |  [optional]
 **tolerations** | **List&lt;V1Toleration&gt;** | If specified, the pod&#39;s tolerations. |  [optional]
 **version** | **String** | Redis version, such as \&quot;6.0.16\&quot; |  [optional]
