@@ -31,15 +31,17 @@ public class PipelineExample {
                                 "pipelines",
                                 ClientBuilder.defaultClient());
 
+                String namespace = "numaflow-system";
+
                 InterStepBufferService isbSvc = new InterStepBufferService()
-                                .metadata(new V1ObjectMeta().namespace("numaflow-system")
+                                .metadata(new V1ObjectMeta().namespace(namespace)
                                                 .name("default"))
                                 .kind("InterStepBufferService")
                                 .apiVersion("numaflow.numaproj.io/v1alpha1")
                                 .spec(new InterStepBufferServiceSpec()
                                                 .jetstream(new JetStreamBufferService()
                                                                 .version("latest")));
-                // Print out theISB Service as YAML
+                // Print out the ISB Service as YAML
                 System.out.println(Yaml.dump(isbSvc));
 
                 // Create the ISB Service
@@ -53,7 +55,7 @@ public class PipelineExample {
                 System.out.println(isbSvcResponse.isSuccess());
 
                 Pipeline pipeline = new Pipeline().metadata(
-                                new V1ObjectMeta().namespace("numaflow-system").name("simple-pipeline"))
+                                new V1ObjectMeta().namespace(namespace).name("simple-pipeline"))
                                 .kind("Pipeline").apiVersion("numaflow.numaproj.io/v1alpha1")
                                 .spec(new PipelineSpec()
                                                 .limits(new PipelineLimits().readTimeout("5s")
@@ -78,5 +80,8 @@ public class PipelineExample {
                 } else {
                         System.out.println("Succeeded to create a pipeline.");
                 }
+
+                // Delete the pipeline
+                pipelineApi.delete(namespace, "simple-pipeline");
         }
 }
