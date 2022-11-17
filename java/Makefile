@@ -5,8 +5,7 @@ ARTIFACT_VERSION := $(shell if [[ "$(VERSION)" =~ ^v[0-9]+\.[0-9]+\.[0-9]+.*  ]]
 GENERATOR_VERSION := v5.2.1
 
 DOCKER = docker run --rm -v `pwd -P`:/base --workdir /base
-MVN = $(DOCKER) -v $(HOME)/.m2:/root/.m2 -e JAVA_SDK_MAVEN_PASSWORD=${JAVA_SDK_MAVEN_PASSWORD} maven:3-openjdk-18 mvn -s settings.xml
-CHOWN = chown -R $(shell id -u):$(shell id -g)
+MVN = $(DOCKER) -v $(HOME)/.m2:/root/.m2 maven:3-openjdk-18 mvn -s settings.xml
 
 publish: generate
 	# https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages
