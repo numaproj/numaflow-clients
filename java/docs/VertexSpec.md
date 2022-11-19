@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **scale** | [**Scale**](Scale.md) |  |  [optional]
 **securityContext** | **V1PodSecurityContext** |  |  [optional]
 **serviceAccountName** | **String** | ServiceAccountName applied to the pod |  [optional]
+**sidecars** | **List&lt;V1Container&gt;** | List of sidecar containers belonging to the pod. |  [optional]
 **sink** | [**Sink**](Sink.md) |  |  [optional]
 **source** | [**Source**](Source.md) |  |  [optional]
 **toEdges** | [**List&lt;Edge&gt;**](Edge.md) |  |  [optional]
