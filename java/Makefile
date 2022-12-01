@@ -9,7 +9,7 @@ MVN = $(DOCKER) -v $(HOME)/.m2:/root/.m2 maven:3-openjdk-18 mvn -s settings.xml
 
 publish: generate
 	# https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages
-	$(MVN) deploy -DskipTests -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/numaproj/numaflow-clients
+	@docker run -e JAVA_SDK_MAVEN_USER=$(JAVA_SDK_MAVEN_USER) -e JAVA_SDK_MAVEN_PASSWORD=$(JAVA_SDK_MAVEN_PASSWORD) --rm -v `pwd -P`:/base --workdir /base deploy -DskipTests -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/numaproj/numaflow-clients
 
 generate:
 	rm -Rf ./docs ./src/test ./src/main/java/io/numaproj/numaflow/models/ pom.xml
