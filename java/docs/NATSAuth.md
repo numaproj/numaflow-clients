@@ -1,14 +1,16 @@
 
 
-# NATSAuth
+# NatsAuth
 
+NatsAuth defines how to authenticate the nats access
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**password** | **V1SecretKeySelector** |  |  [optional]
-**user** | **V1SecretKeySelector** |  |  [optional]
+**basic** | [**BasicAuth**](BasicAuth.md) |  |  [optional]
+**nkey** | **V1SecretKeySelector** |  |  [optional]
+**token** | **V1SecretKeySelector** |  |  [optional]
 
 
 

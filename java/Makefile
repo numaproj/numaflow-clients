@@ -12,7 +12,7 @@ publish: generate
 	@docker run --rm -e JAVA_SDK_MAVEN_USER=$(JAVA_SDK_MAVEN_USER) -e JAVA_SDK_MAVEN_PASSWORD=$(JAVA_SDK_MAVEN_PASSWORD) -v `pwd -P`:/base --workdir /base -v $(HOME)/.m2:/root/.m2 maven:3-openjdk-18 mvn -s settings.xml deploy -DskipTests -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/numaproj/numaflow-clients
 
 generate:
-	rm -Rf ./docs ./src/test ./src/main/java/io/numaproj/numaflow/models/ pom.xml
+	rm -Rf ./docs ./src/test ./src/main/java/io/numaproj/numaflow/models/ pom.xml ./target
 	mkdir -p ./dist
 	cat ../swagger.json | ../hack/swaggerfilter.py io.numaproj.numaflow | \
 		sed 's/io.k8s.api.core.//' | \
@@ -65,6 +65,7 @@ generate:
 		--import-mappings V1VolumeDevice=io.kubernetes.client.openapi.models.V1VolumeDevice \
 		--import-mappings V1VolumeMount=io.kubernetes.client.openapi.models.V1VolumeMount \
 		--import-mappings V1Condition=io.kubernetes.client.openapi.models.V1Condition \
+		--import-mappings V1EmptyDirVolumeSource=io.kubernetes.client.openapi.models.V1EmptyDirVolumeSource \
 		--import-mappings ResourceQuantity=io.kubernetes.client.custom.Quantity \
 		--type-mappings ResourceQuantity=io.kubernetes.client.custom.Quantity \
 		--generate-alias-as-model
