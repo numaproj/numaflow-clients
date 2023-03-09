@@ -8,6 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **affinity** | **V1Affinity** |  |  [optional]
+**automountServiceAccountToken** | **Boolean** | AutomountServiceAccountToken indicates whether a service account token should be automatically mounted. |  [optional]
 **imagePullSecrets** | **List&lt;V1LocalObjectReference&gt;** | ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. For example, in the case of docker, only DockerConfig type secrets are honored. More info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod |  [optional]
 **initContainerTemplate** | [**ContainerTemplate**](ContainerTemplate.md) |  |  [optional]
 **metadata** | [**Metadata**](Metadata.md) |  |  [optional]
@@ -18,6 +19,7 @@ Name | Type | Description | Notes
 **priorityClassName** | **String** | If specified, indicates the Redis pod&#39;s priority. \&quot;system-node-critical\&quot; and \&quot;system-cluster-critical\&quot; are two special keywords which indicate the highest priorities with the former being the highest priority. Any other name must be defined by creating a PriorityClass object with that name. If not specified, the pod priority will be default or zero if there is no default. More info: https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/ |  [optional]
 **redisContainerTemplate** | [**ContainerTemplate**](ContainerTemplate.md) |  |  [optional]
 **replicas** | **Integer** | Redis StatefulSet size |  [optional]
+**runtimeClassName** | **String** | RuntimeClassName refers to a RuntimeClass object in the node.k8s.io group, which should be used to run this pod.  If no RuntimeClass resource matches the named class, the pod will not be run. If unset or empty, the \&quot;legacy\&quot; RuntimeClass will be used, which is an implicit class with an empty definition that uses the default runtime handler. More info: https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class |  [optional]
 **securityContext** | **V1PodSecurityContext** |  |  [optional]
 **sentinelContainerTemplate** | [**ContainerTemplate**](ContainerTemplate.md) |  |  [optional]
 **serviceAccountName** | **String** | ServiceAccountName applied to the pod |  [optional]

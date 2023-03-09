@@ -18,7 +18,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.kubernetes.client.openapi.models.V1SecretKeySelector;
+import io.numaproj.numaflow.models.Container;
+import io.numaproj.numaflow.models.Transformer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.junit.Assert;
@@ -27,49 +28,33 @@ import org.junit.Test;
 
 
 /**
- * Model tests for TLS
+ * Model tests for UDTransformer
  */
-public class TLSTest {
-    private final TLS model = new TLS();
+public class UDTransformerTest {
+    private final UDTransformer model = new UDTransformer();
 
     /**
-     * Model tests for TLS
+     * Model tests for UDTransformer
      */
     @Test
-    public void testTLS() {
-        // TODO: test TLS
+    public void testUDTransformer() {
+        // TODO: test UDTransformer
     }
 
     /**
-     * Test the property 'caCertSecret'
+     * Test the property 'builtin'
      */
     @Test
-    public void caCertSecretTest() {
-        // TODO: test caCertSecret
+    public void builtinTest() {
+        // TODO: test builtin
     }
 
     /**
-     * Test the property 'clientCertSecret'
+     * Test the property 'container'
      */
     @Test
-    public void clientCertSecretTest() {
-        // TODO: test clientCertSecret
-    }
-
-    /**
-     * Test the property 'clientKeySecret'
-     */
-    @Test
-    public void clientKeySecretTest() {
-        // TODO: test clientKeySecret
-    }
-
-    /**
-     * Test the property 'insecureSkipVerify'
-     */
-    @Test
-    public void insecureSkipVerifyTest() {
-        // TODO: test insecureSkipVerify
+    public void containerTest() {
+        // TODO: test container
     }
 
 }

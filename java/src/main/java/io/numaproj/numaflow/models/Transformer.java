@@ -32,15 +32,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Function
+ * Transformer
  */
 @JsonPropertyOrder({
-  Function.JSON_PROPERTY_ARGS,
-  Function.JSON_PROPERTY_KWARGS,
-  Function.JSON_PROPERTY_NAME
+  Transformer.JSON_PROPERTY_ARGS,
+  Transformer.JSON_PROPERTY_KWARGS,
+  Transformer.JSON_PROPERTY_NAME
 })
 @javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class Function {
+public class Transformer {
   public static final String JSON_PROPERTY_ARGS = "args";
   private List<String> args = null;
 
@@ -51,12 +51,12 @@ public class Function {
   private String name;
 
 
-  public Function args(List<String> args) {
+  public Transformer args(List<String> args) {
     this.args = args;
     return this;
   }
 
-  public Function addArgsItem(String argsItem) {
+  public Transformer addArgsItem(String argsItem) {
     if (this.args == null) {
       this.args = new ArrayList<>();
     }
@@ -85,12 +85,12 @@ public class Function {
   }
 
 
-  public Function kwargs(Map<String, String> kwargs) {
+  public Transformer kwargs(Map<String, String> kwargs) {
     this.kwargs = kwargs;
     return this;
   }
 
-  public Function putKwargsItem(String key, String kwargsItem) {
+  public Transformer putKwargsItem(String key, String kwargsItem) {
     if (this.kwargs == null) {
       this.kwargs = new HashMap<>();
     }
@@ -119,7 +119,7 @@ public class Function {
   }
 
 
-  public Function name(String name) {
+  public Transformer name(String name) {
     this.name = name;
     return this;
   }
@@ -146,7 +146,7 @@ public class Function {
 
 
   /**
-   * Return true if this Function object is equal to o.
+   * Return true if this Transformer object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -156,10 +156,10 @@ public class Function {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Function function = (Function) o;
-    return Objects.equals(this.args, function.args) &&
-        Objects.equals(this.kwargs, function.kwargs) &&
-        Objects.equals(this.name, function.name);
+    Transformer transformer = (Transformer) o;
+    return Objects.equals(this.args, transformer.args) &&
+        Objects.equals(this.kwargs, transformer.kwargs) &&
+        Objects.equals(this.name, transformer.name);
   }
 
   @Override
@@ -170,7 +170,7 @@ public class Function {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Function {\n");
+    sb.append("class Transformer {\n");
     sb.append("    args: ").append(toIndentedString(args)).append("\n");
     sb.append("    kwargs: ").append(toIndentedString(kwargs)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

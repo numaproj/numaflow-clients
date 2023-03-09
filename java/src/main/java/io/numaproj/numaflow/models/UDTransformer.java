@@ -22,82 +22,83 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.numaproj.numaflow.models.Container;
+import io.numaproj.numaflow.models.Transformer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * SlidingWindow describes a sliding window
+ * UDTransformer
  */
-@ApiModel(description = "SlidingWindow describes a sliding window")
 @JsonPropertyOrder({
-  SlidingWindow.JSON_PROPERTY_LENGTH,
-  SlidingWindow.JSON_PROPERTY_SLIDE
+  UDTransformer.JSON_PROPERTY_BUILTIN,
+  UDTransformer.JSON_PROPERTY_CONTAINER
 })
 @javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SlidingWindow {
-  public static final String JSON_PROPERTY_LENGTH = "length";
-  private String length = null;
+public class UDTransformer {
+  public static final String JSON_PROPERTY_BUILTIN = "builtin";
+  private Transformer builtin;
 
-  public static final String JSON_PROPERTY_SLIDE = "slide";
-  private String slide = null;
+  public static final String JSON_PROPERTY_CONTAINER = "container";
+  private Container container;
 
 
-  public SlidingWindow length(String length) {
-    this.length = length;
+  public UDTransformer builtin(Transformer builtin) {
+    this.builtin = builtin;
     return this;
   }
 
    /**
-   * Get length
-   * @return length
+   * Get builtin
+   * @return builtin
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_LENGTH)
+  @JsonProperty(JSON_PROPERTY_BUILTIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getLength() {
-    return length;
+  public Transformer getBuiltin() {
+    return builtin;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LENGTH)
+  @JsonProperty(JSON_PROPERTY_BUILTIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLength(String length) {
-    this.length = length;
+  public void setBuiltin(Transformer builtin) {
+    this.builtin = builtin;
   }
 
 
-  public SlidingWindow slide(String slide) {
-    this.slide = slide;
+  public UDTransformer container(Container container) {
+    this.container = container;
     return this;
   }
 
    /**
-   * Get slide
-   * @return slide
+   * Get container
+   * @return container
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_SLIDE)
+  @JsonProperty(JSON_PROPERTY_CONTAINER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getSlide() {
-    return slide;
+  public Container getContainer() {
+    return container;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SLIDE)
+  @JsonProperty(JSON_PROPERTY_CONTAINER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSlide(String slide) {
-    this.slide = slide;
+  public void setContainer(Container container) {
+    this.container = container;
   }
 
 
   /**
-   * Return true if this SlidingWindow object is equal to o.
+   * Return true if this UDTransformer object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -107,22 +108,22 @@ public class SlidingWindow {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SlidingWindow slidingWindow = (SlidingWindow) o;
-    return Objects.equals(this.length, slidingWindow.length) &&
-        Objects.equals(this.slide, slidingWindow.slide);
+    UDTransformer udTransformer = (UDTransformer) o;
+    return Objects.equals(this.builtin, udTransformer.builtin) &&
+        Objects.equals(this.container, udTransformer.container);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(length, slide);
+    return Objects.hash(builtin, container);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SlidingWindow {\n");
-    sb.append("    length: ").append(toIndentedString(length)).append("\n");
-    sb.append("    slide: ").append(toIndentedString(slide)).append("\n");
+    sb.append("class UDTransformer {\n");
+    sb.append("    builtin: ").append(toIndentedString(builtin)).append("\n");
+    sb.append("    container: ").append(toIndentedString(container)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **http** | [**HTTPSource**](HTTPSource.md) |  |  [optional]
 **kafka** | [**KafkaSource**](KafkaSource.md) |  |  [optional]
 **nats** | [**NatsSource**](NatsSource.md) |  |  [optional]
+**transformer** | [**UDTransformer**](UDTransformer.md) |  |  [optional]
 
 
 
