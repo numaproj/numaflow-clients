@@ -2,7 +2,6 @@
 
 /java/.openapi-generator/
 /java/api/
-/client/.gitignore
 /java/.openapi-generator-ignore
 /java/build.*
 /java/gradle*
@@ -11,3 +10,9 @@
 /java/target/
 /java/git_push.sh
 /java/.travis.yml
+
+/python/.openapi-generator/
+/python/.openapi-generator-ignore
+/python/test
+/python/git_push.sh
+/python/dist/
