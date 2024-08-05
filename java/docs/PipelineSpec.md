@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **interStepBufferServiceName** | **String** |  |  [optional]
 **lifecycle** | [**Lifecycle**](Lifecycle.md) |  |  [optional]
 **limits** | [**PipelineLimits**](PipelineLimits.md) |  |  [optional]
+**sideInputs** | [**List&lt;SideInput&gt;**](SideInput.md) | SideInputs defines the Side Inputs of a pipeline. |  [optional]
 **templates** | [**Templates**](Templates.md) |  |  [optional]
 **vertices** | [**List&lt;AbstractVertex&gt;**](AbstractVertex.md) |  |  [optional]
 **watermark** | [**Watermark**](Watermark.md) |  |  [optional]

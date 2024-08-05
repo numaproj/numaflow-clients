@@ -2,7 +2,7 @@
 
 # Container
 
-Container is used to define the container properties for user defined functions, sinks, etc.
+Container is used to define the container properties for user-defined functions, sinks, etc.
 
 ## Properties
 

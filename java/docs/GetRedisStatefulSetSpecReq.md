@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **confConfigMapName** | **String** |  | 
 **credentialSecretName** | **String** |  | 
+**defaultResources** | **V1ResourceRequirements** |  | 
 **healthConfigMapName** | **String** |  | 
 **initContainerImage** | **String** |  | 
 **labels** | **Map&lt;String, String&gt;** |  | 

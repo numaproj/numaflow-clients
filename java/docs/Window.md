@@ -9,6 +9,7 @@ Window describes windowing strategy
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **fixed** | [**FixedWindow**](FixedWindow.md) |  |  [optional]
+**session** | [**SessionWindow**](SessionWindow.md) |  |  [optional]
 **sliding** | [**SlidingWindow**](SlidingWindow.md) |  |  [optional]
 
 

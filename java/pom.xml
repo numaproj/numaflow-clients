@@ -5,7 +5,7 @@
     <artifactId>numaflow-client-java</artifactId>
     <packaging>jar</packaging>
     <name>numaflow-client-java</name>
-    <version>0.7.2</version>
+    <version>1.2.1</version>
     <url>https://github.com/openapitools/openapi-generator</url>
     <description>OpenAPI Java</description>
     <scm>
@@ -153,7 +153,7 @@
         </profile>
     </profiles>
 
-    <dependencies><dependency><groupId>io.kubernetes</groupId><artifactId>client-java</artifactId><version>16.0.2</version></dependency>
+    <dependencies><dependency><groupId>io.kubernetes</groupId><artifactId>client-java</artifactId><version>21.0.1</version></dependency>
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>

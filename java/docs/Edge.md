@@ -9,8 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **conditions** | [**ForwardConditions**](ForwardConditions.md) |  |  [optional]
 **from** | **String** |  | 
-**limits** | [**EdgeLimits**](EdgeLimits.md) |  |  [optional]
-**parallelism** | **Integer** | Parallelism is only effective when the \&quot;to\&quot; vertex is a reduce vertex, if it&#39;s provided, the default value is set to \&quot;1\&quot;. Parallelism is ignored when the \&quot;to\&quot; vertex is not a reduce vertex. |  [optional]
+**onFull** | **String** | OnFull specifies the behaviour for the write actions when the inter step buffer is full. There are currently two options, retryUntilSuccess and discardLatest. if not provided, the default value is set to \&quot;retryUntilSuccess\&quot; |  [optional]
 **to** | **String** |  | 
 
 

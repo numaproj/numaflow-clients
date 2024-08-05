@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **clusterPort** | **Integer** |  | 
 **configMapName** | **String** |  | 
 **configReloaderImage** | **String** |  | 
+**defaultResources** | **V1ResourceRequirements** |  | 
 **labels** | **Map&lt;String, String&gt;** |  | 
 **metricsExporterImage** | **String** |  | 
 **metricsPort** | **Integer** |  | 

@@ -8,6 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **duration** | **String** |  |  [optional]
+**jitter** | **String** |  |  [optional]
 **keyCount** | **Integer** | KeyCount is the number of unique keys in the payload |  [optional]
 **msgSize** | **Integer** | Size of each generated message |  [optional]
 **rpu** | **Long** |  |  [optional]

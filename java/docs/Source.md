@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **kafka** | [**KafkaSource**](KafkaSource.md) |  |  [optional]
 **nats** | [**NatsSource**](NatsSource.md) |  |  [optional]
 **transformer** | [**UDTransformer**](UDTransformer.md) |  |  [optional]
+**udsource** | [**UDSource**](UDSource.md) |  |  [optional]
 
 
 

@@ -4,6 +4,9 @@ ARTIFACT_VERSION := $(shell if [[ "$(VERSION)" =~ ^v[0-9]+\.[0-9]+\.[0-9]+.*  ]]
 
 GENERATOR_VERSION := v5.2.1
 
+# https://github.com/kubernetes-client/java
+K8SCLIENT_VERSION := 21.0.1
+
 DOCKER = docker run --rm -v `pwd -P`:/base --workdir /base
 MVN = $(DOCKER) -v $(HOME)/.m2:/root/.m2 maven:3-openjdk-18 mvn -s settings.xml
 
@@ -66,6 +69,7 @@ generate:
 		--import-mappings V1VolumeMount=io.kubernetes.client.openapi.models.V1VolumeMount \
 		--import-mappings V1Condition=io.kubernetes.client.openapi.models.V1Condition \
 		--import-mappings V1EmptyDirVolumeSource=io.kubernetes.client.openapi.models.V1EmptyDirVolumeSource \
+		--import-mappings V1ContainerResizePolicy=io.kubernetes.client.openapi.models.V1ContainerResizePolicy \
 		--import-mappings ResourceQuantity=io.kubernetes.client.custom.Quantity \
 		--type-mappings ResourceQuantity=io.kubernetes.client.custom.Quantity \
 		--generate-alias-as-model
@@ -77,7 +81,7 @@ generate:
 	sed 's/public class InterStepBufferService/public class InterStepBufferService implements io.kubernetes.client.common.KubernetesObject/g' src/main/java/io/numaproj/numaflow/models/InterStepBufferService.java > tmp && mv tmp src/main/java/io/numaproj/numaflow/models/InterStepBufferService.java
 	sed 's/public class InterStepBufferServiceList/public class InterStepBufferServiceList implements io.kubernetes.client.common.KubernetesListObject/g' src/main/java/io/numaproj/numaflow/models/InterStepBufferServiceList.java > tmp && mv tmp src/main/java/io/numaproj/numaflow/models/InterStepBufferServiceList.java
 
-	sed 's/<dependencies>/<dependencies><dependency><groupId>io.kubernetes<\/groupId><artifactId>client-java<\/artifactId><version>16.0.2<\/version><\/dependency>/g' pom.xml > tmp && mv tmp pom.xml
+	sed 's/<dependencies>/<dependencies><dependency><groupId>io.kubernetes<\/groupId><artifactId>client-java<\/artifactId><version>${K8SCLIENT_VERSION}<\/version><\/dependency>/g' pom.xml > tmp && mv tmp pom.xml
 
 	$(DOCKER) maven:3-openjdk-18 \
 		mvn install -DskipTests -Dmaven.javadoc.skip

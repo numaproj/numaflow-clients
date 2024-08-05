@@ -1,14 +1,13 @@
 
 
-# Buffer
+# UDSource
 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  | 
-**type** | **String** |  | 
+**container** | [**Container**](Container.md) |  | 
 
 
 
