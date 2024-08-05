@@ -18,24 +18,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for RedisSettings
  */
-public class RedisSettingsTest {
+class RedisSettingsTest {
     private final RedisSettings model = new RedisSettings();
 
     /**
      * Model tests for RedisSettings
      */
     @Test
-    public void testRedisSettings() {
+    void testRedisSettings() {
         // TODO: test RedisSettings
     }
 
@@ -43,7 +41,7 @@ public class RedisSettingsTest {
      * Test the property 'master'
      */
     @Test
-    public void masterTest() {
+    void masterTest() {
         // TODO: test master
     }
 
@@ -51,7 +49,7 @@ public class RedisSettingsTest {
      * Test the property 'redis'
      */
     @Test
-    public void redisTest() {
+    void redisTest() {
         // TODO: test redis
     }
 
@@ -59,7 +57,7 @@ public class RedisSettingsTest {
      * Test the property 'replica'
      */
     @Test
-    public void replicaTest() {
+    void replicaTest() {
         // TODO: test replica
     }
 
@@ -67,7 +65,7 @@ public class RedisSettingsTest {
      * Test the property 'sentinel'
      */
     @Test
-    public void sentinelTest() {
+    void sentinelTest() {
         // TODO: test sentinel
     }
 

@@ -23,26 +23,24 @@ import io.kubernetes.client.openapi.models.V1EnvVar;
 import io.kubernetes.client.openapi.models.V1ResourceRequirements;
 import io.kubernetes.client.openapi.models.V1SecurityContext;
 import io.kubernetes.client.openapi.models.V1VolumeMount;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for Container
  */
-public class ContainerTest {
+class ContainerTest {
     private final Container model = new Container();
 
     /**
      * Model tests for Container
      */
     @Test
-    public void testContainer() {
+    void testContainer() {
         // TODO: test Container
     }
 
@@ -50,7 +48,7 @@ public class ContainerTest {
      * Test the property 'args'
      */
     @Test
-    public void argsTest() {
+    void argsTest() {
         // TODO: test args
     }
 
@@ -58,7 +56,7 @@ public class ContainerTest {
      * Test the property 'command'
      */
     @Test
-    public void commandTest() {
+    void commandTest() {
         // TODO: test command
     }
 
@@ -66,7 +64,7 @@ public class ContainerTest {
      * Test the property 'env'
      */
     @Test
-    public void envTest() {
+    void envTest() {
         // TODO: test env
     }
 
@@ -74,7 +72,7 @@ public class ContainerTest {
      * Test the property 'envFrom'
      */
     @Test
-    public void envFromTest() {
+    void envFromTest() {
         // TODO: test envFrom
     }
 
@@ -82,7 +80,7 @@ public class ContainerTest {
      * Test the property 'image'
      */
     @Test
-    public void imageTest() {
+    void imageTest() {
         // TODO: test image
     }
 
@@ -90,7 +88,7 @@ public class ContainerTest {
      * Test the property 'imagePullPolicy'
      */
     @Test
-    public void imagePullPolicyTest() {
+    void imagePullPolicyTest() {
         // TODO: test imagePullPolicy
     }
 
@@ -98,7 +96,7 @@ public class ContainerTest {
      * Test the property 'resources'
      */
     @Test
-    public void resourcesTest() {
+    void resourcesTest() {
         // TODO: test resources
     }
 
@@ -106,7 +104,7 @@ public class ContainerTest {
      * Test the property 'securityContext'
      */
     @Test
-    public void securityContextTest() {
+    void securityContextTest() {
         // TODO: test securityContext
     }
 
@@ -114,7 +112,7 @@ public class ContainerTest {
      * Test the property 'volumeMounts'
      */
     @Test
-    public void volumeMountsTest() {
+    void volumeMountsTest() {
         // TODO: test volumeMounts
     }
 

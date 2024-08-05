@@ -21,26 +21,24 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1EnvVar;
 import io.kubernetes.client.openapi.models.V1ResourceRequirements;
 import io.kubernetes.client.openapi.models.V1VolumeMount;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for GetContainerReq
  */
-public class GetContainerReqTest {
+class GetContainerReqTest {
     private final GetContainerReq model = new GetContainerReq();
 
     /**
      * Model tests for GetContainerReq
      */
     @Test
-    public void testGetContainerReq() {
+    void testGetContainerReq() {
         // TODO: test GetContainerReq
     }
 
@@ -48,7 +46,7 @@ public class GetContainerReqTest {
      * Test the property 'env'
      */
     @Test
-    public void envTest() {
+    void envTest() {
         // TODO: test env
     }
 
@@ -56,7 +54,7 @@ public class GetContainerReqTest {
      * Test the property 'image'
      */
     @Test
-    public void imageTest() {
+    void imageTest() {
         // TODO: test image
     }
 
@@ -64,7 +62,7 @@ public class GetContainerReqTest {
      * Test the property 'imagePullPolicy'
      */
     @Test
-    public void imagePullPolicyTest() {
+    void imagePullPolicyTest() {
         // TODO: test imagePullPolicy
     }
 
@@ -72,7 +70,7 @@ public class GetContainerReqTest {
      * Test the property 'isbSvcType'
      */
     @Test
-    public void isbSvcTypeTest() {
+    void isbSvcTypeTest() {
         // TODO: test isbSvcType
     }
 
@@ -80,7 +78,7 @@ public class GetContainerReqTest {
      * Test the property 'resources'
      */
     @Test
-    public void resourcesTest() {
+    void resourcesTest() {
         // TODO: test resources
     }
 
@@ -88,7 +86,7 @@ public class GetContainerReqTest {
      * Test the property 'volumeMounts'
      */
     @Test
-    public void volumeMountsTest() {
+    void volumeMountsTest() {
         // TODO: test volumeMounts
     }
 

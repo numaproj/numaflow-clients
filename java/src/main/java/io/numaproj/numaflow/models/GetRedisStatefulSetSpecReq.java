@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -23,14 +25,13 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1ResourceRequirements;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * GetRedisStatefulSetSpecReq
  */
@@ -52,7 +53,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GetRedisStatefulSetSpecReq.JSON_PROPERTY_SERVICE_NAME,
   GetRedisStatefulSetSpecReq.JSON_PROPERTY_TL_S_ENABLED
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class GetRedisStatefulSetSpecReq {
   public static final String JSON_PROPERTY_CONF_CONFIG_MAP_NAME = "ConfConfigMapName";
   private String confConfigMapName;
@@ -102,21 +103,21 @@ public class GetRedisStatefulSetSpecReq {
   public static final String JSON_PROPERTY_TL_S_ENABLED = "TLSEnabled";
   private Boolean tlSEnabled;
 
+  public GetRedisStatefulSetSpecReq() { 
+  }
 
   public GetRedisStatefulSetSpecReq confConfigMapName(String confConfigMapName) {
     this.confConfigMapName = confConfigMapName;
     return this;
   }
 
-   /**
+  /**
    * Get confConfigMapName
    * @return confConfigMapName
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CONF_CONFIG_MAP_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getConfConfigMapName() {
     return confConfigMapName;
   }
@@ -134,15 +135,13 @@ public class GetRedisStatefulSetSpecReq {
     return this;
   }
 
-   /**
+  /**
    * Get credentialSecretName
    * @return credentialSecretName
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CREDENTIAL_SECRET_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getCredentialSecretName() {
     return credentialSecretName;
   }
@@ -160,15 +159,13 @@ public class GetRedisStatefulSetSpecReq {
     return this;
   }
 
-   /**
+  /**
    * Get defaultResources
    * @return defaultResources
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DEFAULT_RESOURCES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public V1ResourceRequirements getDefaultResources() {
     return defaultResources;
   }
@@ -186,15 +183,13 @@ public class GetRedisStatefulSetSpecReq {
     return this;
   }
 
-   /**
+  /**
    * Get healthConfigMapName
    * @return healthConfigMapName
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_HEALTH_CONFIG_MAP_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getHealthConfigMapName() {
     return healthConfigMapName;
   }
@@ -212,15 +207,13 @@ public class GetRedisStatefulSetSpecReq {
     return this;
   }
 
-   /**
+  /**
    * Get initContainerImage
    * @return initContainerImage
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_INIT_CONTAINER_IMAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getInitContainerImage() {
     return initContainerImage;
   }
@@ -239,19 +232,20 @@ public class GetRedisStatefulSetSpecReq {
   }
 
   public GetRedisStatefulSetSpecReq putLabelsItem(String key, String labelsItem) {
+    if (this.labels == null) {
+      this.labels = new HashMap<>();
+    }
     this.labels.put(key, labelsItem);
     return this;
   }
 
-   /**
+  /**
    * Get labels
    * @return labels
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_LABELS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Map<String, String> getLabels() {
     return labels;
   }
@@ -269,15 +263,13 @@ public class GetRedisStatefulSetSpecReq {
     return this;
   }
 
-   /**
+  /**
    * Get metricsExporterImage
    * @return metricsExporterImage
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_METRICS_EXPORTER_IMAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getMetricsExporterImage() {
     return metricsExporterImage;
   }
@@ -295,15 +287,13 @@ public class GetRedisStatefulSetSpecReq {
     return this;
   }
 
-   /**
+  /**
    * Get pvcNameIfNeeded
    * @return pvcNameIfNeeded
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PVC_NAME_IF_NEEDED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getPvcNameIfNeeded() {
     return pvcNameIfNeeded;
   }
@@ -321,15 +311,13 @@ public class GetRedisStatefulSetSpecReq {
     return this;
   }
 
-   /**
+  /**
    * Get redisContainerPort
    * @return redisContainerPort
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REDIS_CONTAINER_PORT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getRedisContainerPort() {
     return redisContainerPort;
   }
@@ -347,15 +335,13 @@ public class GetRedisStatefulSetSpecReq {
     return this;
   }
 
-   /**
+  /**
    * Get redisImage
    * @return redisImage
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REDIS_IMAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getRedisImage() {
     return redisImage;
   }
@@ -373,15 +359,13 @@ public class GetRedisStatefulSetSpecReq {
     return this;
   }
 
-   /**
+  /**
    * Get redisMetricsContainerPort
    * @return redisMetricsContainerPort
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REDIS_METRICS_CONTAINER_PORT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getRedisMetricsContainerPort() {
     return redisMetricsContainerPort;
   }
@@ -399,15 +383,13 @@ public class GetRedisStatefulSetSpecReq {
     return this;
   }
 
-   /**
+  /**
    * Get scriptsConfigMapName
    * @return scriptsConfigMapName
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SCRIPTS_CONFIG_MAP_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getScriptsConfigMapName() {
     return scriptsConfigMapName;
   }
@@ -425,15 +407,13 @@ public class GetRedisStatefulSetSpecReq {
     return this;
   }
 
-   /**
+  /**
    * Get sentinelContainerPort
    * @return sentinelContainerPort
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SENTINEL_CONTAINER_PORT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getSentinelContainerPort() {
     return sentinelContainerPort;
   }
@@ -451,15 +431,13 @@ public class GetRedisStatefulSetSpecReq {
     return this;
   }
 
-   /**
+  /**
    * Get sentinelImage
    * @return sentinelImage
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SENTINEL_IMAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getSentinelImage() {
     return sentinelImage;
   }
@@ -477,15 +455,13 @@ public class GetRedisStatefulSetSpecReq {
     return this;
   }
 
-   /**
+  /**
    * Get serviceName
    * @return serviceName
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SERVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getServiceName() {
     return serviceName;
   }
@@ -503,15 +479,13 @@ public class GetRedisStatefulSetSpecReq {
     return this;
   }
 
-   /**
+  /**
    * Get tlSEnabled
    * @return tlSEnabled
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TL_S_ENABLED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Boolean getTlSEnabled() {
     return tlSEnabled;
   }
@@ -594,5 +568,123 @@ public class GetRedisStatefulSetSpecReq {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `ConfConfigMapName` to the URL query string
+    if (getConfConfigMapName() != null) {
+      joiner.add(String.format("%sConfConfigMapName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getConfConfigMapName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `CredentialSecretName` to the URL query string
+    if (getCredentialSecretName() != null) {
+      joiner.add(String.format("%sCredentialSecretName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCredentialSecretName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `DefaultResources` to the URL query string
+    if (getDefaultResources() != null) {
+      joiner.add(String.format("%sDefaultResources%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDefaultResources()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `HealthConfigMapName` to the URL query string
+    if (getHealthConfigMapName() != null) {
+      joiner.add(String.format("%sHealthConfigMapName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getHealthConfigMapName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `InitContainerImage` to the URL query string
+    if (getInitContainerImage() != null) {
+      joiner.add(String.format("%sInitContainerImage%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getInitContainerImage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `Labels` to the URL query string
+    if (getLabels() != null) {
+      for (String _key : getLabels().keySet()) {
+        joiner.add(String.format("%sLabels%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+            getLabels().get(_key), URLEncoder.encode(ApiClient.valueToString(getLabels().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    // add `MetricsExporterImage` to the URL query string
+    if (getMetricsExporterImage() != null) {
+      joiner.add(String.format("%sMetricsExporterImage%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMetricsExporterImage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `PvcNameIfNeeded` to the URL query string
+    if (getPvcNameIfNeeded() != null) {
+      joiner.add(String.format("%sPvcNameIfNeeded%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPvcNameIfNeeded()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `RedisContainerPort` to the URL query string
+    if (getRedisContainerPort() != null) {
+      joiner.add(String.format("%sRedisContainerPort%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRedisContainerPort()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `RedisImage` to the URL query string
+    if (getRedisImage() != null) {
+      joiner.add(String.format("%sRedisImage%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRedisImage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `RedisMetricsContainerPort` to the URL query string
+    if (getRedisMetricsContainerPort() != null) {
+      joiner.add(String.format("%sRedisMetricsContainerPort%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRedisMetricsContainerPort()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `ScriptsConfigMapName` to the URL query string
+    if (getScriptsConfigMapName() != null) {
+      joiner.add(String.format("%sScriptsConfigMapName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getScriptsConfigMapName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `SentinelContainerPort` to the URL query string
+    if (getSentinelContainerPort() != null) {
+      joiner.add(String.format("%sSentinelContainerPort%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSentinelContainerPort()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `SentinelImage` to the URL query string
+    if (getSentinelImage() != null) {
+      joiner.add(String.format("%sSentinelImage%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSentinelImage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `ServiceName` to the URL query string
+    if (getServiceName() != null) {
+      joiner.add(String.format("%sServiceName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getServiceName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `TLSEnabled` to the URL query string
+    if (getTlSEnabled() != null) {
+      joiner.add(String.format("%sTLSEnabled%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTlSEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

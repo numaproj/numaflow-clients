@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,20 +24,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * FixedWindow describes a fixed window
  */
-@ApiModel(description = "FixedWindow describes a fixed window")
 @JsonPropertyOrder({
   FixedWindow.JSON_PROPERTY_LENGTH,
   FixedWindow.JSON_PROPERTY_STREAMING
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class FixedWindow {
   public static final String JSON_PROPERTY_LENGTH = "length";
   private String length = null;
@@ -43,21 +44,21 @@ public class FixedWindow {
   public static final String JSON_PROPERTY_STREAMING = "streaming";
   private Boolean streaming;
 
+  public FixedWindow() { 
+  }
 
   public FixedWindow length(String length) {
     this.length = length;
     return this;
   }
 
-   /**
+  /**
    * Get length
    * @return length
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LENGTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLength() {
     return length;
   }
@@ -75,15 +76,13 @@ public class FixedWindow {
     return this;
   }
 
-   /**
+  /**
    * Streaming should be set to true if the reduce udf is streaming.
    * @return streaming
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Streaming should be set to true if the reduce udf is streaming.")
   @JsonProperty(JSON_PROPERTY_STREAMING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getStreaming() {
     return streaming;
   }
@@ -138,5 +137,49 @@ public class FixedWindow {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `length` to the URL query string
+    if (getLength() != null) {
+      joiner.add(String.format("%slength%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLength()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `streaming` to the URL query string
+    if (getStreaming() != null) {
+      joiner.add(String.format("%sstreaming%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStreaming()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

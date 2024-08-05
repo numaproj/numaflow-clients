@@ -20,26 +20,24 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.SASL;
 import io.numaproj.numaflow.models.TLS;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for KafkaSink
  */
-public class KafkaSinkTest {
+class KafkaSinkTest {
     private final KafkaSink model = new KafkaSink();
 
     /**
      * Model tests for KafkaSink
      */
     @Test
-    public void testKafkaSink() {
+    void testKafkaSink() {
         // TODO: test KafkaSink
     }
 
@@ -47,7 +45,7 @@ public class KafkaSinkTest {
      * Test the property 'brokers'
      */
     @Test
-    public void brokersTest() {
+    void brokersTest() {
         // TODO: test brokers
     }
 
@@ -55,7 +53,7 @@ public class KafkaSinkTest {
      * Test the property 'config'
      */
     @Test
-    public void configTest() {
+    void configTest() {
         // TODO: test config
     }
 
@@ -63,7 +61,7 @@ public class KafkaSinkTest {
      * Test the property 'sasl'
      */
     @Test
-    public void saslTest() {
+    void saslTest() {
         // TODO: test sasl
     }
 
@@ -71,7 +69,7 @@ public class KafkaSinkTest {
      * Test the property 'tls'
      */
     @Test
-    public void tlsTest() {
+    void tlsTest() {
         // TODO: test tls
     }
 
@@ -79,7 +77,7 @@ public class KafkaSinkTest {
      * Test the property 'topic'
      */
     @Test
-    public void topicTest() {
+    void topicTest() {
         // TODO: test topic
     }
 

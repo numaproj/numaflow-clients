@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,11 +24,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * Lifecycle
  */
@@ -35,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Lifecycle.JSON_PROPERTY_DESIRED_PHASE,
   Lifecycle.JSON_PROPERTY_PAUSE_GRACE_PERIOD_SECONDS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Lifecycle {
   public static final String JSON_PROPERTY_DELETE_GRACE_PERIOD_SECONDS = "deleteGracePeriodSeconds";
   private Integer deleteGracePeriodSeconds;
@@ -46,21 +48,21 @@ public class Lifecycle {
   public static final String JSON_PROPERTY_PAUSE_GRACE_PERIOD_SECONDS = "pauseGracePeriodSeconds";
   private Integer pauseGracePeriodSeconds;
 
+  public Lifecycle() { 
+  }
 
   public Lifecycle deleteGracePeriodSeconds(Integer deleteGracePeriodSeconds) {
     this.deleteGracePeriodSeconds = deleteGracePeriodSeconds;
     return this;
   }
 
-   /**
+  /**
    * DeleteGracePeriodSeconds used to delete pipeline gracefully
    * @return deleteGracePeriodSeconds
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "DeleteGracePeriodSeconds used to delete pipeline gracefully")
   @JsonProperty(JSON_PROPERTY_DELETE_GRACE_PERIOD_SECONDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getDeleteGracePeriodSeconds() {
     return deleteGracePeriodSeconds;
   }
@@ -78,15 +80,13 @@ public class Lifecycle {
     return this;
   }
 
-   /**
+  /**
    * DesiredPhase used to bring the pipeline from current phase to desired phase
    * @return desiredPhase
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "DesiredPhase used to bring the pipeline from current phase to desired phase")
   @JsonProperty(JSON_PROPERTY_DESIRED_PHASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDesiredPhase() {
     return desiredPhase;
   }
@@ -104,15 +104,13 @@ public class Lifecycle {
     return this;
   }
 
-   /**
+  /**
    * PauseGracePeriodSeconds used to pause pipeline gracefully
    * @return pauseGracePeriodSeconds
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "PauseGracePeriodSeconds used to pause pipeline gracefully")
   @JsonProperty(JSON_PROPERTY_PAUSE_GRACE_PERIOD_SECONDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getPauseGracePeriodSeconds() {
     return pauseGracePeriodSeconds;
   }
@@ -169,5 +167,54 @@ public class Lifecycle {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `deleteGracePeriodSeconds` to the URL query string
+    if (getDeleteGracePeriodSeconds() != null) {
+      joiner.add(String.format("%sdeleteGracePeriodSeconds%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDeleteGracePeriodSeconds()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `desiredPhase` to the URL query string
+    if (getDesiredPhase() != null) {
+      joiner.add(String.format("%sdesiredPhase%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDesiredPhase()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `pauseGracePeriodSeconds` to the URL query string
+    if (getPauseGracePeriodSeconds() != null) {
+      joiner.add(String.format("%spauseGracePeriodSeconds%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPauseGracePeriodSeconds()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

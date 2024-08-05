@@ -18,27 +18,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for GetJetStreamServiceSpecReq
  */
-public class GetJetStreamServiceSpecReqTest {
+class GetJetStreamServiceSpecReqTest {
     private final GetJetStreamServiceSpecReq model = new GetJetStreamServiceSpecReq();
 
     /**
      * Model tests for GetJetStreamServiceSpecReq
      */
     @Test
-    public void testGetJetStreamServiceSpecReq() {
+    void testGetJetStreamServiceSpecReq() {
         // TODO: test GetJetStreamServiceSpecReq
     }
 
@@ -46,7 +43,7 @@ public class GetJetStreamServiceSpecReqTest {
      * Test the property 'clientPort'
      */
     @Test
-    public void clientPortTest() {
+    void clientPortTest() {
         // TODO: test clientPort
     }
 
@@ -54,7 +51,7 @@ public class GetJetStreamServiceSpecReqTest {
      * Test the property 'clusterPort'
      */
     @Test
-    public void clusterPortTest() {
+    void clusterPortTest() {
         // TODO: test clusterPort
     }
 
@@ -62,7 +59,7 @@ public class GetJetStreamServiceSpecReqTest {
      * Test the property 'labels'
      */
     @Test
-    public void labelsTest() {
+    void labelsTest() {
         // TODO: test labels
     }
 
@@ -70,7 +67,7 @@ public class GetJetStreamServiceSpecReqTest {
      * Test the property 'metricsPort'
      */
     @Test
-    public void metricsPortTest() {
+    void metricsPortTest() {
         // TODO: test metricsPort
     }
 
@@ -78,7 +75,7 @@ public class GetJetStreamServiceSpecReqTest {
      * Test the property 'monitorPort'
      */
     @Test
-    public void monitorPortTest() {
+    void monitorPortTest() {
         // TODO: test monitorPort
     }
 

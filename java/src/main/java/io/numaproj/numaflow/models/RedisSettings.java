@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,11 +24,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * RedisSettings
  */
@@ -36,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RedisSettings.JSON_PROPERTY_REPLICA,
   RedisSettings.JSON_PROPERTY_SENTINEL
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class RedisSettings {
   public static final String JSON_PROPERTY_MASTER = "master";
   private String master;
@@ -50,21 +52,21 @@ public class RedisSettings {
   public static final String JSON_PROPERTY_SENTINEL = "sentinel";
   private String sentinel;
 
+  public RedisSettings() { 
+  }
 
   public RedisSettings master(String master) {
     this.master = master;
     return this;
   }
 
-   /**
+  /**
    * Special settings for Redis master node, will override the global settings from controller config
    * @return master
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Special settings for Redis master node, will override the global settings from controller config")
   @JsonProperty(JSON_PROPERTY_MASTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMaster() {
     return master;
   }
@@ -82,15 +84,13 @@ public class RedisSettings {
     return this;
   }
 
-   /**
+  /**
    * Redis settings shared by both master and slaves, will override the global settings from controller config
    * @return redis
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Redis settings shared by both master and slaves, will override the global settings from controller config")
   @JsonProperty(JSON_PROPERTY_REDIS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRedis() {
     return redis;
   }
@@ -108,15 +108,13 @@ public class RedisSettings {
     return this;
   }
 
-   /**
+  /**
    * Special settings for Redis replica nodes, will override the global settings from controller config
    * @return replica
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Special settings for Redis replica nodes, will override the global settings from controller config")
   @JsonProperty(JSON_PROPERTY_REPLICA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReplica() {
     return replica;
   }
@@ -134,15 +132,13 @@ public class RedisSettings {
     return this;
   }
 
-   /**
+  /**
    * Sentinel settings, will override the global settings from controller config
    * @return sentinel
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Sentinel settings, will override the global settings from controller config")
   @JsonProperty(JSON_PROPERTY_SENTINEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSentinel() {
     return sentinel;
   }
@@ -201,5 +197,59 @@ public class RedisSettings {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `master` to the URL query string
+    if (getMaster() != null) {
+      joiner.add(String.format("%smaster%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMaster()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `redis` to the URL query string
+    if (getRedis() != null) {
+      joiner.add(String.format("%sredis%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRedis()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `replica` to the URL query string
+    if (getReplica() != null) {
+      joiner.add(String.format("%sreplica%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReplica()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `sentinel` to the URL query string
+    if (getSentinel() != null) {
+      joiner.add(String.format("%ssentinel%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSentinel()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

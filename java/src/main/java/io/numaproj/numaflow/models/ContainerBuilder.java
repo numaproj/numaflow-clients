@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -32,13 +34,13 @@ import io.kubernetes.client.openapi.models.V1ResourceRequirements;
 import io.kubernetes.client.openapi.models.V1SecurityContext;
 import io.kubernetes.client.openapi.models.V1VolumeDevice;
 import io.kubernetes.client.openapi.models.V1VolumeMount;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * ContainerBuilder
  */
@@ -68,19 +70,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ContainerBuilder.JSON_PROPERTY_VOLUME_MOUNTS,
   ContainerBuilder.JSON_PROPERTY_WORKING_DIR
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class ContainerBuilder {
   public static final String JSON_PROPERTY_ARGS = "args";
-  private List<String> args = null;
+  private List<String> args = new ArrayList<>();
 
   public static final String JSON_PROPERTY_COMMAND = "command";
-  private List<String> command = null;
+  private List<String> command = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ENV = "env";
-  private List<V1EnvVar> env = null;
+  private List<V1EnvVar> env = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ENV_FROM = "envFrom";
-  private List<V1EnvFromSource> envFrom = null;
+  private List<V1EnvFromSource> envFrom = new ArrayList<>();
 
   public static final String JSON_PROPERTY_IMAGE = "image";
   private String image;
@@ -98,13 +100,13 @@ public class ContainerBuilder {
   private String name;
 
   public static final String JSON_PROPERTY_PORTS = "ports";
-  private List<V1ContainerPort> ports = null;
+  private List<V1ContainerPort> ports = new ArrayList<>();
 
   public static final String JSON_PROPERTY_READINESS_PROBE = "readinessProbe";
   private V1Probe readinessProbe = null;
 
   public static final String JSON_PROPERTY_RESIZE_POLICY = "resizePolicy";
-  private List<V1ContainerResizePolicy> resizePolicy = null;
+  private List<V1ContainerResizePolicy> resizePolicy = new ArrayList<>();
 
   public static final String JSON_PROPERTY_RESOURCES = "resources";
   private V1ResourceRequirements resources = null;
@@ -134,14 +136,16 @@ public class ContainerBuilder {
   private Boolean tty;
 
   public static final String JSON_PROPERTY_VOLUME_DEVICES = "volumeDevices";
-  private List<V1VolumeDevice> volumeDevices = null;
+  private List<V1VolumeDevice> volumeDevices = new ArrayList<>();
 
   public static final String JSON_PROPERTY_VOLUME_MOUNTS = "volumeMounts";
-  private List<V1VolumeMount> volumeMounts = null;
+  private List<V1VolumeMount> volumeMounts = new ArrayList<>();
 
   public static final String JSON_PROPERTY_WORKING_DIR = "workingDir";
   private String workingDir;
 
+  public ContainerBuilder() { 
+  }
 
   public ContainerBuilder args(List<String> args) {
     this.args = args;
@@ -156,15 +160,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * Arguments to the entrypoint. The container image&#39;s CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container&#39;s environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \&quot;$$(VAR_NAME)\&quot; will produce the string literal \&quot;$(VAR_NAME)\&quot;. Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
    * @return args
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Arguments to the entrypoint. The container image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell")
   @JsonProperty(JSON_PROPERTY_ARGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getArgs() {
     return args;
   }
@@ -190,15 +192,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * Entrypoint array. Not executed within a shell. The container image&#39;s ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container&#39;s environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \&quot;$$(VAR_NAME)\&quot; will produce the string literal \&quot;$(VAR_NAME)\&quot;. Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
    * @return command
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Entrypoint array. Not executed within a shell. The container image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell")
   @JsonProperty(JSON_PROPERTY_COMMAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getCommand() {
     return command;
   }
@@ -224,15 +224,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * List of environment variables to set in the container. Cannot be updated.
    * @return env
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of environment variables to set in the container. Cannot be updated.")
   @JsonProperty(JSON_PROPERTY_ENV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1EnvVar> getEnv() {
     return env;
   }
@@ -258,15 +256,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.
    * @return envFrom
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.")
   @JsonProperty(JSON_PROPERTY_ENV_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1EnvFromSource> getEnvFrom() {
     return envFrom;
   }
@@ -284,15 +280,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * Container image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.
    * @return image
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Container image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.")
   @JsonProperty(JSON_PROPERTY_IMAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getImage() {
     return image;
   }
@@ -310,15 +304,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
    * @return imagePullPolicy
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images")
   @JsonProperty(JSON_PROPERTY_IMAGE_PULL_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getImagePullPolicy() {
     return imagePullPolicy;
   }
@@ -336,15 +328,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * Get lifecycle
    * @return lifecycle
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIFECYCLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1Lifecycle getLifecycle() {
     return lifecycle;
   }
@@ -362,15 +352,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * Get livenessProbe
    * @return livenessProbe
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIVENESS_PROBE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1Probe getLivenessProbe() {
     return livenessProbe;
   }
@@ -388,15 +376,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getName() {
     return name;
   }
@@ -422,15 +408,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * List of ports to expose from the container. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default \&quot;0.0.0.0\&quot; address inside a container will be accessible from the network. Modifying this array with strategic merge patch may corrupt the data. For more information See https://github.com/kubernetes/kubernetes/issues/108255. Cannot be updated.
    * @return ports
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of ports to expose from the container. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default \"0.0.0.0\" address inside a container will be accessible from the network. Modifying this array with strategic merge patch may corrupt the data. For more information See https://github.com/kubernetes/kubernetes/issues/108255. Cannot be updated.")
   @JsonProperty(JSON_PROPERTY_PORTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1ContainerPort> getPorts() {
     return ports;
   }
@@ -448,15 +432,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * Get readinessProbe
    * @return readinessProbe
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_READINESS_PROBE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1Probe getReadinessProbe() {
     return readinessProbe;
   }
@@ -482,15 +464,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * Resources resize policy for the container.
    * @return resizePolicy
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Resources resize policy for the container.")
   @JsonProperty(JSON_PROPERTY_RESIZE_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1ContainerResizePolicy> getResizePolicy() {
     return resizePolicy;
   }
@@ -508,15 +488,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * Get resources
    * @return resources
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1ResourceRequirements getResources() {
     return resources;
   }
@@ -534,15 +512,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * RestartPolicy defines the restart behavior of individual containers in a pod. This field may only be set for init containers, and the only allowed value is \&quot;Always\&quot;. For non-init containers or when this field is not specified, the restart behavior is defined by the Pod&#39;s restart policy and the container type. Setting the RestartPolicy as \&quot;Always\&quot; for the init container will have the following effect: this init container will be continually restarted on exit until all regular containers have terminated. Once all regular containers have completed, all init containers with restartPolicy \&quot;Always\&quot; will be shut down. This lifecycle differs from normal init containers and is often referred to as a \&quot;sidecar\&quot; container. Although this init container still starts in the init container sequence, it does not wait for the container to complete before proceeding to the next init container. Instead, the next init container starts immediately after this init container is started, or after any startupProbe has successfully completed.
    * @return restartPolicy
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "RestartPolicy defines the restart behavior of individual containers in a pod. This field may only be set for init containers, and the only allowed value is \"Always\". For non-init containers or when this field is not specified, the restart behavior is defined by the Pod's restart policy and the container type. Setting the RestartPolicy as \"Always\" for the init container will have the following effect: this init container will be continually restarted on exit until all regular containers have terminated. Once all regular containers have completed, all init containers with restartPolicy \"Always\" will be shut down. This lifecycle differs from normal init containers and is often referred to as a \"sidecar\" container. Although this init container still starts in the init container sequence, it does not wait for the container to complete before proceeding to the next init container. Instead, the next init container starts immediately after this init container is started, or after any startupProbe has successfully completed.")
   @JsonProperty(JSON_PROPERTY_RESTART_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRestartPolicy() {
     return restartPolicy;
   }
@@ -560,15 +536,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * Get securityContext
    * @return securityContext
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY_CONTEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1SecurityContext getSecurityContext() {
     return securityContext;
   }
@@ -586,15 +560,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * Get startupProbe
    * @return startupProbe
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STARTUP_PROBE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1Probe getStartupProbe() {
     return startupProbe;
   }
@@ -612,15 +584,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF. Default is false.
    * @return stdin
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF. Default is false.")
   @JsonProperty(JSON_PROPERTY_STDIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getStdin() {
     return stdin;
   }
@@ -638,15 +608,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF. Default is false
    * @return stdinOnce
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF. Default is false")
   @JsonProperty(JSON_PROPERTY_STDIN_ONCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getStdinOnce() {
     return stdinOnce;
   }
@@ -664,15 +632,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * Optional: Path at which the file to which the container&#39;s termination message will be written is mounted into the container&#39;s filesystem. Message written is intended to be brief final status, such as an assertion failure message. Will be truncated by the node if greater than 4096 bytes. The total message length across all containers will be limited to 12kb. Defaults to /dev/termination-log. Cannot be updated.
    * @return terminationMessagePath
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Will be truncated by the node if greater than 4096 bytes. The total message length across all containers will be limited to 12kb. Defaults to /dev/termination-log. Cannot be updated.")
   @JsonProperty(JSON_PROPERTY_TERMINATION_MESSAGE_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTerminationMessagePath() {
     return terminationMessagePath;
   }
@@ -690,15 +656,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
    * @return terminationMessagePolicy
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.")
   @JsonProperty(JSON_PROPERTY_TERMINATION_MESSAGE_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTerminationMessagePolicy() {
     return terminationMessagePolicy;
   }
@@ -716,15 +680,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * Whether this container should allocate a TTY for itself, also requires &#39;stdin&#39; to be true. Default is false.
    * @return tty
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether this container should allocate a TTY for itself, also requires 'stdin' to be true. Default is false.")
   @JsonProperty(JSON_PROPERTY_TTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getTty() {
     return tty;
   }
@@ -750,15 +712,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * volumeDevices is the list of block devices to be used by the container.
    * @return volumeDevices
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "volumeDevices is the list of block devices to be used by the container.")
   @JsonProperty(JSON_PROPERTY_VOLUME_DEVICES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1VolumeDevice> getVolumeDevices() {
     return volumeDevices;
   }
@@ -784,15 +744,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * Pod volumes to mount into the container&#39;s filesystem. Cannot be updated.
    * @return volumeMounts
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Pod volumes to mount into the container's filesystem. Cannot be updated.")
   @JsonProperty(JSON_PROPERTY_VOLUME_MOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1VolumeMount> getVolumeMounts() {
     return volumeMounts;
   }
@@ -810,15 +768,13 @@ public class ContainerBuilder {
     return this;
   }
 
-   /**
+  /**
    * Container&#39;s working directory. If not specified, the container runtime&#39;s default will be used, which might be configured in the container image. Cannot be updated.
    * @return workingDir
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.")
   @JsonProperty(JSON_PROPERTY_WORKING_DIR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getWorkingDir() {
     return workingDir;
   }
@@ -917,5 +873,203 @@ public class ContainerBuilder {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `args` to the URL query string
+    if (getArgs() != null) {
+      for (int i = 0; i < getArgs().size(); i++) {
+        joiner.add(String.format("%sargs%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(ApiClient.valueToString(getArgs().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    // add `command` to the URL query string
+    if (getCommand() != null) {
+      for (int i = 0; i < getCommand().size(); i++) {
+        joiner.add(String.format("%scommand%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(ApiClient.valueToString(getCommand().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    // add `env` to the URL query string
+    if (getEnv() != null) {
+      for (int i = 0; i < getEnv().size(); i++) {
+        if (getEnv().get(i) != null) {
+          joiner.add(String.format("%senv%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getEnv().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `envFrom` to the URL query string
+    if (getEnvFrom() != null) {
+      for (int i = 0; i < getEnvFrom().size(); i++) {
+        if (getEnvFrom().get(i) != null) {
+          joiner.add(String.format("%senvFrom%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getEnvFrom().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `image` to the URL query string
+    if (getImage() != null) {
+      joiner.add(String.format("%simage%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getImage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `imagePullPolicy` to the URL query string
+    if (getImagePullPolicy() != null) {
+      joiner.add(String.format("%simagePullPolicy%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getImagePullPolicy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `lifecycle` to the URL query string
+    if (getLifecycle() != null) {
+      joiner.add(String.format("%slifecycle%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLifecycle()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `livenessProbe` to the URL query string
+    if (getLivenessProbe() != null) {
+      joiner.add(String.format("%slivenessProbe%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLivenessProbe()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `ports` to the URL query string
+    if (getPorts() != null) {
+      for (int i = 0; i < getPorts().size(); i++) {
+        if (getPorts().get(i) != null) {
+          joiner.add(String.format("%sports%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getPorts().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `readinessProbe` to the URL query string
+    if (getReadinessProbe() != null) {
+      joiner.add(String.format("%sreadinessProbe%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReadinessProbe()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `resizePolicy` to the URL query string
+    if (getResizePolicy() != null) {
+      for (int i = 0; i < getResizePolicy().size(); i++) {
+        if (getResizePolicy().get(i) != null) {
+          joiner.add(String.format("%sresizePolicy%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getResizePolicy().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `resources` to the URL query string
+    if (getResources() != null) {
+      joiner.add(String.format("%sresources%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getResources()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `restartPolicy` to the URL query string
+    if (getRestartPolicy() != null) {
+      joiner.add(String.format("%srestartPolicy%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRestartPolicy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `securityContext` to the URL query string
+    if (getSecurityContext() != null) {
+      joiner.add(String.format("%ssecurityContext%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSecurityContext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `startupProbe` to the URL query string
+    if (getStartupProbe() != null) {
+      joiner.add(String.format("%sstartupProbe%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStartupProbe()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `stdin` to the URL query string
+    if (getStdin() != null) {
+      joiner.add(String.format("%sstdin%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStdin()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `stdinOnce` to the URL query string
+    if (getStdinOnce() != null) {
+      joiner.add(String.format("%sstdinOnce%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStdinOnce()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `terminationMessagePath` to the URL query string
+    if (getTerminationMessagePath() != null) {
+      joiner.add(String.format("%sterminationMessagePath%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTerminationMessagePath()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `terminationMessagePolicy` to the URL query string
+    if (getTerminationMessagePolicy() != null) {
+      joiner.add(String.format("%sterminationMessagePolicy%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTerminationMessagePolicy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `tty` to the URL query string
+    if (getTty() != null) {
+      joiner.add(String.format("%stty%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTty()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `volumeDevices` to the URL query string
+    if (getVolumeDevices() != null) {
+      for (int i = 0; i < getVolumeDevices().size(); i++) {
+        if (getVolumeDevices().get(i) != null) {
+          joiner.add(String.format("%svolumeDevices%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getVolumeDevices().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `volumeMounts` to the URL query string
+    if (getVolumeMounts() != null) {
+      for (int i = 0; i < getVolumeMounts().size(); i++) {
+        if (getVolumeMounts().get(i) != null) {
+          joiner.add(String.format("%svolumeMounts%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getVolumeMounts().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `workingDir` to the URL query string
+    if (getWorkingDir() != null) {
+      joiner.add(String.format("%sworkingDir%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getWorkingDir()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

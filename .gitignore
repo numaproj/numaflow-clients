@@ -11,3 +11,4 @@
 /java/target/
 /java/git_push.sh
 /java/.travis.yml
+/java/.github/

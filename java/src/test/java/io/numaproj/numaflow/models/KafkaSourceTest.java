@@ -20,26 +20,24 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.SASL;
 import io.numaproj.numaflow.models.TLS;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for KafkaSource
  */
-public class KafkaSourceTest {
+class KafkaSourceTest {
     private final KafkaSource model = new KafkaSource();
 
     /**
      * Model tests for KafkaSource
      */
     @Test
-    public void testKafkaSource() {
+    void testKafkaSource() {
         // TODO: test KafkaSource
     }
 
@@ -47,7 +45,7 @@ public class KafkaSourceTest {
      * Test the property 'brokers'
      */
     @Test
-    public void brokersTest() {
+    void brokersTest() {
         // TODO: test brokers
     }
 
@@ -55,7 +53,7 @@ public class KafkaSourceTest {
      * Test the property 'config'
      */
     @Test
-    public void configTest() {
+    void configTest() {
         // TODO: test config
     }
 
@@ -63,7 +61,7 @@ public class KafkaSourceTest {
      * Test the property 'consumerGroup'
      */
     @Test
-    public void consumerGroupTest() {
+    void consumerGroupTest() {
         // TODO: test consumerGroup
     }
 
@@ -71,7 +69,7 @@ public class KafkaSourceTest {
      * Test the property 'sasl'
      */
     @Test
-    public void saslTest() {
+    void saslTest() {
         // TODO: test sasl
     }
 
@@ -79,7 +77,7 @@ public class KafkaSourceTest {
      * Test the property 'tls'
      */
     @Test
-    public void tlsTest() {
+    void tlsTest() {
         // TODO: test tls
     }
 
@@ -87,7 +85,7 @@ public class KafkaSourceTest {
      * Test the property 'topic'
      */
     @Test
-    public void topicTest() {
+    void topicTest() {
         // TODO: test topic
     }
 

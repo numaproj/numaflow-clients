@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,11 +24,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * PipelineLimits
  */
@@ -36,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   PipelineLimits.JSON_PROPERTY_READ_BATCH_SIZE,
   PipelineLimits.JSON_PROPERTY_READ_TIMEOUT
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class PipelineLimits {
   public static final String JSON_PROPERTY_BUFFER_MAX_LENGTH = "bufferMaxLength";
   private Long bufferMaxLength;
@@ -50,21 +52,21 @@ public class PipelineLimits {
   public static final String JSON_PROPERTY_READ_TIMEOUT = "readTimeout";
   private String readTimeout = null;
 
+  public PipelineLimits() { 
+  }
 
   public PipelineLimits bufferMaxLength(Long bufferMaxLength) {
     this.bufferMaxLength = bufferMaxLength;
     return this;
   }
 
-   /**
+  /**
    * BufferMaxLength is used to define the max length of a buffer. Only applies to UDF and Source vertices as only they do buffer write. It can be overridden by the settings in vertex limits.
    * @return bufferMaxLength
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "BufferMaxLength is used to define the max length of a buffer. Only applies to UDF and Source vertices as only they do buffer write. It can be overridden by the settings in vertex limits.")
   @JsonProperty(JSON_PROPERTY_BUFFER_MAX_LENGTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getBufferMaxLength() {
     return bufferMaxLength;
   }
@@ -82,15 +84,13 @@ public class PipelineLimits {
     return this;
   }
 
-   /**
+  /**
    * BufferUsageLimit is used to define the percentage of the buffer usage limit, a valid value should be less than 100, for example, 85. Only applies to UDF and Source vertices as only they do buffer write. It will be overridden by the settings in vertex limits.
    * @return bufferUsageLimit
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "BufferUsageLimit is used to define the percentage of the buffer usage limit, a valid value should be less than 100, for example, 85. Only applies to UDF and Source vertices as only they do buffer write. It will be overridden by the settings in vertex limits.")
   @JsonProperty(JSON_PROPERTY_BUFFER_USAGE_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getBufferUsageLimit() {
     return bufferUsageLimit;
   }
@@ -108,15 +108,13 @@ public class PipelineLimits {
     return this;
   }
 
-   /**
+  /**
    * Read batch size for all the vertices in the pipeline, can be overridden by the vertex&#39;s limit settings.
    * @return readBatchSize
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Read batch size for all the vertices in the pipeline, can be overridden by the vertex's limit settings.")
   @JsonProperty(JSON_PROPERTY_READ_BATCH_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getReadBatchSize() {
     return readBatchSize;
   }
@@ -134,15 +132,13 @@ public class PipelineLimits {
     return this;
   }
 
-   /**
+  /**
    * Get readTimeout
    * @return readTimeout
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_READ_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReadTimeout() {
     return readTimeout;
   }
@@ -201,5 +197,59 @@ public class PipelineLimits {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `bufferMaxLength` to the URL query string
+    if (getBufferMaxLength() != null) {
+      joiner.add(String.format("%sbufferMaxLength%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBufferMaxLength()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `bufferUsageLimit` to the URL query string
+    if (getBufferUsageLimit() != null) {
+      joiner.add(String.format("%sbufferUsageLimit%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBufferUsageLimit()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `readBatchSize` to the URL query string
+    if (getReadBatchSize() != null) {
+      joiner.add(String.format("%sreadBatchSize%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReadBatchSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `readTimeout` to the URL query string
+    if (getReadTimeout() != null) {
+      joiner.add(String.format("%sreadTimeout%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReadTimeout()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

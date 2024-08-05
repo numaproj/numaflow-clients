@@ -28,26 +28,24 @@ import io.kubernetes.client.openapi.models.V1ResourceRequirements;
 import io.kubernetes.client.openapi.models.V1SecurityContext;
 import io.kubernetes.client.openapi.models.V1VolumeDevice;
 import io.kubernetes.client.openapi.models.V1VolumeMount;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for ContainerBuilder
  */
-public class ContainerBuilderTest {
+class ContainerBuilderTest {
     private final ContainerBuilder model = new ContainerBuilder();
 
     /**
      * Model tests for ContainerBuilder
      */
     @Test
-    public void testContainerBuilder() {
+    void testContainerBuilder() {
         // TODO: test ContainerBuilder
     }
 
@@ -55,7 +53,7 @@ public class ContainerBuilderTest {
      * Test the property 'args'
      */
     @Test
-    public void argsTest() {
+    void argsTest() {
         // TODO: test args
     }
 
@@ -63,7 +61,7 @@ public class ContainerBuilderTest {
      * Test the property 'command'
      */
     @Test
-    public void commandTest() {
+    void commandTest() {
         // TODO: test command
     }
 
@@ -71,7 +69,7 @@ public class ContainerBuilderTest {
      * Test the property 'env'
      */
     @Test
-    public void envTest() {
+    void envTest() {
         // TODO: test env
     }
 
@@ -79,7 +77,7 @@ public class ContainerBuilderTest {
      * Test the property 'envFrom'
      */
     @Test
-    public void envFromTest() {
+    void envFromTest() {
         // TODO: test envFrom
     }
 
@@ -87,7 +85,7 @@ public class ContainerBuilderTest {
      * Test the property 'image'
      */
     @Test
-    public void imageTest() {
+    void imageTest() {
         // TODO: test image
     }
 
@@ -95,7 +93,7 @@ public class ContainerBuilderTest {
      * Test the property 'imagePullPolicy'
      */
     @Test
-    public void imagePullPolicyTest() {
+    void imagePullPolicyTest() {
         // TODO: test imagePullPolicy
     }
 
@@ -103,7 +101,7 @@ public class ContainerBuilderTest {
      * Test the property 'lifecycle'
      */
     @Test
-    public void lifecycleTest() {
+    void lifecycleTest() {
         // TODO: test lifecycle
     }
 
@@ -111,7 +109,7 @@ public class ContainerBuilderTest {
      * Test the property 'livenessProbe'
      */
     @Test
-    public void livenessProbeTest() {
+    void livenessProbeTest() {
         // TODO: test livenessProbe
     }
 
@@ -119,7 +117,7 @@ public class ContainerBuilderTest {
      * Test the property 'name'
      */
     @Test
-    public void nameTest() {
+    void nameTest() {
         // TODO: test name
     }
 
@@ -127,7 +125,7 @@ public class ContainerBuilderTest {
      * Test the property 'ports'
      */
     @Test
-    public void portsTest() {
+    void portsTest() {
         // TODO: test ports
     }
 
@@ -135,7 +133,7 @@ public class ContainerBuilderTest {
      * Test the property 'readinessProbe'
      */
     @Test
-    public void readinessProbeTest() {
+    void readinessProbeTest() {
         // TODO: test readinessProbe
     }
 
@@ -143,7 +141,7 @@ public class ContainerBuilderTest {
      * Test the property 'resizePolicy'
      */
     @Test
-    public void resizePolicyTest() {
+    void resizePolicyTest() {
         // TODO: test resizePolicy
     }
 
@@ -151,7 +149,7 @@ public class ContainerBuilderTest {
      * Test the property 'resources'
      */
     @Test
-    public void resourcesTest() {
+    void resourcesTest() {
         // TODO: test resources
     }
 
@@ -159,7 +157,7 @@ public class ContainerBuilderTest {
      * Test the property 'restartPolicy'
      */
     @Test
-    public void restartPolicyTest() {
+    void restartPolicyTest() {
         // TODO: test restartPolicy
     }
 
@@ -167,7 +165,7 @@ public class ContainerBuilderTest {
      * Test the property 'securityContext'
      */
     @Test
-    public void securityContextTest() {
+    void securityContextTest() {
         // TODO: test securityContext
     }
 
@@ -175,7 +173,7 @@ public class ContainerBuilderTest {
      * Test the property 'startupProbe'
      */
     @Test
-    public void startupProbeTest() {
+    void startupProbeTest() {
         // TODO: test startupProbe
     }
 
@@ -183,7 +181,7 @@ public class ContainerBuilderTest {
      * Test the property 'stdin'
      */
     @Test
-    public void stdinTest() {
+    void stdinTest() {
         // TODO: test stdin
     }
 
@@ -191,7 +189,7 @@ public class ContainerBuilderTest {
      * Test the property 'stdinOnce'
      */
     @Test
-    public void stdinOnceTest() {
+    void stdinOnceTest() {
         // TODO: test stdinOnce
     }
 
@@ -199,7 +197,7 @@ public class ContainerBuilderTest {
      * Test the property 'terminationMessagePath'
      */
     @Test
-    public void terminationMessagePathTest() {
+    void terminationMessagePathTest() {
         // TODO: test terminationMessagePath
     }
 
@@ -207,7 +205,7 @@ public class ContainerBuilderTest {
      * Test the property 'terminationMessagePolicy'
      */
     @Test
-    public void terminationMessagePolicyTest() {
+    void terminationMessagePolicyTest() {
         // TODO: test terminationMessagePolicy
     }
 
@@ -215,7 +213,7 @@ public class ContainerBuilderTest {
      * Test the property 'tty'
      */
     @Test
-    public void ttyTest() {
+    void ttyTest() {
         // TODO: test tty
     }
 
@@ -223,7 +221,7 @@ public class ContainerBuilderTest {
      * Test the property 'volumeDevices'
      */
     @Test
-    public void volumeDevicesTest() {
+    void volumeDevicesTest() {
         // TODO: test volumeDevices
     }
 
@@ -231,7 +229,7 @@ public class ContainerBuilderTest {
      * Test the property 'volumeMounts'
      */
     @Test
-    public void volumeMountsTest() {
+    void volumeMountsTest() {
         // TODO: test volumeMounts
     }
 
@@ -239,7 +237,7 @@ public class ContainerBuilderTest {
      * Test the property 'workingDir'
      */
     @Test
-    public void workingDirTest() {
+    void workingDirTest() {
         // TODO: test workingDir
     }
 

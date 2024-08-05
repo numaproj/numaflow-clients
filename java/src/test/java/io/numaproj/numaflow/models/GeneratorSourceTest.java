@@ -18,24 +18,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for GeneratorSource
  */
-public class GeneratorSourceTest {
+class GeneratorSourceTest {
     private final GeneratorSource model = new GeneratorSource();
 
     /**
      * Model tests for GeneratorSource
      */
     @Test
-    public void testGeneratorSource() {
+    void testGeneratorSource() {
         // TODO: test GeneratorSource
     }
 
@@ -43,7 +41,7 @@ public class GeneratorSourceTest {
      * Test the property 'duration'
      */
     @Test
-    public void durationTest() {
+    void durationTest() {
         // TODO: test duration
     }
 
@@ -51,7 +49,7 @@ public class GeneratorSourceTest {
      * Test the property 'jitter'
      */
     @Test
-    public void jitterTest() {
+    void jitterTest() {
         // TODO: test jitter
     }
 
@@ -59,7 +57,7 @@ public class GeneratorSourceTest {
      * Test the property 'keyCount'
      */
     @Test
-    public void keyCountTest() {
+    void keyCountTest() {
         // TODO: test keyCount
     }
 
@@ -67,7 +65,7 @@ public class GeneratorSourceTest {
      * Test the property 'msgSize'
      */
     @Test
-    public void msgSizeTest() {
+    void msgSizeTest() {
         // TODO: test msgSize
     }
 
@@ -75,7 +73,7 @@ public class GeneratorSourceTest {
      * Test the property 'rpu'
      */
     @Test
-    public void rpuTest() {
+    void rpuTest() {
         // TODO: test rpu
     }
 
@@ -83,7 +81,7 @@ public class GeneratorSourceTest {
      * Test the property 'value'
      */
     @Test
-    public void valueTest() {
+    void valueTest() {
         // TODO: test value
     }
 

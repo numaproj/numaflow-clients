@@ -18,24 +18,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for FixedWindow
  */
-public class FixedWindowTest {
+class FixedWindowTest {
     private final FixedWindow model = new FixedWindow();
 
     /**
      * Model tests for FixedWindow
      */
     @Test
-    public void testFixedWindow() {
+    void testFixedWindow() {
         // TODO: test FixedWindow
     }
 
@@ -43,7 +41,7 @@ public class FixedWindowTest {
      * Test the property 'length'
      */
     @Test
-    public void lengthTest() {
+    void lengthTest() {
         // TODO: test length
     }
 
@@ -51,7 +49,7 @@ public class FixedWindowTest {
      * Test the property 'streaming'
      */
     @Test
-    public void streamingTest() {
+    void streamingTest() {
         // TODO: test streaming
     }
 

@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -25,11 +27,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.AbstractSink;
 import io.numaproj.numaflow.models.KafkaSink;
 import io.numaproj.numaflow.models.UDSink;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * Sink
  */
@@ -40,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Sink.JSON_PROPERTY_LOG,
   Sink.JSON_PROPERTY_UDSINK
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Sink {
   public static final String JSON_PROPERTY_BLACKHOLE = "blackhole";
   private Object blackhole;
@@ -57,21 +59,21 @@ public class Sink {
   public static final String JSON_PROPERTY_UDSINK = "udsink";
   private UDSink udsink;
 
+  public Sink() { 
+  }
 
   public Sink blackhole(Object blackhole) {
     this.blackhole = blackhole;
     return this;
   }
 
-   /**
+  /**
    * Blackhole is a sink to emulate /dev/null
    * @return blackhole
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Blackhole is a sink to emulate /dev/null")
   @JsonProperty(JSON_PROPERTY_BLACKHOLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Object getBlackhole() {
     return blackhole;
   }
@@ -89,15 +91,13 @@ public class Sink {
     return this;
   }
 
-   /**
+  /**
    * Get fallback
    * @return fallback
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FALLBACK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AbstractSink getFallback() {
     return fallback;
   }
@@ -115,15 +115,13 @@ public class Sink {
     return this;
   }
 
-   /**
+  /**
    * Get kafka
    * @return kafka
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_KAFKA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public KafkaSink getKafka() {
     return kafka;
   }
@@ -141,15 +139,13 @@ public class Sink {
     return this;
   }
 
-   /**
+  /**
    * Get log
    * @return log
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Object getLog() {
     return log;
   }
@@ -167,15 +163,13 @@ public class Sink {
     return this;
   }
 
-   /**
+  /**
    * Get udsink
    * @return udsink
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_UDSINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public UDSink getUdsink() {
     return udsink;
   }
@@ -236,5 +230,64 @@ public class Sink {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `blackhole` to the URL query string
+    if (getBlackhole() != null) {
+      joiner.add(String.format("%sblackhole%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBlackhole()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `fallback` to the URL query string
+    if (getFallback() != null) {
+      joiner.add(getFallback().toUrlQueryString(prefix + "fallback" + suffix));
+    }
+
+    // add `kafka` to the URL query string
+    if (getKafka() != null) {
+      joiner.add(getKafka().toUrlQueryString(prefix + "kafka" + suffix));
+    }
+
+    // add `log` to the URL query string
+    if (getLog() != null) {
+      joiner.add(String.format("%slog%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLog()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `udsink` to the URL query string
+    if (getUdsink() != null) {
+      joiner.add(getUdsink().toUrlQueryString(prefix + "udsink" + suffix));
+    }
+
+    return joiner.toString();
+  }
 }
 

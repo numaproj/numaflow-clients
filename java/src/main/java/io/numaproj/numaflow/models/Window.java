@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -25,21 +27,20 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.FixedWindow;
 import io.numaproj.numaflow.models.SessionWindow;
 import io.numaproj.numaflow.models.SlidingWindow;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * Window describes windowing strategy
  */
-@ApiModel(description = "Window describes windowing strategy")
 @JsonPropertyOrder({
   Window.JSON_PROPERTY_FIXED,
   Window.JSON_PROPERTY_SESSION,
   Window.JSON_PROPERTY_SLIDING
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Window {
   public static final String JSON_PROPERTY_FIXED = "fixed";
   private FixedWindow fixed;
@@ -50,21 +51,21 @@ public class Window {
   public static final String JSON_PROPERTY_SLIDING = "sliding";
   private SlidingWindow sliding;
 
+  public Window() { 
+  }
 
   public Window fixed(FixedWindow fixed) {
     this.fixed = fixed;
     return this;
   }
 
-   /**
+  /**
    * Get fixed
    * @return fixed
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FIXED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public FixedWindow getFixed() {
     return fixed;
   }
@@ -82,15 +83,13 @@ public class Window {
     return this;
   }
 
-   /**
+  /**
    * Get session
    * @return session
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SessionWindow getSession() {
     return session;
   }
@@ -108,15 +107,13 @@ public class Window {
     return this;
   }
 
-   /**
+  /**
    * Get sliding
    * @return sliding
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SLIDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SlidingWindow getSliding() {
     return sliding;
   }
@@ -173,5 +170,54 @@ public class Window {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `fixed` to the URL query string
+    if (getFixed() != null) {
+      joiner.add(getFixed().toUrlQueryString(prefix + "fixed" + suffix));
+    }
+
+    // add `session` to the URL query string
+    if (getSession() != null) {
+      joiner.add(getSession().toUrlQueryString(prefix + "session" + suffix));
+    }
+
+    // add `sliding` to the URL query string
+    if (getSliding() != null) {
+      joiner.add(getSliding().toUrlQueryString(prefix + "sliding" + suffix));
+    }
+
+    return joiner.toString();
+  }
 }
 

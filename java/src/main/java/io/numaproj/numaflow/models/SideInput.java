@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -25,24 +27,23 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1Volume;
 import io.numaproj.numaflow.models.Container;
 import io.numaproj.numaflow.models.SideInputTrigger;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * SideInput defines information of a Side Input
  */
-@ApiModel(description = "SideInput defines information of a Side Input")
 @JsonPropertyOrder({
   SideInput.JSON_PROPERTY_CONTAINER,
   SideInput.JSON_PROPERTY_NAME,
   SideInput.JSON_PROPERTY_TRIGGER,
   SideInput.JSON_PROPERTY_VOLUMES
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class SideInput {
   public static final String JSON_PROPERTY_CONTAINER = "container";
   private Container container;
@@ -54,23 +55,23 @@ public class SideInput {
   private SideInputTrigger trigger;
 
   public static final String JSON_PROPERTY_VOLUMES = "volumes";
-  private List<V1Volume> volumes = null;
+  private List<V1Volume> volumes = new ArrayList<>();
 
+  public SideInput() { 
+  }
 
   public SideInput container(Container container) {
     this.container = container;
     return this;
   }
 
-   /**
+  /**
    * Get container
    * @return container
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CONTAINER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Container getContainer() {
     return container;
   }
@@ -88,15 +89,13 @@ public class SideInput {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getName() {
     return name;
   }
@@ -114,15 +113,13 @@ public class SideInput {
     return this;
   }
 
-   /**
+  /**
    * Get trigger
    * @return trigger
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TRIGGER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public SideInputTrigger getTrigger() {
     return trigger;
   }
@@ -148,15 +145,13 @@ public class SideInput {
     return this;
   }
 
-   /**
+  /**
    * Get volumes
    * @return volumes
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VOLUMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1Volume> getVolumes() {
     return volumes;
   }
@@ -215,5 +210,65 @@ public class SideInput {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `container` to the URL query string
+    if (getContainer() != null) {
+      joiner.add(getContainer().toUrlQueryString(prefix + "container" + suffix));
+    }
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `trigger` to the URL query string
+    if (getTrigger() != null) {
+      joiner.add(getTrigger().toUrlQueryString(prefix + "trigger" + suffix));
+    }
+
+    // add `volumes` to the URL query string
+    if (getVolumes() != null) {
+      for (int i = 0; i < getVolumes().size(); i++) {
+        if (getVolumes().get(i) != null) {
+          joiner.add(String.format("%svolumes%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getVolumes().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    return joiner.toString();
+  }
 }
 

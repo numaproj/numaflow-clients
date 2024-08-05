@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,13 +24,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * TagConditions
  */
@@ -36,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   TagConditions.JSON_PROPERTY_OPERATOR,
   TagConditions.JSON_PROPERTY_VALUES
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class TagConditions {
   public static final String JSON_PROPERTY_OPERATOR = "operator";
   private String operator;
@@ -44,21 +46,21 @@ public class TagConditions {
   public static final String JSON_PROPERTY_VALUES = "values";
   private List<String> values = new ArrayList<>();
 
+  public TagConditions() { 
+  }
 
   public TagConditions operator(String operator) {
     this.operator = operator;
     return this;
   }
 
-   /**
+  /**
    * Operator specifies the type of operation that should be used for conditional forwarding value could be \&quot;and\&quot;, \&quot;or\&quot;, \&quot;not\&quot;
    * @return operator
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Operator specifies the type of operation that should be used for conditional forwarding value could be \"and\", \"or\", \"not\"")
   @JsonProperty(JSON_PROPERTY_OPERATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOperator() {
     return operator;
   }
@@ -77,19 +79,20 @@ public class TagConditions {
   }
 
   public TagConditions addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<>();
+    }
     this.values.add(valuesItem);
     return this;
   }
 
-   /**
+  /**
    * Values tag values for conditional forwarding
    * @return values
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Values tag values for conditional forwarding")
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public List<String> getValues() {
     return values;
   }
@@ -144,5 +147,53 @@ public class TagConditions {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `operator` to the URL query string
+    if (getOperator() != null) {
+      joiner.add(String.format("%soperator%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getOperator()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `values` to the URL query string
+    if (getValues() != null) {
+      for (int i = 0; i < getValues().size(); i++) {
+        joiner.add(String.format("%svalues%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(ApiClient.valueToString(getValues().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    return joiner.toString();
+  }
 }
 

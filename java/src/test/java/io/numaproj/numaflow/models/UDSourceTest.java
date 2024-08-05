@@ -19,24 +19,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.Container;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for UDSource
  */
-public class UDSourceTest {
+class UDSourceTest {
     private final UDSource model = new UDSource();
 
     /**
      * Model tests for UDSource
      */
     @Test
-    public void testUDSource() {
+    void testUDSource() {
         // TODO: test UDSource
     }
 
@@ -44,7 +42,7 @@ public class UDSourceTest {
      * Test the property 'container'
      */
     @Test
-    public void containerTest() {
+    void containerTest() {
         // TODO: test container
     }
 

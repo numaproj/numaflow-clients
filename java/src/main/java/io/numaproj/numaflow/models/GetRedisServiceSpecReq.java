@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,14 +24,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * GetRedisServiceSpecReq
  */
@@ -38,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GetRedisServiceSpecReq.JSON_PROPERTY_REDIS_CONTAINER_PORT,
   GetRedisServiceSpecReq.JSON_PROPERTY_SENTINEL_CONTAINER_PORT
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class GetRedisServiceSpecReq {
   public static final String JSON_PROPERTY_LABELS = "Labels";
   private Map<String, String> labels = new HashMap<>();
@@ -49,6 +50,8 @@ public class GetRedisServiceSpecReq {
   public static final String JSON_PROPERTY_SENTINEL_CONTAINER_PORT = "SentinelContainerPort";
   private Integer sentinelContainerPort;
 
+  public GetRedisServiceSpecReq() { 
+  }
 
   public GetRedisServiceSpecReq labels(Map<String, String> labels) {
     this.labels = labels;
@@ -56,19 +59,20 @@ public class GetRedisServiceSpecReq {
   }
 
   public GetRedisServiceSpecReq putLabelsItem(String key, String labelsItem) {
+    if (this.labels == null) {
+      this.labels = new HashMap<>();
+    }
     this.labels.put(key, labelsItem);
     return this;
   }
 
-   /**
+  /**
    * Get labels
    * @return labels
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_LABELS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Map<String, String> getLabels() {
     return labels;
   }
@@ -86,15 +90,13 @@ public class GetRedisServiceSpecReq {
     return this;
   }
 
-   /**
+  /**
    * Get redisContainerPort
    * @return redisContainerPort
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REDIS_CONTAINER_PORT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getRedisContainerPort() {
     return redisContainerPort;
   }
@@ -112,15 +114,13 @@ public class GetRedisServiceSpecReq {
     return this;
   }
 
-   /**
+  /**
    * Get sentinelContainerPort
    * @return sentinelContainerPort
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SENTINEL_CONTAINER_PORT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getSentinelContainerPort() {
     return sentinelContainerPort;
   }
@@ -177,5 +177,58 @@ public class GetRedisServiceSpecReq {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `Labels` to the URL query string
+    if (getLabels() != null) {
+      for (String _key : getLabels().keySet()) {
+        joiner.add(String.format("%sLabels%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+            getLabels().get(_key), URLEncoder.encode(ApiClient.valueToString(getLabels().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    // add `RedisContainerPort` to the URL query string
+    if (getRedisContainerPort() != null) {
+      joiner.add(String.format("%sRedisContainerPort%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRedisContainerPort()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `SentinelContainerPort` to the URL query string
+    if (getSentinelContainerPort() != null) {
+      joiner.add(String.format("%sSentinelContainerPort%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSentinelContainerPort()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

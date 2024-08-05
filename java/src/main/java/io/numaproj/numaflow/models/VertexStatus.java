@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,12 +24,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.Instant;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * VertexStatus
  */
@@ -39,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   VertexStatus.JSON_PROPERTY_REPLICAS,
   VertexStatus.JSON_PROPERTY_SELECTOR
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class VertexStatus {
   public static final String JSON_PROPERTY_LAST_SCALED_AT = "lastScaledAt";
   private java.time.Instant lastScaledAt = null;
@@ -59,21 +61,21 @@ public class VertexStatus {
   public static final String JSON_PROPERTY_SELECTOR = "selector";
   private String selector;
 
+  public VertexStatus() { 
+  }
 
   public VertexStatus lastScaledAt(java.time.Instant lastScaledAt) {
     this.lastScaledAt = lastScaledAt;
     return this;
   }
 
-   /**
+  /**
    * Get lastScaledAt
    * @return lastScaledAt
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LAST_SCALED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public java.time.Instant getLastScaledAt() {
     return lastScaledAt;
   }
@@ -91,15 +93,13 @@ public class VertexStatus {
     return this;
   }
 
-   /**
+  /**
    * Get message
    * @return message
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMessage() {
     return message;
   }
@@ -117,15 +117,13 @@ public class VertexStatus {
     return this;
   }
 
-   /**
+  /**
    * Get phase
    * @return phase
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PHASE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getPhase() {
     return phase;
   }
@@ -143,15 +141,13 @@ public class VertexStatus {
     return this;
   }
 
-   /**
+  /**
    * Get reason
    * @return reason
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReason() {
     return reason;
   }
@@ -169,15 +165,13 @@ public class VertexStatus {
     return this;
   }
 
-   /**
+  /**
    * Get replicas
    * @return replicas
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REPLICAS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Long getReplicas() {
     return replicas;
   }
@@ -195,15 +189,13 @@ public class VertexStatus {
     return this;
   }
 
-   /**
+  /**
    * Get selector
    * @return selector
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SELECTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSelector() {
     return selector;
   }
@@ -266,5 +258,69 @@ public class VertexStatus {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `lastScaledAt` to the URL query string
+    if (getLastScaledAt() != null) {
+      joiner.add(String.format("%slastScaledAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLastScaledAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `message` to the URL query string
+    if (getMessage() != null) {
+      joiner.add(String.format("%smessage%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMessage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `phase` to the URL query string
+    if (getPhase() != null) {
+      joiner.add(String.format("%sphase%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPhase()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `reason` to the URL query string
+    if (getReason() != null) {
+      joiner.add(String.format("%sreason%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `replicas` to the URL query string
+    if (getReplicas() != null) {
+      joiner.add(String.format("%sreplicas%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReplicas()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `selector` to the URL query string
+    if (getSelector() != null) {
+      joiner.add(String.format("%sselector%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSelector()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

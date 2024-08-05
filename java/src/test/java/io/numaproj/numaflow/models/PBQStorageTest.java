@@ -20,24 +20,22 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1EmptyDirVolumeSource;
 import io.numaproj.numaflow.models.PersistenceStrategy;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for PBQStorage
  */
-public class PBQStorageTest {
+class PBQStorageTest {
     private final PBQStorage model = new PBQStorage();
 
     /**
      * Model tests for PBQStorage
      */
     @Test
-    public void testPBQStorage() {
+    void testPBQStorage() {
         // TODO: test PBQStorage
     }
 
@@ -45,7 +43,7 @@ public class PBQStorageTest {
      * Test the property 'emptyDir'
      */
     @Test
-    public void emptyDirTest() {
+    void emptyDirTest() {
         // TODO: test emptyDir
     }
 
@@ -53,7 +51,7 @@ public class PBQStorageTest {
      * Test the property 'noStore'
      */
     @Test
-    public void noStoreTest() {
+    void noStoreTest() {
         // TODO: test noStore
     }
 
@@ -61,7 +59,7 @@ public class PBQStorageTest {
      * Test the property 'persistentVolumeClaim'
      */
     @Test
-    public void persistentVolumeClaimTest() {
+    void persistentVolumeClaimTest() {
         // TODO: test persistentVolumeClaim
     }
 

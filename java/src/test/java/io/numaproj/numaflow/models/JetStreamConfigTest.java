@@ -19,24 +19,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.NatsAuth;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for JetStreamConfig
  */
-public class JetStreamConfigTest {
+class JetStreamConfigTest {
     private final JetStreamConfig model = new JetStreamConfig();
 
     /**
      * Model tests for JetStreamConfig
      */
     @Test
-    public void testJetStreamConfig() {
+    void testJetStreamConfig() {
         // TODO: test JetStreamConfig
     }
 
@@ -44,7 +42,7 @@ public class JetStreamConfigTest {
      * Test the property 'auth'
      */
     @Test
-    public void authTest() {
+    void authTest() {
         // TODO: test auth
     }
 
@@ -52,7 +50,7 @@ public class JetStreamConfigTest {
      * Test the property 'streamConfig'
      */
     @Test
-    public void streamConfigTest() {
+    void streamConfigTest() {
         // TODO: test streamConfig
     }
 
@@ -60,7 +58,7 @@ public class JetStreamConfigTest {
      * Test the property 'tlsEnabled'
      */
     @Test
-    public void tlsEnabledTest() {
+    void tlsEnabledTest() {
         // TODO: test tlsEnabled
     }
 
@@ -68,7 +66,7 @@ public class JetStreamConfigTest {
      * Test the property 'url'
      */
     @Test
-    public void urlTest() {
+    void urlTest() {
         // TODO: test url
     }
 

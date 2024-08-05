@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -26,11 +28,11 @@ import io.numaproj.numaflow.models.DaemonTemplate;
 import io.numaproj.numaflow.models.JobTemplate;
 import io.numaproj.numaflow.models.SideInputsManagerTemplate;
 import io.numaproj.numaflow.models.VertexTemplate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * Templates
  */
@@ -40,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Templates.JSON_PROPERTY_SIDE_INPUTS_MANAGER,
   Templates.JSON_PROPERTY_VERTEX
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Templates {
   public static final String JSON_PROPERTY_DAEMON = "daemon";
   private DaemonTemplate daemon;
@@ -54,21 +56,21 @@ public class Templates {
   public static final String JSON_PROPERTY_VERTEX = "vertex";
   private VertexTemplate vertex;
 
+  public Templates() { 
+  }
 
   public Templates daemon(DaemonTemplate daemon) {
     this.daemon = daemon;
     return this;
   }
 
-   /**
+  /**
    * Get daemon
    * @return daemon
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DAEMON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public DaemonTemplate getDaemon() {
     return daemon;
   }
@@ -86,15 +88,13 @@ public class Templates {
     return this;
   }
 
-   /**
+  /**
    * Get job
    * @return job
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_JOB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JobTemplate getJob() {
     return job;
   }
@@ -112,15 +112,13 @@ public class Templates {
     return this;
   }
 
-   /**
+  /**
    * Get sideInputsManager
    * @return sideInputsManager
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIDE_INPUTS_MANAGER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SideInputsManagerTemplate getSideInputsManager() {
     return sideInputsManager;
   }
@@ -138,15 +136,13 @@ public class Templates {
     return this;
   }
 
-   /**
+  /**
    * Get vertex
    * @return vertex
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VERTEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public VertexTemplate getVertex() {
     return vertex;
   }
@@ -205,5 +201,59 @@ public class Templates {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `daemon` to the URL query string
+    if (getDaemon() != null) {
+      joiner.add(getDaemon().toUrlQueryString(prefix + "daemon" + suffix));
+    }
+
+    // add `job` to the URL query string
+    if (getJob() != null) {
+      joiner.add(getJob().toUrlQueryString(prefix + "job" + suffix));
+    }
+
+    // add `sideInputsManager` to the URL query string
+    if (getSideInputsManager() != null) {
+      joiner.add(getSideInputsManager().toUrlQueryString(prefix + "sideInputsManager" + suffix));
+    }
+
+    // add `vertex` to the URL query string
+    if (getVertex() != null) {
+      joiner.add(getVertex().toUrlQueryString(prefix + "vertex" + suffix));
+    }
+
+    return joiner.toString();
+  }
 }
 

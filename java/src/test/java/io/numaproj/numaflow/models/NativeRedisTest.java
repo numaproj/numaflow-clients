@@ -27,28 +27,26 @@ import io.numaproj.numaflow.models.ContainerTemplate;
 import io.numaproj.numaflow.models.Metadata;
 import io.numaproj.numaflow.models.PersistenceStrategy;
 import io.numaproj.numaflow.models.RedisSettings;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for NativeRedis
  */
-public class NativeRedisTest {
+class NativeRedisTest {
     private final NativeRedis model = new NativeRedis();
 
     /**
      * Model tests for NativeRedis
      */
     @Test
-    public void testNativeRedis() {
+    void testNativeRedis() {
         // TODO: test NativeRedis
     }
 
@@ -56,7 +54,7 @@ public class NativeRedisTest {
      * Test the property 'affinity'
      */
     @Test
-    public void affinityTest() {
+    void affinityTest() {
         // TODO: test affinity
     }
 
@@ -64,7 +62,7 @@ public class NativeRedisTest {
      * Test the property 'automountServiceAccountToken'
      */
     @Test
-    public void automountServiceAccountTokenTest() {
+    void automountServiceAccountTokenTest() {
         // TODO: test automountServiceAccountToken
     }
 
@@ -72,7 +70,7 @@ public class NativeRedisTest {
      * Test the property 'dnsConfig'
      */
     @Test
-    public void dnsConfigTest() {
+    void dnsConfigTest() {
         // TODO: test dnsConfig
     }
 
@@ -80,7 +78,7 @@ public class NativeRedisTest {
      * Test the property 'dnsPolicy'
      */
     @Test
-    public void dnsPolicyTest() {
+    void dnsPolicyTest() {
         // TODO: test dnsPolicy
     }
 
@@ -88,7 +86,7 @@ public class NativeRedisTest {
      * Test the property 'imagePullSecrets'
      */
     @Test
-    public void imagePullSecretsTest() {
+    void imagePullSecretsTest() {
         // TODO: test imagePullSecrets
     }
 
@@ -96,7 +94,7 @@ public class NativeRedisTest {
      * Test the property 'initContainerTemplate'
      */
     @Test
-    public void initContainerTemplateTest() {
+    void initContainerTemplateTest() {
         // TODO: test initContainerTemplate
     }
 
@@ -104,7 +102,7 @@ public class NativeRedisTest {
      * Test the property 'metadata'
      */
     @Test
-    public void metadataTest() {
+    void metadataTest() {
         // TODO: test metadata
     }
 
@@ -112,7 +110,7 @@ public class NativeRedisTest {
      * Test the property 'metricsContainerTemplate'
      */
     @Test
-    public void metricsContainerTemplateTest() {
+    void metricsContainerTemplateTest() {
         // TODO: test metricsContainerTemplate
     }
 
@@ -120,7 +118,7 @@ public class NativeRedisTest {
      * Test the property 'nodeSelector'
      */
     @Test
-    public void nodeSelectorTest() {
+    void nodeSelectorTest() {
         // TODO: test nodeSelector
     }
 
@@ -128,7 +126,7 @@ public class NativeRedisTest {
      * Test the property 'persistence'
      */
     @Test
-    public void persistenceTest() {
+    void persistenceTest() {
         // TODO: test persistence
     }
 
@@ -136,7 +134,7 @@ public class NativeRedisTest {
      * Test the property 'priority'
      */
     @Test
-    public void priorityTest() {
+    void priorityTest() {
         // TODO: test priority
     }
 
@@ -144,7 +142,7 @@ public class NativeRedisTest {
      * Test the property 'priorityClassName'
      */
     @Test
-    public void priorityClassNameTest() {
+    void priorityClassNameTest() {
         // TODO: test priorityClassName
     }
 
@@ -152,7 +150,7 @@ public class NativeRedisTest {
      * Test the property 'redisContainerTemplate'
      */
     @Test
-    public void redisContainerTemplateTest() {
+    void redisContainerTemplateTest() {
         // TODO: test redisContainerTemplate
     }
 
@@ -160,7 +158,7 @@ public class NativeRedisTest {
      * Test the property 'replicas'
      */
     @Test
-    public void replicasTest() {
+    void replicasTest() {
         // TODO: test replicas
     }
 
@@ -168,7 +166,7 @@ public class NativeRedisTest {
      * Test the property 'runtimeClassName'
      */
     @Test
-    public void runtimeClassNameTest() {
+    void runtimeClassNameTest() {
         // TODO: test runtimeClassName
     }
 
@@ -176,7 +174,7 @@ public class NativeRedisTest {
      * Test the property 'securityContext'
      */
     @Test
-    public void securityContextTest() {
+    void securityContextTest() {
         // TODO: test securityContext
     }
 
@@ -184,7 +182,7 @@ public class NativeRedisTest {
      * Test the property 'sentinelContainerTemplate'
      */
     @Test
-    public void sentinelContainerTemplateTest() {
+    void sentinelContainerTemplateTest() {
         // TODO: test sentinelContainerTemplate
     }
 
@@ -192,7 +190,7 @@ public class NativeRedisTest {
      * Test the property 'serviceAccountName'
      */
     @Test
-    public void serviceAccountNameTest() {
+    void serviceAccountNameTest() {
         // TODO: test serviceAccountName
     }
 
@@ -200,7 +198,7 @@ public class NativeRedisTest {
      * Test the property 'settings'
      */
     @Test
-    public void settingsTest() {
+    void settingsTest() {
         // TODO: test settings
     }
 
@@ -208,7 +206,7 @@ public class NativeRedisTest {
      * Test the property 'tolerations'
      */
     @Test
-    public void tolerationsTest() {
+    void tolerationsTest() {
         // TODO: test tolerations
     }
 
@@ -216,7 +214,7 @@ public class NativeRedisTest {
      * Test the property 'version'
      */
     @Test
-    public void versionTest() {
+    void versionTest() {
         // TODO: test version
     }
 

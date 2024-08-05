@@ -6,11 +6,11 @@ VertexInstance is a wrapper of a vertex instance, which contains the vertex spec
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**hostname** | **String** |  |  [optional]
-**replica** | **Integer** |  |  [optional]
-**vertex** | [**Vertex**](Vertex.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**hostname** | **String** |  |  [optional] |
+|**replica** | **Integer** |  |  [optional] |
+|**vertex** | [**Vertex**](Vertex.md) |  |  [optional] |
 
 
 

@@ -21,24 +21,22 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.Container;
 import io.numaproj.numaflow.models.Function;
 import io.numaproj.numaflow.models.GroupBy;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for UDF
  */
-public class UDFTest {
+class UDFTest {
     private final UDF model = new UDF();
 
     /**
      * Model tests for UDF
      */
     @Test
-    public void testUDF() {
+    void testUDF() {
         // TODO: test UDF
     }
 
@@ -46,7 +44,7 @@ public class UDFTest {
      * Test the property 'builtin'
      */
     @Test
-    public void builtinTest() {
+    void builtinTest() {
         // TODO: test builtin
     }
 
@@ -54,7 +52,7 @@ public class UDFTest {
      * Test the property 'container'
      */
     @Test
-    public void containerTest() {
+    void containerTest() {
         // TODO: test container
     }
 
@@ -62,7 +60,7 @@ public class UDFTest {
      * Test the property 'groupBy'
      */
     @Test
-    public void groupByTest() {
+    void groupByTest() {
         // TODO: test groupBy
     }
 

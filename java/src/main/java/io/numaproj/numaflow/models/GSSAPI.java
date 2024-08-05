@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -23,15 +25,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1SecretKeySelector;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * GSSAPI represents a SASL GSSAPI config
  */
-@ApiModel(description = "GSSAPI represents a SASL GSSAPI config")
 @JsonPropertyOrder({
   GSSAPI.JSON_PROPERTY_AUTH_TYPE,
   GSSAPI.JSON_PROPERTY_KERBEROS_CONFIG_SECRET,
@@ -41,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GSSAPI.JSON_PROPERTY_SERVICE_NAME,
   GSSAPI.JSON_PROPERTY_USERNAME_SECRET
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class GSSAPI {
   /**
    * valid inputs - KRB5_USER_AUTH, KRB5_KEYTAB_AUTH  Possible enum values:  - &#x60;\&quot;KRB5_KEYTAB_AUTH\&quot;&#x60; represents the password method KRB5KeytabAuth &#x3D; \&quot;KRB5_KEYTAB_AUTH\&quot; &#x3D; 2  - &#x60;\&quot;KRB5_USER_AUTH\&quot;&#x60; represents the password method KRB5UserAuth &#x3D; \&quot;KRB5_USER_AUTH\&quot; &#x3D; 1
@@ -99,21 +100,21 @@ public class GSSAPI {
   public static final String JSON_PROPERTY_USERNAME_SECRET = "usernameSecret";
   private V1SecretKeySelector usernameSecret = null;
 
+  public GSSAPI() { 
+  }
 
   public GSSAPI authType(AuthTypeEnum authType) {
     this.authType = authType;
     return this;
   }
 
-   /**
+  /**
    * valid inputs - KRB5_USER_AUTH, KRB5_KEYTAB_AUTH  Possible enum values:  - &#x60;\&quot;KRB5_KEYTAB_AUTH\&quot;&#x60; represents the password method KRB5KeytabAuth &#x3D; \&quot;KRB5_KEYTAB_AUTH\&quot; &#x3D; 2  - &#x60;\&quot;KRB5_USER_AUTH\&quot;&#x60; represents the password method KRB5UserAuth &#x3D; \&quot;KRB5_USER_AUTH\&quot; &#x3D; 1
    * @return authType
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "valid inputs - KRB5_USER_AUTH, KRB5_KEYTAB_AUTH  Possible enum values:  - `\"KRB5_KEYTAB_AUTH\"` represents the password method KRB5KeytabAuth = \"KRB5_KEYTAB_AUTH\" = 2  - `\"KRB5_USER_AUTH\"` represents the password method KRB5UserAuth = \"KRB5_USER_AUTH\" = 1")
   @JsonProperty(JSON_PROPERTY_AUTH_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public AuthTypeEnum getAuthType() {
     return authType;
   }
@@ -131,15 +132,13 @@ public class GSSAPI {
     return this;
   }
 
-   /**
+  /**
    * Get kerberosConfigSecret
    * @return kerberosConfigSecret
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_KERBEROS_CONFIG_SECRET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1SecretKeySelector getKerberosConfigSecret() {
     return kerberosConfigSecret;
   }
@@ -157,15 +156,13 @@ public class GSSAPI {
     return this;
   }
 
-   /**
+  /**
    * Get keytabSecret
    * @return keytabSecret
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_KEYTAB_SECRET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1SecretKeySelector getKeytabSecret() {
     return keytabSecret;
   }
@@ -183,15 +180,13 @@ public class GSSAPI {
     return this;
   }
 
-   /**
+  /**
    * Get passwordSecret
    * @return passwordSecret
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PASSWORD_SECRET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1SecretKeySelector getPasswordSecret() {
     return passwordSecret;
   }
@@ -209,15 +204,13 @@ public class GSSAPI {
     return this;
   }
 
-   /**
+  /**
    * Get realm
    * @return realm
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REALM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getRealm() {
     return realm;
   }
@@ -235,15 +228,13 @@ public class GSSAPI {
     return this;
   }
 
-   /**
+  /**
    * Get serviceName
    * @return serviceName
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SERVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getServiceName() {
     return serviceName;
   }
@@ -261,15 +252,13 @@ public class GSSAPI {
     return this;
   }
 
-   /**
+  /**
    * Get usernameSecret
    * @return usernameSecret
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_USERNAME_SECRET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public V1SecretKeySelector getUsernameSecret() {
     return usernameSecret;
   }
@@ -334,5 +323,74 @@ public class GSSAPI {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `authType` to the URL query string
+    if (getAuthType() != null) {
+      joiner.add(String.format("%sauthType%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAuthType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `kerberosConfigSecret` to the URL query string
+    if (getKerberosConfigSecret() != null) {
+      joiner.add(String.format("%skerberosConfigSecret%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getKerberosConfigSecret()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `keytabSecret` to the URL query string
+    if (getKeytabSecret() != null) {
+      joiner.add(String.format("%skeytabSecret%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getKeytabSecret()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `passwordSecret` to the URL query string
+    if (getPasswordSecret() != null) {
+      joiner.add(String.format("%spasswordSecret%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPasswordSecret()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `realm` to the URL query string
+    if (getRealm() != null) {
+      joiner.add(String.format("%srealm%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRealm()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `serviceName` to the URL query string
+    if (getServiceName() != null) {
+      joiner.add(String.format("%sserviceName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getServiceName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `usernameSecret` to the URL query string
+    if (getUsernameSecret() != null) {
+      joiner.add(String.format("%susernameSecret%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUsernameSecret()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

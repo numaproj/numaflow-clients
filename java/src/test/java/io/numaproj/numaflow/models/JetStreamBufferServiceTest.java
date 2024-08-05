@@ -26,28 +26,26 @@ import io.kubernetes.client.openapi.models.V1Toleration;
 import io.numaproj.numaflow.models.ContainerTemplate;
 import io.numaproj.numaflow.models.Metadata;
 import io.numaproj.numaflow.models.PersistenceStrategy;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for JetStreamBufferService
  */
-public class JetStreamBufferServiceTest {
+class JetStreamBufferServiceTest {
     private final JetStreamBufferService model = new JetStreamBufferService();
 
     /**
      * Model tests for JetStreamBufferService
      */
     @Test
-    public void testJetStreamBufferService() {
+    void testJetStreamBufferService() {
         // TODO: test JetStreamBufferService
     }
 
@@ -55,7 +53,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'affinity'
      */
     @Test
-    public void affinityTest() {
+    void affinityTest() {
         // TODO: test affinity
     }
 
@@ -63,7 +61,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'automountServiceAccountToken'
      */
     @Test
-    public void automountServiceAccountTokenTest() {
+    void automountServiceAccountTokenTest() {
         // TODO: test automountServiceAccountToken
     }
 
@@ -71,7 +69,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'bufferConfig'
      */
     @Test
-    public void bufferConfigTest() {
+    void bufferConfigTest() {
         // TODO: test bufferConfig
     }
 
@@ -79,7 +77,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'containerTemplate'
      */
     @Test
-    public void containerTemplateTest() {
+    void containerTemplateTest() {
         // TODO: test containerTemplate
     }
 
@@ -87,7 +85,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'dnsConfig'
      */
     @Test
-    public void dnsConfigTest() {
+    void dnsConfigTest() {
         // TODO: test dnsConfig
     }
 
@@ -95,7 +93,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'dnsPolicy'
      */
     @Test
-    public void dnsPolicyTest() {
+    void dnsPolicyTest() {
         // TODO: test dnsPolicy
     }
 
@@ -103,7 +101,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'encryption'
      */
     @Test
-    public void encryptionTest() {
+    void encryptionTest() {
         // TODO: test encryption
     }
 
@@ -111,7 +109,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'imagePullSecrets'
      */
     @Test
-    public void imagePullSecretsTest() {
+    void imagePullSecretsTest() {
         // TODO: test imagePullSecrets
     }
 
@@ -119,7 +117,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'metadata'
      */
     @Test
-    public void metadataTest() {
+    void metadataTest() {
         // TODO: test metadata
     }
 
@@ -127,7 +125,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'metricsContainerTemplate'
      */
     @Test
-    public void metricsContainerTemplateTest() {
+    void metricsContainerTemplateTest() {
         // TODO: test metricsContainerTemplate
     }
 
@@ -135,7 +133,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'nodeSelector'
      */
     @Test
-    public void nodeSelectorTest() {
+    void nodeSelectorTest() {
         // TODO: test nodeSelector
     }
 
@@ -143,7 +141,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'persistence'
      */
     @Test
-    public void persistenceTest() {
+    void persistenceTest() {
         // TODO: test persistence
     }
 
@@ -151,7 +149,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'priority'
      */
     @Test
-    public void priorityTest() {
+    void priorityTest() {
         // TODO: test priority
     }
 
@@ -159,7 +157,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'priorityClassName'
      */
     @Test
-    public void priorityClassNameTest() {
+    void priorityClassNameTest() {
         // TODO: test priorityClassName
     }
 
@@ -167,7 +165,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'reloaderContainerTemplate'
      */
     @Test
-    public void reloaderContainerTemplateTest() {
+    void reloaderContainerTemplateTest() {
         // TODO: test reloaderContainerTemplate
     }
 
@@ -175,7 +173,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'replicas'
      */
     @Test
-    public void replicasTest() {
+    void replicasTest() {
         // TODO: test replicas
     }
 
@@ -183,7 +181,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'runtimeClassName'
      */
     @Test
-    public void runtimeClassNameTest() {
+    void runtimeClassNameTest() {
         // TODO: test runtimeClassName
     }
 
@@ -191,7 +189,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'securityContext'
      */
     @Test
-    public void securityContextTest() {
+    void securityContextTest() {
         // TODO: test securityContext
     }
 
@@ -199,7 +197,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'serviceAccountName'
      */
     @Test
-    public void serviceAccountNameTest() {
+    void serviceAccountNameTest() {
         // TODO: test serviceAccountName
     }
 
@@ -207,7 +205,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'settings'
      */
     @Test
-    public void settingsTest() {
+    void settingsTest() {
         // TODO: test settings
     }
 
@@ -215,7 +213,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'startArgs'
      */
     @Test
-    public void startArgsTest() {
+    void startArgsTest() {
         // TODO: test startArgs
     }
 
@@ -223,7 +221,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'tls'
      */
     @Test
-    public void tlsTest() {
+    void tlsTest() {
         // TODO: test tls
     }
 
@@ -231,7 +229,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'tolerations'
      */
     @Test
-    public void tolerationsTest() {
+    void tolerationsTest() {
         // TODO: test tolerations
     }
 
@@ -239,7 +237,7 @@ public class JetStreamBufferServiceTest {
      * Test the property 'version'
      */
     @Test
-    public void versionTest() {
+    void versionTest() {
         // TODO: test version
     }
 

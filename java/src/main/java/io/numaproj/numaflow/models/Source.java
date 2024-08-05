@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -28,11 +30,11 @@ import io.numaproj.numaflow.models.KafkaSource;
 import io.numaproj.numaflow.models.NatsSource;
 import io.numaproj.numaflow.models.UDSource;
 import io.numaproj.numaflow.models.UDTransformer;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * Source
  */
@@ -44,7 +46,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Source.JSON_PROPERTY_TRANSFORMER,
   Source.JSON_PROPERTY_UDSOURCE
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Source {
   public static final String JSON_PROPERTY_GENERATOR = "generator";
   private GeneratorSource generator;
@@ -64,21 +66,21 @@ public class Source {
   public static final String JSON_PROPERTY_UDSOURCE = "udsource";
   private UDSource udsource;
 
+  public Source() { 
+  }
 
   public Source generator(GeneratorSource generator) {
     this.generator = generator;
     return this;
   }
 
-   /**
+  /**
    * Get generator
    * @return generator
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GENERATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public GeneratorSource getGenerator() {
     return generator;
   }
@@ -96,15 +98,13 @@ public class Source {
     return this;
   }
 
-   /**
+  /**
    * Get http
    * @return http
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HTTP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public HTTPSource getHttp() {
     return http;
   }
@@ -122,15 +122,13 @@ public class Source {
     return this;
   }
 
-   /**
+  /**
    * Get kafka
    * @return kafka
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_KAFKA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public KafkaSource getKafka() {
     return kafka;
   }
@@ -148,15 +146,13 @@ public class Source {
     return this;
   }
 
-   /**
+  /**
    * Get nats
    * @return nats
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NATS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public NatsSource getNats() {
     return nats;
   }
@@ -174,15 +170,13 @@ public class Source {
     return this;
   }
 
-   /**
+  /**
    * Get transformer
    * @return transformer
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRANSFORMER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public UDTransformer getTransformer() {
     return transformer;
   }
@@ -200,15 +194,13 @@ public class Source {
     return this;
   }
 
-   /**
+  /**
    * Get udsource
    * @return udsource
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_UDSOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public UDSource getUdsource() {
     return udsource;
   }
@@ -271,5 +263,69 @@ public class Source {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `generator` to the URL query string
+    if (getGenerator() != null) {
+      joiner.add(getGenerator().toUrlQueryString(prefix + "generator" + suffix));
+    }
+
+    // add `http` to the URL query string
+    if (getHttp() != null) {
+      joiner.add(getHttp().toUrlQueryString(prefix + "http" + suffix));
+    }
+
+    // add `kafka` to the URL query string
+    if (getKafka() != null) {
+      joiner.add(getKafka().toUrlQueryString(prefix + "kafka" + suffix));
+    }
+
+    // add `nats` to the URL query string
+    if (getNats() != null) {
+      joiner.add(getNats().toUrlQueryString(prefix + "nats" + suffix));
+    }
+
+    // add `transformer` to the URL query string
+    if (getTransformer() != null) {
+      joiner.add(getTransformer().toUrlQueryString(prefix + "transformer" + suffix));
+    }
+
+    // add `udsource` to the URL query string
+    if (getUdsource() != null) {
+      joiner.add(getUdsource().toUrlQueryString(prefix + "udsource" + suffix));
+    }
+
+    return joiner.toString();
+  }
 }
 

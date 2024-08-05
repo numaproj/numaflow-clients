@@ -18,24 +18,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for SlidingWindow
  */
-public class SlidingWindowTest {
+class SlidingWindowTest {
     private final SlidingWindow model = new SlidingWindow();
 
     /**
      * Model tests for SlidingWindow
      */
     @Test
-    public void testSlidingWindow() {
+    void testSlidingWindow() {
         // TODO: test SlidingWindow
     }
 
@@ -43,7 +41,7 @@ public class SlidingWindowTest {
      * Test the property 'length'
      */
     @Test
-    public void lengthTest() {
+    void lengthTest() {
         // TODO: test length
     }
 
@@ -51,7 +49,7 @@ public class SlidingWindowTest {
      * Test the property 'slide'
      */
     @Test
-    public void slideTest() {
+    void slideTest() {
         // TODO: test slide
     }
 
@@ -59,7 +57,7 @@ public class SlidingWindowTest {
      * Test the property 'streaming'
      */
     @Test
-    public void streamingTest() {
+    void streamingTest() {
         // TODO: test streaming
     }
 

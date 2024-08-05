@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -25,11 +27,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.numaproj.numaflow.models.InterStepBufferServiceSpec;
 import io.numaproj.numaflow.models.InterStepBufferServiceStatus;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * InterStepBufferService
  */
@@ -40,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   InterStepBufferService.JSON_PROPERTY_SPEC,
   InterStepBufferService.JSON_PROPERTY_STATUS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class InterStepBufferService implements io.kubernetes.client.common.KubernetesObject {
   public static final String JSON_PROPERTY_API_VERSION = "apiVersion";
   private String apiVersion;
@@ -57,21 +59,21 @@ public class InterStepBufferService implements io.kubernetes.client.common.Kuber
   public static final String JSON_PROPERTY_STATUS = "status";
   private InterStepBufferServiceStatus status;
 
+  public InterStepBufferService() { 
+  }
 
   public InterStepBufferService apiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return this;
   }
 
-   /**
+  /**
    * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
    * @return apiVersion
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
   @JsonProperty(JSON_PROPERTY_API_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getApiVersion() {
     return apiVersion;
   }
@@ -89,15 +91,13 @@ public class InterStepBufferService implements io.kubernetes.client.common.Kuber
     return this;
   }
 
-   /**
+  /**
    * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
   @JsonProperty(JSON_PROPERTY_KIND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getKind() {
     return kind;
   }
@@ -115,15 +115,13 @@ public class InterStepBufferService implements io.kubernetes.client.common.Kuber
     return this;
   }
 
-   /**
+  /**
    * Get metadata
    * @return metadata
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1ObjectMeta getMetadata() {
     return metadata;
   }
@@ -141,15 +139,13 @@ public class InterStepBufferService implements io.kubernetes.client.common.Kuber
     return this;
   }
 
-   /**
+  /**
    * Get spec
    * @return spec
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SPEC)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public InterStepBufferServiceSpec getSpec() {
     return spec;
   }
@@ -167,15 +163,13 @@ public class InterStepBufferService implements io.kubernetes.client.common.Kuber
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public InterStepBufferServiceStatus getStatus() {
     return status;
   }
@@ -236,5 +230,64 @@ public class InterStepBufferService implements io.kubernetes.client.common.Kuber
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `apiVersion` to the URL query string
+    if (getApiVersion() != null) {
+      joiner.add(String.format("%sapiVersion%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getApiVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `kind` to the URL query string
+    if (getKind() != null) {
+      joiner.add(String.format("%skind%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getKind()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `metadata` to the URL query string
+    if (getMetadata() != null) {
+      joiner.add(String.format("%smetadata%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMetadata()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `spec` to the URL query string
+    if (getSpec() != null) {
+      joiner.add(getSpec().toUrlQueryString(prefix + "spec" + suffix));
+    }
+
+    // add `status` to the URL query string
+    if (getStatus() != null) {
+      joiner.add(getStatus().toUrlQueryString(prefix + "status" + suffix));
+    }
+
+    return joiner.toString();
+  }
 }
 

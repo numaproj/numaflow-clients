@@ -18,24 +18,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for Lifecycle
  */
-public class LifecycleTest {
+class LifecycleTest {
     private final Lifecycle model = new Lifecycle();
 
     /**
      * Model tests for Lifecycle
      */
     @Test
-    public void testLifecycle() {
+    void testLifecycle() {
         // TODO: test Lifecycle
     }
 
@@ -43,7 +41,7 @@ public class LifecycleTest {
      * Test the property 'deleteGracePeriodSeconds'
      */
     @Test
-    public void deleteGracePeriodSecondsTest() {
+    void deleteGracePeriodSecondsTest() {
         // TODO: test deleteGracePeriodSeconds
     }
 
@@ -51,7 +49,7 @@ public class LifecycleTest {
      * Test the property 'desiredPhase'
      */
     @Test
-    public void desiredPhaseTest() {
+    void desiredPhaseTest() {
         // TODO: test desiredPhase
     }
 
@@ -59,7 +57,7 @@ public class LifecycleTest {
      * Test the property 'pauseGracePeriodSeconds'
      */
     @Test
-    public void pauseGracePeriodSecondsTest() {
+    void pauseGracePeriodSecondsTest() {
         // TODO: test pauseGracePeriodSeconds
     }
 

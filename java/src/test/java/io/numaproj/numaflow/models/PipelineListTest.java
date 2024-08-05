@@ -20,26 +20,24 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1ListMeta;
 import io.numaproj.numaflow.models.Pipeline;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for PipelineList
  */
-public class PipelineListTest {
+class PipelineListTest {
     private final PipelineList model = new PipelineList();
 
     /**
      * Model tests for PipelineList
      */
     @Test
-    public void testPipelineList() {
+    void testPipelineList() {
         // TODO: test PipelineList
     }
 
@@ -47,7 +45,7 @@ public class PipelineListTest {
      * Test the property 'apiVersion'
      */
     @Test
-    public void apiVersionTest() {
+    void apiVersionTest() {
         // TODO: test apiVersion
     }
 
@@ -55,7 +53,7 @@ public class PipelineListTest {
      * Test the property 'items'
      */
     @Test
-    public void itemsTest() {
+    void itemsTest() {
         // TODO: test items
     }
 
@@ -63,7 +61,7 @@ public class PipelineListTest {
      * Test the property 'kind'
      */
     @Test
-    public void kindTest() {
+    void kindTest() {
         // TODO: test kind
     }
 
@@ -71,7 +69,7 @@ public class PipelineListTest {
      * Test the property 'metadata'
      */
     @Test
-    public void metadataTest() {
+    void metadataTest() {
         // TODO: test metadata
     }
 

@@ -24,24 +24,22 @@ import io.numaproj.numaflow.models.KafkaSource;
 import io.numaproj.numaflow.models.NatsSource;
 import io.numaproj.numaflow.models.UDSource;
 import io.numaproj.numaflow.models.UDTransformer;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for Source
  */
-public class SourceTest {
+class SourceTest {
     private final Source model = new Source();
 
     /**
      * Model tests for Source
      */
     @Test
-    public void testSource() {
+    void testSource() {
         // TODO: test Source
     }
 
@@ -49,7 +47,7 @@ public class SourceTest {
      * Test the property 'generator'
      */
     @Test
-    public void generatorTest() {
+    void generatorTest() {
         // TODO: test generator
     }
 
@@ -57,7 +55,7 @@ public class SourceTest {
      * Test the property 'http'
      */
     @Test
-    public void httpTest() {
+    void httpTest() {
         // TODO: test http
     }
 
@@ -65,7 +63,7 @@ public class SourceTest {
      * Test the property 'kafka'
      */
     @Test
-    public void kafkaTest() {
+    void kafkaTest() {
         // TODO: test kafka
     }
 
@@ -73,7 +71,7 @@ public class SourceTest {
      * Test the property 'nats'
      */
     @Test
-    public void natsTest() {
+    void natsTest() {
         // TODO: test nats
     }
 
@@ -81,7 +79,7 @@ public class SourceTest {
      * Test the property 'transformer'
      */
     @Test
-    public void transformerTest() {
+    void transformerTest() {
         // TODO: test transformer
     }
 
@@ -89,7 +87,7 @@ public class SourceTest {
      * Test the property 'udsource'
      */
     @Test
-    public void udsourceTest() {
+    void udsourceTest() {
         // TODO: test udsource
     }
 

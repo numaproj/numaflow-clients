@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -23,11 +25,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.ForwardConditions;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * Edge
  */
@@ -37,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Edge.JSON_PROPERTY_ON_FULL,
   Edge.JSON_PROPERTY_TO
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Edge {
   public static final String JSON_PROPERTY_CONDITIONS = "conditions";
   private ForwardConditions conditions;
@@ -51,21 +53,21 @@ public class Edge {
   public static final String JSON_PROPERTY_TO = "to";
   private String to;
 
+  public Edge() { 
+  }
 
   public Edge conditions(ForwardConditions conditions) {
     this.conditions = conditions;
     return this;
   }
 
-   /**
+  /**
    * Get conditions
    * @return conditions
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONDITIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ForwardConditions getConditions() {
     return conditions;
   }
@@ -83,15 +85,13 @@ public class Edge {
     return this;
   }
 
-   /**
+  /**
    * Get from
    * @return from
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getFrom() {
     return from;
   }
@@ -109,15 +109,13 @@ public class Edge {
     return this;
   }
 
-   /**
+  /**
    * OnFull specifies the behaviour for the write actions when the inter step buffer is full. There are currently two options, retryUntilSuccess and discardLatest. if not provided, the default value is set to \&quot;retryUntilSuccess\&quot;
    * @return onFull
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "OnFull specifies the behaviour for the write actions when the inter step buffer is full. There are currently two options, retryUntilSuccess and discardLatest. if not provided, the default value is set to \"retryUntilSuccess\"")
   @JsonProperty(JSON_PROPERTY_ON_FULL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOnFull() {
     return onFull;
   }
@@ -135,15 +133,13 @@ public class Edge {
     return this;
   }
 
-   /**
+  /**
    * Get to
    * @return to
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getTo() {
     return to;
   }
@@ -202,5 +198,59 @@ public class Edge {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `conditions` to the URL query string
+    if (getConditions() != null) {
+      joiner.add(getConditions().toUrlQueryString(prefix + "conditions" + suffix));
+    }
+
+    // add `from` to the URL query string
+    if (getFrom() != null) {
+      joiner.add(String.format("%sfrom%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getFrom()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `onFull` to the URL query string
+    if (getOnFull() != null) {
+      joiner.add(String.format("%sonFull%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getOnFull()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `to` to the URL query string
+    if (getTo() != null) {
+      joiner.add(String.format("%sto%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTo()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

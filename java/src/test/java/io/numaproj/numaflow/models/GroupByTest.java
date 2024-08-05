@@ -20,24 +20,22 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.PBQStorage;
 import io.numaproj.numaflow.models.Window;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for GroupBy
  */
-public class GroupByTest {
+class GroupByTest {
     private final GroupBy model = new GroupBy();
 
     /**
      * Model tests for GroupBy
      */
     @Test
-    public void testGroupBy() {
+    void testGroupBy() {
         // TODO: test GroupBy
     }
 
@@ -45,7 +43,7 @@ public class GroupByTest {
      * Test the property 'allowedLateness'
      */
     @Test
-    public void allowedLatenessTest() {
+    void allowedLatenessTest() {
         // TODO: test allowedLateness
     }
 
@@ -53,7 +51,7 @@ public class GroupByTest {
      * Test the property 'keyed'
      */
     @Test
-    public void keyedTest() {
+    void keyedTest() {
         // TODO: test keyed
     }
 
@@ -61,7 +59,7 @@ public class GroupByTest {
      * Test the property 'storage'
      */
     @Test
-    public void storageTest() {
+    void storageTest() {
         // TODO: test storage
     }
 
@@ -69,7 +67,7 @@ public class GroupByTest {
      * Test the property 'window'
      */
     @Test
-    public void windowTest() {
+    void windowTest() {
         // TODO: test window
     }
 

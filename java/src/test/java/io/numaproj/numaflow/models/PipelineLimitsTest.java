@@ -18,24 +18,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for PipelineLimits
  */
-public class PipelineLimitsTest {
+class PipelineLimitsTest {
     private final PipelineLimits model = new PipelineLimits();
 
     /**
      * Model tests for PipelineLimits
      */
     @Test
-    public void testPipelineLimits() {
+    void testPipelineLimits() {
         // TODO: test PipelineLimits
     }
 
@@ -43,7 +41,7 @@ public class PipelineLimitsTest {
      * Test the property 'bufferMaxLength'
      */
     @Test
-    public void bufferMaxLengthTest() {
+    void bufferMaxLengthTest() {
         // TODO: test bufferMaxLength
     }
 
@@ -51,7 +49,7 @@ public class PipelineLimitsTest {
      * Test the property 'bufferUsageLimit'
      */
     @Test
-    public void bufferUsageLimitTest() {
+    void bufferUsageLimitTest() {
         // TODO: test bufferUsageLimit
     }
 
@@ -59,7 +57,7 @@ public class PipelineLimitsTest {
      * Test the property 'readBatchSize'
      */
     @Test
-    public void readBatchSizeTest() {
+    void readBatchSizeTest() {
         // TODO: test readBatchSize
     }
 
@@ -67,7 +65,7 @@ public class PipelineLimitsTest {
      * Test the property 'readTimeout'
      */
     @Test
-    public void readTimeoutTest() {
+    void readTimeoutTest() {
         // TODO: test readTimeout
     }
 

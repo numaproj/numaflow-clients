@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -24,13 +26,13 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1EnvVar;
 import io.kubernetes.client.openapi.models.V1ResourceRequirements;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * GetSideInputDeploymentReq
  */
@@ -41,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GetSideInputDeploymentReq.JSON_PROPERTY_IMAGE,
   GetSideInputDeploymentReq.JSON_PROPERTY_PULL_POLICY
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class GetSideInputDeploymentReq {
   public static final String JSON_PROPERTY_DEFAULT_RESOURCES = "DefaultResources";
   private V1ResourceRequirements defaultResources = null;
@@ -58,21 +60,21 @@ public class GetSideInputDeploymentReq {
   public static final String JSON_PROPERTY_PULL_POLICY = "PullPolicy";
   private String pullPolicy;
 
+  public GetSideInputDeploymentReq() { 
+  }
 
   public GetSideInputDeploymentReq defaultResources(V1ResourceRequirements defaultResources) {
     this.defaultResources = defaultResources;
     return this;
   }
 
-   /**
+  /**
    * Get defaultResources
    * @return defaultResources
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DEFAULT_RESOURCES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public V1ResourceRequirements getDefaultResources() {
     return defaultResources;
   }
@@ -91,19 +93,20 @@ public class GetSideInputDeploymentReq {
   }
 
   public GetSideInputDeploymentReq addEnvItem(V1EnvVar envItem) {
+    if (this.env == null) {
+      this.env = new ArrayList<>();
+    }
     this.env.add(envItem);
     return this;
   }
 
-   /**
+  /**
    * Get env
    * @return env
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ENV)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public List<V1EnvVar> getEnv() {
     return env;
   }
@@ -121,15 +124,13 @@ public class GetSideInputDeploymentReq {
     return this;
   }
 
-   /**
+  /**
    * Get isBSvcType
    * @return isBSvcType
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IS_B_SVC_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getIsBSvcType() {
     return isBSvcType;
   }
@@ -147,15 +148,13 @@ public class GetSideInputDeploymentReq {
     return this;
   }
 
-   /**
+  /**
    * Get image
    * @return image
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IMAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getImage() {
     return image;
   }
@@ -173,15 +172,13 @@ public class GetSideInputDeploymentReq {
     return this;
   }
 
-   /**
+  /**
    * Get pullPolicy
    * @return pullPolicy
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PULL_POLICY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getPullPolicy() {
     return pullPolicy;
   }
@@ -242,5 +239,70 @@ public class GetSideInputDeploymentReq {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `DefaultResources` to the URL query string
+    if (getDefaultResources() != null) {
+      joiner.add(String.format("%sDefaultResources%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDefaultResources()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `Env` to the URL query string
+    if (getEnv() != null) {
+      for (int i = 0; i < getEnv().size(); i++) {
+        if (getEnv().get(i) != null) {
+          joiner.add(String.format("%sEnv%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getEnv().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `ISBSvcType` to the URL query string
+    if (getIsBSvcType() != null) {
+      joiner.add(String.format("%sISBSvcType%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getIsBSvcType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `Image` to the URL query string
+    if (getImage() != null) {
+      joiner.add(String.format("%sImage%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getImage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `PullPolicy` to the URL query string
+    if (getPullPolicy() != null) {
+      joiner.add(String.format("%sPullPolicy%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPullPolicy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

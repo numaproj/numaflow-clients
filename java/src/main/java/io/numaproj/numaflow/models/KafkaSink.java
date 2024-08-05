@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -24,13 +26,13 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.SASL;
 import io.numaproj.numaflow.models.TLS;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * KafkaSink
  */
@@ -41,10 +43,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   KafkaSink.JSON_PROPERTY_TLS,
   KafkaSink.JSON_PROPERTY_TOPIC
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class KafkaSink {
   public static final String JSON_PROPERTY_BROKERS = "brokers";
-  private List<String> brokers = null;
+  private List<String> brokers = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CONFIG = "config";
   private String config;
@@ -58,6 +60,8 @@ public class KafkaSink {
   public static final String JSON_PROPERTY_TOPIC = "topic";
   private String topic;
 
+  public KafkaSink() { 
+  }
 
   public KafkaSink brokers(List<String> brokers) {
     this.brokers = brokers;
@@ -72,15 +76,13 @@ public class KafkaSink {
     return this;
   }
 
-   /**
+  /**
    * Get brokers
    * @return brokers
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BROKERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getBrokers() {
     return brokers;
   }
@@ -98,15 +100,13 @@ public class KafkaSink {
     return this;
   }
 
-   /**
+  /**
    * Get config
    * @return config
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getConfig() {
     return config;
   }
@@ -124,15 +124,13 @@ public class KafkaSink {
     return this;
   }
 
-   /**
+  /**
    * Get sasl
    * @return sasl
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SASL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SASL getSasl() {
     return sasl;
   }
@@ -150,15 +148,13 @@ public class KafkaSink {
     return this;
   }
 
-   /**
+  /**
    * Get tls
    * @return tls
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TLS getTls() {
     return tls;
   }
@@ -176,15 +172,13 @@ public class KafkaSink {
     return this;
   }
 
-   /**
+  /**
    * Get topic
    * @return topic
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TOPIC)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getTopic() {
     return topic;
   }
@@ -245,5 +239,68 @@ public class KafkaSink {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `brokers` to the URL query string
+    if (getBrokers() != null) {
+      for (int i = 0; i < getBrokers().size(); i++) {
+        joiner.add(String.format("%sbrokers%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(ApiClient.valueToString(getBrokers().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    // add `config` to the URL query string
+    if (getConfig() != null) {
+      joiner.add(String.format("%sconfig%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getConfig()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `sasl` to the URL query string
+    if (getSasl() != null) {
+      joiner.add(getSasl().toUrlQueryString(prefix + "sasl" + suffix));
+    }
+
+    // add `tls` to the URL query string
+    if (getTls() != null) {
+      joiner.add(getTls().toUrlQueryString(prefix + "tls" + suffix));
+    }
+
+    // add `topic` to the URL query string
+    if (getTopic() != null) {
+      joiner.add(String.format("%stopic%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTopic()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

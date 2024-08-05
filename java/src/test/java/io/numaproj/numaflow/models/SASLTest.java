@@ -20,24 +20,22 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.GSSAPI;
 import io.numaproj.numaflow.models.SASLPlain;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for SASL
  */
-public class SASLTest {
+class SASLTest {
     private final SASL model = new SASL();
 
     /**
      * Model tests for SASL
      */
     @Test
-    public void testSASL() {
+    void testSASL() {
         // TODO: test SASL
     }
 
@@ -45,7 +43,7 @@ public class SASLTest {
      * Test the property 'gssapi'
      */
     @Test
-    public void gssapiTest() {
+    void gssapiTest() {
         // TODO: test gssapi
     }
 
@@ -53,7 +51,7 @@ public class SASLTest {
      * Test the property 'mechanism'
      */
     @Test
-    public void mechanismTest() {
+    void mechanismTest() {
         // TODO: test mechanism
     }
 
@@ -61,7 +59,7 @@ public class SASLTest {
      * Test the property 'plain'
      */
     @Test
-    public void plainTest() {
+    void plainTest() {
         // TODO: test plain
     }
 
@@ -69,7 +67,7 @@ public class SASLTest {
      * Test the property 'scramsha256'
      */
     @Test
-    public void scramsha256Test() {
+    void scramsha256Test() {
         // TODO: test scramsha256
     }
 
@@ -77,7 +75,7 @@ public class SASLTest {
      * Test the property 'scramsha512'
      */
     @Test
-    public void scramsha512Test() {
+    void scramsha512Test() {
         // TODO: test scramsha512
     }
 

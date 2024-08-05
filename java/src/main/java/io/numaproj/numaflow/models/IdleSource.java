@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,11 +24,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * IdleSource
  */
@@ -35,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   IdleSource.JSON_PROPERTY_STEP_INTERVAL,
   IdleSource.JSON_PROPERTY_THRESHOLD
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class IdleSource {
   public static final String JSON_PROPERTY_INCREMENT_BY = "incrementBy";
   private String incrementBy = null;
@@ -46,21 +48,21 @@ public class IdleSource {
   public static final String JSON_PROPERTY_THRESHOLD = "threshold";
   private String threshold = null;
 
+  public IdleSource() { 
+  }
 
   public IdleSource incrementBy(String incrementBy) {
     this.incrementBy = incrementBy;
     return this;
   }
 
-   /**
+  /**
    * Get incrementBy
    * @return incrementBy
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INCREMENT_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIncrementBy() {
     return incrementBy;
   }
@@ -78,15 +80,13 @@ public class IdleSource {
     return this;
   }
 
-   /**
+  /**
    * Get stepInterval
    * @return stepInterval
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STEP_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStepInterval() {
     return stepInterval;
   }
@@ -104,15 +104,13 @@ public class IdleSource {
     return this;
   }
 
-   /**
+  /**
    * Get threshold
    * @return threshold
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_THRESHOLD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getThreshold() {
     return threshold;
   }
@@ -169,5 +167,54 @@ public class IdleSource {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `incrementBy` to the URL query string
+    if (getIncrementBy() != null) {
+      joiner.add(String.format("%sincrementBy%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getIncrementBy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `stepInterval` to the URL query string
+    if (getStepInterval() != null) {
+      joiner.add(String.format("%sstepInterval%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStepInterval()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `threshold` to the URL query string
+    if (getThreshold() != null) {
+      joiner.add(String.format("%sthreshold%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getThreshold()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

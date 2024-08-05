@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -24,15 +26,14 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.ForwardConditions;
 import io.numaproj.numaflow.models.VertexLimits;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * CombinedEdge is a combination of Edge and some other properties such as vertex type, partitions, limits. It&#39;s used to decorate the fromEdges and toEdges of the generated Vertex objects, so that in the vertex pod, it knows the properties of the connected vertices, for example, how many partitioned buffers I should write to, what is the write buffer length, etc.
  */
-@ApiModel(description = "CombinedEdge is a combination of Edge and some other properties such as vertex type, partitions, limits. It's used to decorate the fromEdges and toEdges of the generated Vertex objects, so that in the vertex pod, it knows the properties of the connected vertices, for example, how many partitioned buffers I should write to, what is the write buffer length, etc.")
 @JsonPropertyOrder({
   CombinedEdge.JSON_PROPERTY_CONDITIONS,
   CombinedEdge.JSON_PROPERTY_FROM,
@@ -45,7 +46,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CombinedEdge.JSON_PROPERTY_TO_VERTEX_PARTITION_COUNT,
   CombinedEdge.JSON_PROPERTY_TO_VERTEX_TYPE
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class CombinedEdge {
   public static final String JSON_PROPERTY_CONDITIONS = "conditions";
   private ForwardConditions conditions;
@@ -77,21 +78,21 @@ public class CombinedEdge {
   public static final String JSON_PROPERTY_TO_VERTEX_TYPE = "toVertexType";
   private String toVertexType;
 
+  public CombinedEdge() { 
+  }
 
   public CombinedEdge conditions(ForwardConditions conditions) {
     this.conditions = conditions;
     return this;
   }
 
-   /**
+  /**
    * Get conditions
    * @return conditions
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONDITIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ForwardConditions getConditions() {
     return conditions;
   }
@@ -109,15 +110,13 @@ public class CombinedEdge {
     return this;
   }
 
-   /**
+  /**
    * Get from
    * @return from
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getFrom() {
     return from;
   }
@@ -135,15 +134,13 @@ public class CombinedEdge {
     return this;
   }
 
-   /**
+  /**
    * Get fromVertexLimits
    * @return fromVertexLimits
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FROM_VERTEX_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public VertexLimits getFromVertexLimits() {
     return fromVertexLimits;
   }
@@ -161,15 +158,13 @@ public class CombinedEdge {
     return this;
   }
 
-   /**
+  /**
    * The number of partitions of the from vertex, if not provided, the default value is set to \&quot;1\&quot;.
    * @return fromVertexPartitionCount
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of partitions of the from vertex, if not provided, the default value is set to \"1\".")
   @JsonProperty(JSON_PROPERTY_FROM_VERTEX_PARTITION_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getFromVertexPartitionCount() {
     return fromVertexPartitionCount;
   }
@@ -187,15 +182,13 @@ public class CombinedEdge {
     return this;
   }
 
-   /**
+  /**
    * From vertex type.
    * @return fromVertexType
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "From vertex type.")
   @JsonProperty(JSON_PROPERTY_FROM_VERTEX_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getFromVertexType() {
     return fromVertexType;
   }
@@ -213,15 +206,13 @@ public class CombinedEdge {
     return this;
   }
 
-   /**
+  /**
    * OnFull specifies the behaviour for the write actions when the inter step buffer is full. There are currently two options, retryUntilSuccess and discardLatest. if not provided, the default value is set to \&quot;retryUntilSuccess\&quot;
    * @return onFull
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "OnFull specifies the behaviour for the write actions when the inter step buffer is full. There are currently two options, retryUntilSuccess and discardLatest. if not provided, the default value is set to \"retryUntilSuccess\"")
   @JsonProperty(JSON_PROPERTY_ON_FULL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOnFull() {
     return onFull;
   }
@@ -239,15 +230,13 @@ public class CombinedEdge {
     return this;
   }
 
-   /**
+  /**
    * Get to
    * @return to
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getTo() {
     return to;
   }
@@ -265,15 +254,13 @@ public class CombinedEdge {
     return this;
   }
 
-   /**
+  /**
    * Get toVertexLimits
    * @return toVertexLimits
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TO_VERTEX_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public VertexLimits getToVertexLimits() {
     return toVertexLimits;
   }
@@ -291,15 +278,13 @@ public class CombinedEdge {
     return this;
   }
 
-   /**
+  /**
    * The number of partitions of the to vertex, if not provided, the default value is set to \&quot;1\&quot;.
    * @return toVertexPartitionCount
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of partitions of the to vertex, if not provided, the default value is set to \"1\".")
   @JsonProperty(JSON_PROPERTY_TO_VERTEX_PARTITION_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getToVertexPartitionCount() {
     return toVertexPartitionCount;
   }
@@ -317,15 +302,13 @@ public class CombinedEdge {
     return this;
   }
 
-   /**
+  /**
    * To vertex type.
    * @return toVertexType
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "To vertex type.")
   @JsonProperty(JSON_PROPERTY_TO_VERTEX_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getToVertexType() {
     return toVertexType;
   }
@@ -396,5 +379,89 @@ public class CombinedEdge {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `conditions` to the URL query string
+    if (getConditions() != null) {
+      joiner.add(getConditions().toUrlQueryString(prefix + "conditions" + suffix));
+    }
+
+    // add `from` to the URL query string
+    if (getFrom() != null) {
+      joiner.add(String.format("%sfrom%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getFrom()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `fromVertexLimits` to the URL query string
+    if (getFromVertexLimits() != null) {
+      joiner.add(getFromVertexLimits().toUrlQueryString(prefix + "fromVertexLimits" + suffix));
+    }
+
+    // add `fromVertexPartitionCount` to the URL query string
+    if (getFromVertexPartitionCount() != null) {
+      joiner.add(String.format("%sfromVertexPartitionCount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getFromVertexPartitionCount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `fromVertexType` to the URL query string
+    if (getFromVertexType() != null) {
+      joiner.add(String.format("%sfromVertexType%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getFromVertexType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `onFull` to the URL query string
+    if (getOnFull() != null) {
+      joiner.add(String.format("%sonFull%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getOnFull()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `to` to the URL query string
+    if (getTo() != null) {
+      joiner.add(String.format("%sto%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTo()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `toVertexLimits` to the URL query string
+    if (getToVertexLimits() != null) {
+      joiner.add(getToVertexLimits().toUrlQueryString(prefix + "toVertexLimits" + suffix));
+    }
+
+    // add `toVertexPartitionCount` to the URL query string
+    if (getToVertexPartitionCount() != null) {
+      joiner.add(String.format("%stoVertexPartitionCount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getToVertexPartitionCount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `toVertexType` to the URL query string
+    if (getToVertexType() != null) {
+      joiner.add(String.format("%stoVertexType%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getToVertexType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

@@ -19,24 +19,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.Vertex;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for VertexInstance
  */
-public class VertexInstanceTest {
+class VertexInstanceTest {
     private final VertexInstance model = new VertexInstance();
 
     /**
      * Model tests for VertexInstance
      */
     @Test
-    public void testVertexInstance() {
+    void testVertexInstance() {
         // TODO: test VertexInstance
     }
 
@@ -44,7 +42,7 @@ public class VertexInstanceTest {
      * Test the property 'hostname'
      */
     @Test
-    public void hostnameTest() {
+    void hostnameTest() {
         // TODO: test hostname
     }
 
@@ -52,7 +50,7 @@ public class VertexInstanceTest {
      * Test the property 'replica'
      */
     @Test
-    public void replicaTest() {
+    void replicaTest() {
         // TODO: test replica
     }
 
@@ -60,7 +58,7 @@ public class VertexInstanceTest {
      * Test the property 'vertex'
      */
     @Test
-    public void vertexTest() {
+    void vertexTest() {
         // TODO: test vertex
     }
 

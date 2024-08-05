@@ -18,28 +18,26 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for Transformer
  */
-public class TransformerTest {
+class TransformerTest {
     private final Transformer model = new Transformer();
 
     /**
      * Model tests for Transformer
      */
     @Test
-    public void testTransformer() {
+    void testTransformer() {
         // TODO: test Transformer
     }
 
@@ -47,7 +45,7 @@ public class TransformerTest {
      * Test the property 'args'
      */
     @Test
-    public void argsTest() {
+    void argsTest() {
         // TODO: test args
     }
 
@@ -55,7 +53,7 @@ public class TransformerTest {
      * Test the property 'kwargs'
      */
     @Test
-    public void kwargsTest() {
+    void kwargsTest() {
         // TODO: test kwargs
     }
 
@@ -63,7 +61,7 @@ public class TransformerTest {
      * Test the property 'name'
      */
     @Test
-    public void nameTest() {
+    void nameTest() {
         // TODO: test name
     }
 

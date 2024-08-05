@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -23,11 +25,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1SecretKeySelector;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * SASLPlain
  */
@@ -36,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SASLPlain.JSON_PROPERTY_PASSWORD_SECRET,
   SASLPlain.JSON_PROPERTY_USER_SECRET
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class SASLPlain {
   public static final String JSON_PROPERTY_HANDSHAKE = "handshake";
   private Boolean handshake;
@@ -47,21 +49,21 @@ public class SASLPlain {
   public static final String JSON_PROPERTY_USER_SECRET = "userSecret";
   private V1SecretKeySelector userSecret = null;
 
+  public SASLPlain() { 
+  }
 
   public SASLPlain handshake(Boolean handshake) {
     this.handshake = handshake;
     return this;
   }
 
-   /**
+  /**
    * Get handshake
    * @return handshake
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_HANDSHAKE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Boolean getHandshake() {
     return handshake;
   }
@@ -79,15 +81,13 @@ public class SASLPlain {
     return this;
   }
 
-   /**
+  /**
    * Get passwordSecret
    * @return passwordSecret
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PASSWORD_SECRET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1SecretKeySelector getPasswordSecret() {
     return passwordSecret;
   }
@@ -105,15 +105,13 @@ public class SASLPlain {
     return this;
   }
 
-   /**
+  /**
    * Get userSecret
    * @return userSecret
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_USER_SECRET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public V1SecretKeySelector getUserSecret() {
     return userSecret;
   }
@@ -170,5 +168,54 @@ public class SASLPlain {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `handshake` to the URL query string
+    if (getHandshake() != null) {
+      joiner.add(String.format("%shandshake%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getHandshake()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `passwordSecret` to the URL query string
+    if (getPasswordSecret() != null) {
+      joiner.add(String.format("%spasswordSecret%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPasswordSecret()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `userSecret` to the URL query string
+    if (getUserSecret() != null) {
+      joiner.add(String.format("%suserSecret%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUserSecret()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -38,15 +40,15 @@ import io.numaproj.numaflow.models.Source;
 import io.numaproj.numaflow.models.UDF;
 import io.numaproj.numaflow.models.VertexLimits;
 import io.numaproj.numaflow.models.Watermark;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * VertexSpec
  */
@@ -85,7 +87,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   VertexSpec.JSON_PROPERTY_VOLUMES,
   VertexSpec.JSON_PROPERTY_WATERMARK
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class VertexSpec {
   public static final String JSON_PROPERTY_AFFINITY = "affinity";
   private V1Affinity affinity = null;
@@ -103,16 +105,16 @@ public class VertexSpec {
   private String dnsPolicy;
 
   public static final String JSON_PROPERTY_FROM_EDGES = "fromEdges";
-  private List<CombinedEdge> fromEdges = null;
+  private List<CombinedEdge> fromEdges = new ArrayList<>();
 
   public static final String JSON_PROPERTY_IMAGE_PULL_SECRETS = "imagePullSecrets";
-  private List<V1LocalObjectReference> imagePullSecrets = null;
+  private List<V1LocalObjectReference> imagePullSecrets = new ArrayList<>();
 
   public static final String JSON_PROPERTY_INIT_CONTAINER_TEMPLATE = "initContainerTemplate";
   private ContainerTemplate initContainerTemplate;
 
   public static final String JSON_PROPERTY_INIT_CONTAINERS = "initContainers";
-  private List<V1Container> initContainers = null;
+  private List<V1Container> initContainers = new ArrayList<>();
 
   public static final String JSON_PROPERTY_INTER_STEP_BUFFER_SERVICE_NAME = "interStepBufferServiceName";
   private String interStepBufferServiceName;
@@ -127,7 +129,7 @@ public class VertexSpec {
   private String name;
 
   public static final String JSON_PROPERTY_NODE_SELECTOR = "nodeSelector";
-  private Map<String, String> nodeSelector = null;
+  private Map<String, String> nodeSelector = new HashMap<>();
 
   public static final String JSON_PROPERTY_PARTITIONS = "partitions";
   private Integer partitions;
@@ -157,13 +159,13 @@ public class VertexSpec {
   private String serviceAccountName;
 
   public static final String JSON_PROPERTY_SIDE_INPUTS = "sideInputs";
-  private List<String> sideInputs = null;
+  private List<String> sideInputs = new ArrayList<>();
 
   public static final String JSON_PROPERTY_SIDE_INPUTS_CONTAINER_TEMPLATE = "sideInputsContainerTemplate";
   private ContainerTemplate sideInputsContainerTemplate;
 
   public static final String JSON_PROPERTY_SIDECARS = "sidecars";
-  private List<V1Container> sidecars = null;
+  private List<V1Container> sidecars = new ArrayList<>();
 
   public static final String JSON_PROPERTY_SINK = "sink";
   private Sink sink;
@@ -172,35 +174,35 @@ public class VertexSpec {
   private Source source;
 
   public static final String JSON_PROPERTY_TO_EDGES = "toEdges";
-  private List<CombinedEdge> toEdges = null;
+  private List<CombinedEdge> toEdges = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TOLERATIONS = "tolerations";
-  private List<V1Toleration> tolerations = null;
+  private List<V1Toleration> tolerations = new ArrayList<>();
 
   public static final String JSON_PROPERTY_UDF = "udf";
   private UDF udf;
 
   public static final String JSON_PROPERTY_VOLUMES = "volumes";
-  private List<V1Volume> volumes = null;
+  private List<V1Volume> volumes = new ArrayList<>();
 
   public static final String JSON_PROPERTY_WATERMARK = "watermark";
   private Watermark watermark;
 
+  public VertexSpec() { 
+  }
 
   public VertexSpec affinity(V1Affinity affinity) {
     this.affinity = affinity;
     return this;
   }
 
-   /**
+  /**
    * Get affinity
    * @return affinity
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AFFINITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1Affinity getAffinity() {
     return affinity;
   }
@@ -218,15 +220,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * AutomountServiceAccountToken indicates whether a service account token should be automatically mounted.
    * @return automountServiceAccountToken
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "AutomountServiceAccountToken indicates whether a service account token should be automatically mounted.")
   @JsonProperty(JSON_PROPERTY_AUTOMOUNT_SERVICE_ACCOUNT_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAutomountServiceAccountToken() {
     return automountServiceAccountToken;
   }
@@ -244,15 +244,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Get containerTemplate
    * @return containerTemplate
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONTAINER_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ContainerTemplate getContainerTemplate() {
     return containerTemplate;
   }
@@ -270,15 +268,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Get dnsConfig
    * @return dnsConfig
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DNS_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1PodDNSConfig getDnsConfig() {
     return dnsConfig;
   }
@@ -296,15 +292,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Set DNS policy for the pod. Defaults to \&quot;ClusterFirst\&quot;. Valid values are &#39;ClusterFirstWithHostNet&#39;, &#39;ClusterFirst&#39;, &#39;Default&#39; or &#39;None&#39;. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to &#39;ClusterFirstWithHostNet&#39;.
    * @return dnsPolicy
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Set DNS policy for the pod. Defaults to \"ClusterFirst\". Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'.")
   @JsonProperty(JSON_PROPERTY_DNS_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDnsPolicy() {
     return dnsPolicy;
   }
@@ -330,15 +324,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Get fromEdges
    * @return fromEdges
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FROM_EDGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<CombinedEdge> getFromEdges() {
     return fromEdges;
   }
@@ -364,15 +356,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. For example, in the case of docker, only DockerConfig type secrets are honored. More info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod
    * @return imagePullSecrets
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. For example, in the case of docker, only DockerConfig type secrets are honored. More info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod")
   @JsonProperty(JSON_PROPERTY_IMAGE_PULL_SECRETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1LocalObjectReference> getImagePullSecrets() {
     return imagePullSecrets;
   }
@@ -390,15 +380,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Get initContainerTemplate
    * @return initContainerTemplate
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INIT_CONTAINER_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ContainerTemplate getInitContainerTemplate() {
     return initContainerTemplate;
   }
@@ -424,15 +412,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * List of customized init containers belonging to the pod. More info: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/
    * @return initContainers
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of customized init containers belonging to the pod. More info: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/")
   @JsonProperty(JSON_PROPERTY_INIT_CONTAINERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1Container> getInitContainers() {
     return initContainers;
   }
@@ -450,15 +436,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Get interStepBufferServiceName
    * @return interStepBufferServiceName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INTER_STEP_BUFFER_SERVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getInterStepBufferServiceName() {
     return interStepBufferServiceName;
   }
@@ -476,15 +460,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Get limits
    * @return limits
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public VertexLimits getLimits() {
     return limits;
   }
@@ -502,15 +484,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Get metadata
    * @return metadata
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Metadata getMetadata() {
     return metadata;
   }
@@ -528,15 +508,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getName() {
     return name;
   }
@@ -562,15 +540,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node&#39;s labels for the pod to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
    * @return nodeSelector
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node's labels for the pod to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/")
   @JsonProperty(JSON_PROPERTY_NODE_SELECTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getNodeSelector() {
     return nodeSelector;
   }
@@ -588,15 +564,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Number of partitions of the vertex owned buffers. It applies to udf and sink vertices only.
    * @return partitions
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of partitions of the vertex owned buffers. It applies to udf and sink vertices only.")
   @JsonProperty(JSON_PROPERTY_PARTITIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getPartitions() {
     return partitions;
   }
@@ -614,15 +588,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Get pipelineName
    * @return pipelineName
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PIPELINE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getPipelineName() {
     return pipelineName;
   }
@@ -640,15 +612,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * The priority value. Various system components use this field to find the priority of the Redis pod. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority. More info: https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/
    * @return priority
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The priority value. Various system components use this field to find the priority of the Redis pod. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority. More info: https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/")
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getPriority() {
     return priority;
   }
@@ -666,15 +636,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * If specified, indicates the Redis pod&#39;s priority. \&quot;system-node-critical\&quot; and \&quot;system-cluster-critical\&quot; are two special keywords which indicate the highest priorities with the former being the highest priority. Any other name must be defined by creating a PriorityClass object with that name. If not specified, the pod priority will be default or zero if there is no default. More info: https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/
    * @return priorityClassName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If specified, indicates the Redis pod's priority. \"system-node-critical\" and \"system-cluster-critical\" are two special keywords which indicate the highest priorities with the former being the highest priority. Any other name must be defined by creating a PriorityClass object with that name. If not specified, the pod priority will be default or zero if there is no default. More info: https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/")
   @JsonProperty(JSON_PROPERTY_PRIORITY_CLASS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPriorityClassName() {
     return priorityClassName;
   }
@@ -692,15 +660,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Get replicas
    * @return replicas
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REPLICAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getReplicas() {
     return replicas;
   }
@@ -718,15 +684,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * RuntimeClassName refers to a RuntimeClass object in the node.k8s.io group, which should be used to run this pod.  If no RuntimeClass resource matches the named class, the pod will not be run. If unset or empty, the \&quot;legacy\&quot; RuntimeClass will be used, which is an implicit class with an empty definition that uses the default runtime handler. More info: https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class
    * @return runtimeClassName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "RuntimeClassName refers to a RuntimeClass object in the node.k8s.io group, which should be used to run this pod.  If no RuntimeClass resource matches the named class, the pod will not be run. If unset or empty, the \"legacy\" RuntimeClass will be used, which is an implicit class with an empty definition that uses the default runtime handler. More info: https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class")
   @JsonProperty(JSON_PROPERTY_RUNTIME_CLASS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRuntimeClassName() {
     return runtimeClassName;
   }
@@ -744,15 +708,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Get scale
    * @return scale
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Scale getScale() {
     return scale;
   }
@@ -770,15 +732,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Get securityContext
    * @return securityContext
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY_CONTEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1PodSecurityContext getSecurityContext() {
     return securityContext;
   }
@@ -796,15 +756,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * ServiceAccountName applied to the pod
    * @return serviceAccountName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ServiceAccountName applied to the pod")
   @JsonProperty(JSON_PROPERTY_SERVICE_ACCOUNT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getServiceAccountName() {
     return serviceAccountName;
   }
@@ -830,15 +788,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Names of the side inputs used in this vertex.
    * @return sideInputs
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Names of the side inputs used in this vertex.")
   @JsonProperty(JSON_PROPERTY_SIDE_INPUTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getSideInputs() {
     return sideInputs;
   }
@@ -856,15 +812,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Get sideInputsContainerTemplate
    * @return sideInputsContainerTemplate
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIDE_INPUTS_CONTAINER_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ContainerTemplate getSideInputsContainerTemplate() {
     return sideInputsContainerTemplate;
   }
@@ -890,15 +844,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * List of customized sidecar containers belonging to the pod.
    * @return sidecars
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of customized sidecar containers belonging to the pod.")
   @JsonProperty(JSON_PROPERTY_SIDECARS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1Container> getSidecars() {
     return sidecars;
   }
@@ -916,15 +868,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Get sink
    * @return sink
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Sink getSink() {
     return sink;
   }
@@ -942,15 +892,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Get source
    * @return source
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Source getSource() {
     return source;
   }
@@ -976,15 +924,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Get toEdges
    * @return toEdges
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TO_EDGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<CombinedEdge> getToEdges() {
     return toEdges;
   }
@@ -1010,15 +956,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * If specified, the pod&#39;s tolerations.
    * @return tolerations
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If specified, the pod's tolerations.")
   @JsonProperty(JSON_PROPERTY_TOLERATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1Toleration> getTolerations() {
     return tolerations;
   }
@@ -1036,15 +980,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Get udf
    * @return udf
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_UDF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public UDF getUdf() {
     return udf;
   }
@@ -1070,15 +1012,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Get volumes
    * @return volumes
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VOLUMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1Volume> getVolumes() {
     return volumes;
   }
@@ -1096,15 +1036,13 @@ public class VertexSpec {
     return this;
   }
 
-   /**
+  /**
    * Get watermark
    * @return watermark
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WATERMARK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Watermark getWatermark() {
     return watermark;
   }
@@ -1221,5 +1159,252 @@ public class VertexSpec {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `affinity` to the URL query string
+    if (getAffinity() != null) {
+      joiner.add(String.format("%saffinity%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAffinity()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `automountServiceAccountToken` to the URL query string
+    if (getAutomountServiceAccountToken() != null) {
+      joiner.add(String.format("%sautomountServiceAccountToken%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAutomountServiceAccountToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `containerTemplate` to the URL query string
+    if (getContainerTemplate() != null) {
+      joiner.add(getContainerTemplate().toUrlQueryString(prefix + "containerTemplate" + suffix));
+    }
+
+    // add `dnsConfig` to the URL query string
+    if (getDnsConfig() != null) {
+      joiner.add(String.format("%sdnsConfig%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDnsConfig()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `dnsPolicy` to the URL query string
+    if (getDnsPolicy() != null) {
+      joiner.add(String.format("%sdnsPolicy%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDnsPolicy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `fromEdges` to the URL query string
+    if (getFromEdges() != null) {
+      for (int i = 0; i < getFromEdges().size(); i++) {
+        if (getFromEdges().get(i) != null) {
+          joiner.add(getFromEdges().get(i).toUrlQueryString(String.format("%sfromEdges%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `imagePullSecrets` to the URL query string
+    if (getImagePullSecrets() != null) {
+      for (int i = 0; i < getImagePullSecrets().size(); i++) {
+        if (getImagePullSecrets().get(i) != null) {
+          joiner.add(String.format("%simagePullSecrets%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getImagePullSecrets().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `initContainerTemplate` to the URL query string
+    if (getInitContainerTemplate() != null) {
+      joiner.add(getInitContainerTemplate().toUrlQueryString(prefix + "initContainerTemplate" + suffix));
+    }
+
+    // add `initContainers` to the URL query string
+    if (getInitContainers() != null) {
+      for (int i = 0; i < getInitContainers().size(); i++) {
+        if (getInitContainers().get(i) != null) {
+          joiner.add(String.format("%sinitContainers%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getInitContainers().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `interStepBufferServiceName` to the URL query string
+    if (getInterStepBufferServiceName() != null) {
+      joiner.add(String.format("%sinterStepBufferServiceName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getInterStepBufferServiceName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `limits` to the URL query string
+    if (getLimits() != null) {
+      joiner.add(getLimits().toUrlQueryString(prefix + "limits" + suffix));
+    }
+
+    // add `metadata` to the URL query string
+    if (getMetadata() != null) {
+      joiner.add(getMetadata().toUrlQueryString(prefix + "metadata" + suffix));
+    }
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `nodeSelector` to the URL query string
+    if (getNodeSelector() != null) {
+      for (String _key : getNodeSelector().keySet()) {
+        joiner.add(String.format("%snodeSelector%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+            getNodeSelector().get(_key), URLEncoder.encode(ApiClient.valueToString(getNodeSelector().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    // add `partitions` to the URL query string
+    if (getPartitions() != null) {
+      joiner.add(String.format("%spartitions%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPartitions()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `pipelineName` to the URL query string
+    if (getPipelineName() != null) {
+      joiner.add(String.format("%spipelineName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPipelineName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `priority` to the URL query string
+    if (getPriority() != null) {
+      joiner.add(String.format("%spriority%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPriority()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `priorityClassName` to the URL query string
+    if (getPriorityClassName() != null) {
+      joiner.add(String.format("%spriorityClassName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPriorityClassName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `replicas` to the URL query string
+    if (getReplicas() != null) {
+      joiner.add(String.format("%sreplicas%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReplicas()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `runtimeClassName` to the URL query string
+    if (getRuntimeClassName() != null) {
+      joiner.add(String.format("%sruntimeClassName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRuntimeClassName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `scale` to the URL query string
+    if (getScale() != null) {
+      joiner.add(getScale().toUrlQueryString(prefix + "scale" + suffix));
+    }
+
+    // add `securityContext` to the URL query string
+    if (getSecurityContext() != null) {
+      joiner.add(String.format("%ssecurityContext%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSecurityContext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `serviceAccountName` to the URL query string
+    if (getServiceAccountName() != null) {
+      joiner.add(String.format("%sserviceAccountName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getServiceAccountName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `sideInputs` to the URL query string
+    if (getSideInputs() != null) {
+      for (int i = 0; i < getSideInputs().size(); i++) {
+        joiner.add(String.format("%ssideInputs%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(ApiClient.valueToString(getSideInputs().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    // add `sideInputsContainerTemplate` to the URL query string
+    if (getSideInputsContainerTemplate() != null) {
+      joiner.add(getSideInputsContainerTemplate().toUrlQueryString(prefix + "sideInputsContainerTemplate" + suffix));
+    }
+
+    // add `sidecars` to the URL query string
+    if (getSidecars() != null) {
+      for (int i = 0; i < getSidecars().size(); i++) {
+        if (getSidecars().get(i) != null) {
+          joiner.add(String.format("%ssidecars%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getSidecars().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `sink` to the URL query string
+    if (getSink() != null) {
+      joiner.add(getSink().toUrlQueryString(prefix + "sink" + suffix));
+    }
+
+    // add `source` to the URL query string
+    if (getSource() != null) {
+      joiner.add(getSource().toUrlQueryString(prefix + "source" + suffix));
+    }
+
+    // add `toEdges` to the URL query string
+    if (getToEdges() != null) {
+      for (int i = 0; i < getToEdges().size(); i++) {
+        if (getToEdges().get(i) != null) {
+          joiner.add(getToEdges().get(i).toUrlQueryString(String.format("%stoEdges%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `tolerations` to the URL query string
+    if (getTolerations() != null) {
+      for (int i = 0; i < getTolerations().size(); i++) {
+        if (getTolerations().get(i) != null) {
+          joiner.add(String.format("%stolerations%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getTolerations().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `udf` to the URL query string
+    if (getUdf() != null) {
+      joiner.add(getUdf().toUrlQueryString(prefix + "udf" + suffix));
+    }
+
+    // add `volumes` to the URL query string
+    if (getVolumes() != null) {
+      for (int i = 0; i < getVolumes().size(); i++) {
+        if (getVolumes().get(i) != null) {
+          joiner.add(String.format("%svolumes%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getVolumes().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `watermark` to the URL query string
+    if (getWatermark() != null) {
+      joiner.add(getWatermark().toUrlQueryString(prefix + "watermark" + suffix));
+    }
+
+    return joiner.toString();
+  }
 }
 

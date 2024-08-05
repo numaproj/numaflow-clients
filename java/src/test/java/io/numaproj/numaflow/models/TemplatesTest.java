@@ -22,24 +22,22 @@ import io.numaproj.numaflow.models.DaemonTemplate;
 import io.numaproj.numaflow.models.JobTemplate;
 import io.numaproj.numaflow.models.SideInputsManagerTemplate;
 import io.numaproj.numaflow.models.VertexTemplate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for Templates
  */
-public class TemplatesTest {
+class TemplatesTest {
     private final Templates model = new Templates();
 
     /**
      * Model tests for Templates
      */
     @Test
-    public void testTemplates() {
+    void testTemplates() {
         // TODO: test Templates
     }
 
@@ -47,7 +45,7 @@ public class TemplatesTest {
      * Test the property 'daemon'
      */
     @Test
-    public void daemonTest() {
+    void daemonTest() {
         // TODO: test daemon
     }
 
@@ -55,7 +53,7 @@ public class TemplatesTest {
      * Test the property 'job'
      */
     @Test
-    public void jobTest() {
+    void jobTest() {
         // TODO: test job
     }
 
@@ -63,7 +61,7 @@ public class TemplatesTest {
      * Test the property 'sideInputsManager'
      */
     @Test
-    public void sideInputsManagerTest() {
+    void sideInputsManagerTest() {
         // TODO: test sideInputsManager
     }
 
@@ -71,7 +69,7 @@ public class TemplatesTest {
      * Test the property 'vertex'
      */
     @Test
-    public void vertexTest() {
+    void vertexTest() {
         // TODO: test vertex
     }
 

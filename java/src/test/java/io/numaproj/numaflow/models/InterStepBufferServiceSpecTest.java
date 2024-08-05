@@ -20,24 +20,22 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.JetStreamBufferService;
 import io.numaproj.numaflow.models.RedisBufferService;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for InterStepBufferServiceSpec
  */
-public class InterStepBufferServiceSpecTest {
+class InterStepBufferServiceSpecTest {
     private final InterStepBufferServiceSpec model = new InterStepBufferServiceSpec();
 
     /**
      * Model tests for InterStepBufferServiceSpec
      */
     @Test
-    public void testInterStepBufferServiceSpec() {
+    void testInterStepBufferServiceSpec() {
         // TODO: test InterStepBufferServiceSpec
     }
 
@@ -45,7 +43,7 @@ public class InterStepBufferServiceSpecTest {
      * Test the property 'jetstream'
      */
     @Test
-    public void jetstreamTest() {
+    void jetstreamTest() {
         // TODO: test jetstream
     }
 
@@ -53,7 +51,7 @@ public class InterStepBufferServiceSpecTest {
      * Test the property 'redis'
      */
     @Test
-    public void redisTest() {
+    void redisTest() {
         // TODO: test redis
     }
 

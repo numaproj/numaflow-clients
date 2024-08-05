@@ -19,26 +19,24 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1Condition;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for Status
  */
-public class StatusTest {
+class StatusTest {
     private final Status model = new Status();
 
     /**
      * Model tests for Status
      */
     @Test
-    public void testStatus() {
+    void testStatus() {
         // TODO: test Status
     }
 
@@ -46,7 +44,7 @@ public class StatusTest {
      * Test the property 'conditions'
      */
     @Test
-    public void conditionsTest() {
+    void conditionsTest() {
         // TODO: test conditions
     }
 

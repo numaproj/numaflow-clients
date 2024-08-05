@@ -20,24 +20,22 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.KafkaSink;
 import io.numaproj.numaflow.models.UDSink;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for AbstractSink
  */
-public class AbstractSinkTest {
+class AbstractSinkTest {
     private final AbstractSink model = new AbstractSink();
 
     /**
      * Model tests for AbstractSink
      */
     @Test
-    public void testAbstractSink() {
+    void testAbstractSink() {
         // TODO: test AbstractSink
     }
 
@@ -45,7 +43,7 @@ public class AbstractSinkTest {
      * Test the property 'blackhole'
      */
     @Test
-    public void blackholeTest() {
+    void blackholeTest() {
         // TODO: test blackhole
     }
 
@@ -53,7 +51,7 @@ public class AbstractSinkTest {
      * Test the property 'kafka'
      */
     @Test
-    public void kafkaTest() {
+    void kafkaTest() {
         // TODO: test kafka
     }
 
@@ -61,7 +59,7 @@ public class AbstractSinkTest {
      * Test the property 'log'
      */
     @Test
-    public void logTest() {
+    void logTest() {
         // TODO: test log
     }
 
@@ -69,7 +67,7 @@ public class AbstractSinkTest {
      * Test the property 'udsink'
      */
     @Test
-    public void udsinkTest() {
+    void udsinkTest() {
         // TODO: test udsink
     }
 

@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -25,13 +27,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1EnvVar;
 import io.kubernetes.client.openapi.models.V1ResourceRequirements;
 import io.kubernetes.client.openapi.models.V1VolumeMount;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * GetContainerReq
  */
@@ -43,7 +45,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GetContainerReq.JSON_PROPERTY_RESOURCES,
   GetContainerReq.JSON_PROPERTY_VOLUME_MOUNTS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class GetContainerReq {
   public static final String JSON_PROPERTY_ENV = "env";
   private List<V1EnvVar> env = new ArrayList<>();
@@ -63,6 +65,8 @@ public class GetContainerReq {
   public static final String JSON_PROPERTY_VOLUME_MOUNTS = "volumeMounts";
   private List<V1VolumeMount> volumeMounts = new ArrayList<>();
 
+  public GetContainerReq() { 
+  }
 
   public GetContainerReq env(List<V1EnvVar> env) {
     this.env = env;
@@ -70,19 +74,20 @@ public class GetContainerReq {
   }
 
   public GetContainerReq addEnvItem(V1EnvVar envItem) {
+    if (this.env == null) {
+      this.env = new ArrayList<>();
+    }
     this.env.add(envItem);
     return this;
   }
 
-   /**
+  /**
    * Get env
    * @return env
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ENV)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public List<V1EnvVar> getEnv() {
     return env;
   }
@@ -100,15 +105,13 @@ public class GetContainerReq {
     return this;
   }
 
-   /**
+  /**
    * Get image
    * @return image
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IMAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getImage() {
     return image;
   }
@@ -126,15 +129,13 @@ public class GetContainerReq {
     return this;
   }
 
-   /**
+  /**
    * Get imagePullPolicy
    * @return imagePullPolicy
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IMAGE_PULL_POLICY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getImagePullPolicy() {
     return imagePullPolicy;
   }
@@ -152,15 +153,13 @@ public class GetContainerReq {
     return this;
   }
 
-   /**
+  /**
    * Get isbSvcType
    * @return isbSvcType
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ISB_SVC_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getIsbSvcType() {
     return isbSvcType;
   }
@@ -178,15 +177,13 @@ public class GetContainerReq {
     return this;
   }
 
-   /**
+  /**
    * Get resources
    * @return resources
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_RESOURCES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public V1ResourceRequirements getResources() {
     return resources;
   }
@@ -205,19 +202,20 @@ public class GetContainerReq {
   }
 
   public GetContainerReq addVolumeMountsItem(V1VolumeMount volumeMountsItem) {
+    if (this.volumeMounts == null) {
+      this.volumeMounts = new ArrayList<>();
+    }
     this.volumeMounts.add(volumeMountsItem);
     return this;
   }
 
-   /**
+  /**
    * Get volumeMounts
    * @return volumeMounts
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_VOLUME_MOUNTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public List<V1VolumeMount> getVolumeMounts() {
     return volumeMounts;
   }
@@ -280,5 +278,81 @@ public class GetContainerReq {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `env` to the URL query string
+    if (getEnv() != null) {
+      for (int i = 0; i < getEnv().size(); i++) {
+        if (getEnv().get(i) != null) {
+          joiner.add(String.format("%senv%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getEnv().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `image` to the URL query string
+    if (getImage() != null) {
+      joiner.add(String.format("%simage%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getImage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `imagePullPolicy` to the URL query string
+    if (getImagePullPolicy() != null) {
+      joiner.add(String.format("%simagePullPolicy%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getImagePullPolicy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `isbSvcType` to the URL query string
+    if (getIsbSvcType() != null) {
+      joiner.add(String.format("%sisbSvcType%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getIsbSvcType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `resources` to the URL query string
+    if (getResources() != null) {
+      joiner.add(String.format("%sresources%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getResources()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `volumeMounts` to the URL query string
+    if (getVolumeMounts() != null) {
+      for (int i = 0; i < getVolumeMounts().size(); i++) {
+        if (getVolumeMounts().get(i) != null) {
+          joiner.add(String.format("%svolumeMounts%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getVolumeMounts().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    return joiner.toString();
+  }
 }
 

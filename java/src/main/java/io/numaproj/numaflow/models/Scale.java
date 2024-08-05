@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,15 +24,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * Scale defines the parameters for autoscaling.
  */
-@ApiModel(description = "Scale defines the parameters for autoscaling.")
 @JsonPropertyOrder({
   Scale.JSON_PROPERTY_COOLDOWN_SECONDS,
   Scale.JSON_PROPERTY_DISABLED,
@@ -44,7 +45,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Scale.JSON_PROPERTY_TARGET_PROCESSING_SECONDS,
   Scale.JSON_PROPERTY_ZERO_REPLICA_SLEEP_SECONDS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Scale {
   public static final String JSON_PROPERTY_COOLDOWN_SECONDS = "cooldownSeconds";
   private Long cooldownSeconds;
@@ -79,21 +80,21 @@ public class Scale {
   public static final String JSON_PROPERTY_ZERO_REPLICA_SLEEP_SECONDS = "zeroReplicaSleepSeconds";
   private Long zeroReplicaSleepSeconds;
 
+  public Scale() { 
+  }
 
   public Scale cooldownSeconds(Long cooldownSeconds) {
     this.cooldownSeconds = cooldownSeconds;
     return this;
   }
 
-   /**
+  /**
    * Deprecated: Use scaleUpCooldownSeconds and scaleDownCooldownSeconds instead. Cooldown seconds after a scaling operation before another one.
    * @return cooldownSeconds
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Deprecated: Use scaleUpCooldownSeconds and scaleDownCooldownSeconds instead. Cooldown seconds after a scaling operation before another one.")
   @JsonProperty(JSON_PROPERTY_COOLDOWN_SECONDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getCooldownSeconds() {
     return cooldownSeconds;
   }
@@ -111,15 +112,13 @@ public class Scale {
     return this;
   }
 
-   /**
+  /**
    * Whether to disable autoscaling. Set to \&quot;true\&quot; when using Kubernetes HPA or any other 3rd party autoscaling strategies.
    * @return disabled
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to disable autoscaling. Set to \"true\" when using Kubernetes HPA or any other 3rd party autoscaling strategies.")
   @JsonProperty(JSON_PROPERTY_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getDisabled() {
     return disabled;
   }
@@ -137,15 +136,13 @@ public class Scale {
     return this;
   }
 
-   /**
+  /**
    * Lookback seconds to calculate the average pending messages and processing rate.
    * @return lookbackSeconds
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Lookback seconds to calculate the average pending messages and processing rate.")
   @JsonProperty(JSON_PROPERTY_LOOKBACK_SECONDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getLookbackSeconds() {
     return lookbackSeconds;
   }
@@ -163,15 +160,13 @@ public class Scale {
     return this;
   }
 
-   /**
+  /**
    * Maximum replicas.
    * @return max
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Maximum replicas.")
   @JsonProperty(JSON_PROPERTY_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getMax() {
     return max;
   }
@@ -189,15 +184,13 @@ public class Scale {
     return this;
   }
 
-   /**
+  /**
    * Minimum replicas.
    * @return min
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Minimum replicas.")
   @JsonProperty(JSON_PROPERTY_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getMin() {
     return min;
   }
@@ -215,15 +208,13 @@ public class Scale {
     return this;
   }
 
-   /**
+  /**
    * ReplicasPerScale defines maximum replicas can be scaled up or down at once. The is use to prevent too aggressive scaling operations
    * @return replicasPerScale
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ReplicasPerScale defines maximum replicas can be scaled up or down at once. The is use to prevent too aggressive scaling operations")
   @JsonProperty(JSON_PROPERTY_REPLICAS_PER_SCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getReplicasPerScale() {
     return replicasPerScale;
   }
@@ -241,15 +232,13 @@ public class Scale {
     return this;
   }
 
-   /**
+  /**
    * ScaleDownCooldownSeconds defines the cooldown seconds after a scaling operation, before a follow-up scaling down. It defaults to the CooldownSeconds if not set.
    * @return scaleDownCooldownSeconds
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ScaleDownCooldownSeconds defines the cooldown seconds after a scaling operation, before a follow-up scaling down. It defaults to the CooldownSeconds if not set.")
   @JsonProperty(JSON_PROPERTY_SCALE_DOWN_COOLDOWN_SECONDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getScaleDownCooldownSeconds() {
     return scaleDownCooldownSeconds;
   }
@@ -267,15 +256,13 @@ public class Scale {
     return this;
   }
 
-   /**
+  /**
    * ScaleUpCooldownSeconds defines the cooldown seconds after a scaling operation, before a follow-up scaling up. It defaults to the CooldownSeconds if not set.
    * @return scaleUpCooldownSeconds
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ScaleUpCooldownSeconds defines the cooldown seconds after a scaling operation, before a follow-up scaling up. It defaults to the CooldownSeconds if not set.")
   @JsonProperty(JSON_PROPERTY_SCALE_UP_COOLDOWN_SECONDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getScaleUpCooldownSeconds() {
     return scaleUpCooldownSeconds;
   }
@@ -293,15 +280,13 @@ public class Scale {
     return this;
   }
 
-   /**
+  /**
    * TargetBufferAvailability is used to define the target percentage of the buffer availability. A valid and meaningful value should be less than the BufferUsageLimit defined in the Edge spec (or Pipeline spec), for example, 50. It only applies to UDF and Sink vertices because only they have buffers to read.
    * @return targetBufferAvailability
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TargetBufferAvailability is used to define the target percentage of the buffer availability. A valid and meaningful value should be less than the BufferUsageLimit defined in the Edge spec (or Pipeline spec), for example, 50. It only applies to UDF and Sink vertices because only they have buffers to read.")
   @JsonProperty(JSON_PROPERTY_TARGET_BUFFER_AVAILABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getTargetBufferAvailability() {
     return targetBufferAvailability;
   }
@@ -319,15 +304,13 @@ public class Scale {
     return this;
   }
 
-   /**
+  /**
    * TargetProcessingSeconds is used to tune the aggressiveness of autoscaling for source vertices, it measures how fast you want the vertex to process all the pending messages. Typically increasing the value, which leads to lower processing rate, thus less replicas. It&#39;s only effective for source vertices.
    * @return targetProcessingSeconds
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TargetProcessingSeconds is used to tune the aggressiveness of autoscaling for source vertices, it measures how fast you want the vertex to process all the pending messages. Typically increasing the value, which leads to lower processing rate, thus less replicas. It's only effective for source vertices.")
   @JsonProperty(JSON_PROPERTY_TARGET_PROCESSING_SECONDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getTargetProcessingSeconds() {
     return targetProcessingSeconds;
   }
@@ -345,15 +328,13 @@ public class Scale {
     return this;
   }
 
-   /**
+  /**
    * After scaling down the source vertex to 0, sleep how many seconds before scaling the source vertex back up to peek.
    * @return zeroReplicaSleepSeconds
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "After scaling down the source vertex to 0, sleep how many seconds before scaling the source vertex back up to peek.")
   @JsonProperty(JSON_PROPERTY_ZERO_REPLICA_SLEEP_SECONDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getZeroReplicaSleepSeconds() {
     return zeroReplicaSleepSeconds;
   }
@@ -426,5 +407,94 @@ public class Scale {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `cooldownSeconds` to the URL query string
+    if (getCooldownSeconds() != null) {
+      joiner.add(String.format("%scooldownSeconds%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCooldownSeconds()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `disabled` to the URL query string
+    if (getDisabled() != null) {
+      joiner.add(String.format("%sdisabled%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDisabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `lookbackSeconds` to the URL query string
+    if (getLookbackSeconds() != null) {
+      joiner.add(String.format("%slookbackSeconds%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLookbackSeconds()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `max` to the URL query string
+    if (getMax() != null) {
+      joiner.add(String.format("%smax%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMax()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `min` to the URL query string
+    if (getMin() != null) {
+      joiner.add(String.format("%smin%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMin()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `replicasPerScale` to the URL query string
+    if (getReplicasPerScale() != null) {
+      joiner.add(String.format("%sreplicasPerScale%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReplicasPerScale()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `scaleDownCooldownSeconds` to the URL query string
+    if (getScaleDownCooldownSeconds() != null) {
+      joiner.add(String.format("%sscaleDownCooldownSeconds%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getScaleDownCooldownSeconds()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `scaleUpCooldownSeconds` to the URL query string
+    if (getScaleUpCooldownSeconds() != null) {
+      joiner.add(String.format("%sscaleUpCooldownSeconds%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getScaleUpCooldownSeconds()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `targetBufferAvailability` to the URL query string
+    if (getTargetBufferAvailability() != null) {
+      joiner.add(String.format("%stargetBufferAvailability%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTargetBufferAvailability()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `targetProcessingSeconds` to the URL query string
+    if (getTargetProcessingSeconds() != null) {
+      joiner.add(String.format("%stargetProcessingSeconds%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTargetProcessingSeconds()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `zeroReplicaSleepSeconds` to the URL query string
+    if (getZeroReplicaSleepSeconds() != null) {
+      joiner.add(String.format("%szeroReplicaSleepSeconds%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getZeroReplicaSleepSeconds()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

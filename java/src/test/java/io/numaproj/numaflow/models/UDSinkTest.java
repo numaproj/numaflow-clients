@@ -19,24 +19,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.Container;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for UDSink
  */
-public class UDSinkTest {
+class UDSinkTest {
     private final UDSink model = new UDSink();
 
     /**
      * Model tests for UDSink
      */
     @Test
-    public void testUDSink() {
+    void testUDSink() {
         // TODO: test UDSink
     }
 
@@ -44,7 +42,7 @@ public class UDSinkTest {
      * Test the property 'container'
      */
     @Test
-    public void containerTest() {
+    void containerTest() {
         // TODO: test container
     }
 

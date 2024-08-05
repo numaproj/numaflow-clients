@@ -21,26 +21,24 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1Volume;
 import io.numaproj.numaflow.models.Container;
 import io.numaproj.numaflow.models.SideInputTrigger;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for SideInput
  */
-public class SideInputTest {
+class SideInputTest {
     private final SideInput model = new SideInput();
 
     /**
      * Model tests for SideInput
      */
     @Test
-    public void testSideInput() {
+    void testSideInput() {
         // TODO: test SideInput
     }
 
@@ -48,7 +46,7 @@ public class SideInputTest {
      * Test the property 'container'
      */
     @Test
-    public void containerTest() {
+    void containerTest() {
         // TODO: test container
     }
 
@@ -56,7 +54,7 @@ public class SideInputTest {
      * Test the property 'name'
      */
     @Test
-    public void nameTest() {
+    void nameTest() {
         // TODO: test name
     }
 
@@ -64,7 +62,7 @@ public class SideInputTest {
      * Test the property 'trigger'
      */
     @Test
-    public void triggerTest() {
+    void triggerTest() {
         // TODO: test trigger
     }
 
@@ -72,7 +70,7 @@ public class SideInputTest {
      * Test the property 'volumes'
      */
     @Test
-    public void volumesTest() {
+    void volumesTest() {
         // TODO: test volumes
     }
 

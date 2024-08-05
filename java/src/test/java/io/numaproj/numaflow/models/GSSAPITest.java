@@ -19,24 +19,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1SecretKeySelector;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for GSSAPI
  */
-public class GSSAPITest {
+class GSSAPITest {
     private final GSSAPI model = new GSSAPI();
 
     /**
      * Model tests for GSSAPI
      */
     @Test
-    public void testGSSAPI() {
+    void testGSSAPI() {
         // TODO: test GSSAPI
     }
 
@@ -44,7 +42,7 @@ public class GSSAPITest {
      * Test the property 'authType'
      */
     @Test
-    public void authTypeTest() {
+    void authTypeTest() {
         // TODO: test authType
     }
 
@@ -52,7 +50,7 @@ public class GSSAPITest {
      * Test the property 'kerberosConfigSecret'
      */
     @Test
-    public void kerberosConfigSecretTest() {
+    void kerberosConfigSecretTest() {
         // TODO: test kerberosConfigSecret
     }
 
@@ -60,7 +58,7 @@ public class GSSAPITest {
      * Test the property 'keytabSecret'
      */
     @Test
-    public void keytabSecretTest() {
+    void keytabSecretTest() {
         // TODO: test keytabSecret
     }
 
@@ -68,7 +66,7 @@ public class GSSAPITest {
      * Test the property 'passwordSecret'
      */
     @Test
-    public void passwordSecretTest() {
+    void passwordSecretTest() {
         // TODO: test passwordSecret
     }
 
@@ -76,7 +74,7 @@ public class GSSAPITest {
      * Test the property 'realm'
      */
     @Test
-    public void realmTest() {
+    void realmTest() {
         // TODO: test realm
     }
 
@@ -84,7 +82,7 @@ public class GSSAPITest {
      * Test the property 'serviceName'
      */
     @Test
-    public void serviceNameTest() {
+    void serviceNameTest() {
         // TODO: test serviceName
     }
 
@@ -92,7 +90,7 @@ public class GSSAPITest {
      * Test the property 'usernameSecret'
      */
     @Test
-    public void usernameSecretTest() {
+    void usernameSecretTest() {
         // TODO: test usernameSecret
     }
 

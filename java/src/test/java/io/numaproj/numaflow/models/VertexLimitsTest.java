@@ -18,24 +18,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for VertexLimits
  */
-public class VertexLimitsTest {
+class VertexLimitsTest {
     private final VertexLimits model = new VertexLimits();
 
     /**
      * Model tests for VertexLimits
      */
     @Test
-    public void testVertexLimits() {
+    void testVertexLimits() {
         // TODO: test VertexLimits
     }
 
@@ -43,7 +41,7 @@ public class VertexLimitsTest {
      * Test the property 'bufferMaxLength'
      */
     @Test
-    public void bufferMaxLengthTest() {
+    void bufferMaxLengthTest() {
         // TODO: test bufferMaxLength
     }
 
@@ -51,7 +49,7 @@ public class VertexLimitsTest {
      * Test the property 'bufferUsageLimit'
      */
     @Test
-    public void bufferUsageLimitTest() {
+    void bufferUsageLimitTest() {
         // TODO: test bufferUsageLimit
     }
 
@@ -59,7 +57,7 @@ public class VertexLimitsTest {
      * Test the property 'readBatchSize'
      */
     @Test
-    public void readBatchSizeTest() {
+    void readBatchSizeTest() {
         // TODO: test readBatchSize
     }
 
@@ -67,7 +65,7 @@ public class VertexLimitsTest {
      * Test the property 'readTimeout'
      */
     @Test
-    public void readTimeoutTest() {
+    void readTimeoutTest() {
         // TODO: test readTimeout
     }
 

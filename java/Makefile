@@ -2,7 +2,7 @@ VERSION ?= main
 
 ARTIFACT_VERSION := $(shell if [[ "$(VERSION)" =~ ^v[0-9]+\.[0-9]+\.[0-9]+.*  ]]; then echo ${VERSION} | cut -c2-; elif [[ "$(VERSION)" =~ ^main$$  ]]; then echo 0.0.0-SNAPSHOT; else echo $(VERSION); fi)
 
-GENERATOR_VERSION := v5.2.1
+GENERATOR_VERSION := v7.7.0
 
 # https://github.com/kubernetes-client/java
 K8SCLIENT_VERSION := 21.0.1

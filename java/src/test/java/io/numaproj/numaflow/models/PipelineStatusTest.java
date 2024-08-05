@@ -19,27 +19,25 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1Condition;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for PipelineStatus
  */
-public class PipelineStatusTest {
+class PipelineStatusTest {
     private final PipelineStatus model = new PipelineStatus();
 
     /**
      * Model tests for PipelineStatus
      */
     @Test
-    public void testPipelineStatus() {
+    void testPipelineStatus() {
         // TODO: test PipelineStatus
     }
 
@@ -47,7 +45,7 @@ public class PipelineStatusTest {
      * Test the property 'conditions'
      */
     @Test
-    public void conditionsTest() {
+    void conditionsTest() {
         // TODO: test conditions
     }
 
@@ -55,7 +53,7 @@ public class PipelineStatusTest {
      * Test the property 'lastUpdated'
      */
     @Test
-    public void lastUpdatedTest() {
+    void lastUpdatedTest() {
         // TODO: test lastUpdated
     }
 
@@ -63,7 +61,7 @@ public class PipelineStatusTest {
      * Test the property 'message'
      */
     @Test
-    public void messageTest() {
+    void messageTest() {
         // TODO: test message
     }
 
@@ -71,7 +69,7 @@ public class PipelineStatusTest {
      * Test the property 'phase'
      */
     @Test
-    public void phaseTest() {
+    void phaseTest() {
         // TODO: test phase
     }
 
@@ -79,7 +77,7 @@ public class PipelineStatusTest {
      * Test the property 'sinkCount'
      */
     @Test
-    public void sinkCountTest() {
+    void sinkCountTest() {
         // TODO: test sinkCount
     }
 
@@ -87,7 +85,7 @@ public class PipelineStatusTest {
      * Test the property 'sourceCount'
      */
     @Test
-    public void sourceCountTest() {
+    void sourceCountTest() {
         // TODO: test sourceCount
     }
 
@@ -95,7 +93,7 @@ public class PipelineStatusTest {
      * Test the property 'udfCount'
      */
     @Test
-    public void udfCountTest() {
+    void udfCountTest() {
         // TODO: test udfCount
     }
 
@@ -103,7 +101,7 @@ public class PipelineStatusTest {
      * Test the property 'vertexCount'
      */
     @Test
-    public void vertexCountTest() {
+    void vertexCountTest() {
         // TODO: test vertexCount
     }
 

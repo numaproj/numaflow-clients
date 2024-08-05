@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -26,17 +28,16 @@ import io.kubernetes.client.openapi.models.V1EnvFromSource;
 import io.kubernetes.client.openapi.models.V1EnvVar;
 import io.kubernetes.client.openapi.models.V1ResourceRequirements;
 import io.kubernetes.client.openapi.models.V1SecurityContext;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * ContainerTemplate defines customized spec for a container
  */
-@ApiModel(description = "ContainerTemplate defines customized spec for a container")
 @JsonPropertyOrder({
   ContainerTemplate.JSON_PROPERTY_ENV,
   ContainerTemplate.JSON_PROPERTY_ENV_FROM,
@@ -44,13 +45,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ContainerTemplate.JSON_PROPERTY_RESOURCES,
   ContainerTemplate.JSON_PROPERTY_SECURITY_CONTEXT
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class ContainerTemplate {
   public static final String JSON_PROPERTY_ENV = "env";
-  private List<V1EnvVar> env = null;
+  private List<V1EnvVar> env = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ENV_FROM = "envFrom";
-  private List<V1EnvFromSource> envFrom = null;
+  private List<V1EnvFromSource> envFrom = new ArrayList<>();
 
   public static final String JSON_PROPERTY_IMAGE_PULL_POLICY = "imagePullPolicy";
   private String imagePullPolicy;
@@ -61,6 +62,8 @@ public class ContainerTemplate {
   public static final String JSON_PROPERTY_SECURITY_CONTEXT = "securityContext";
   private V1SecurityContext securityContext = null;
 
+  public ContainerTemplate() { 
+  }
 
   public ContainerTemplate env(List<V1EnvVar> env) {
     this.env = env;
@@ -75,15 +78,13 @@ public class ContainerTemplate {
     return this;
   }
 
-   /**
+  /**
    * Get env
    * @return env
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1EnvVar> getEnv() {
     return env;
   }
@@ -109,15 +110,13 @@ public class ContainerTemplate {
     return this;
   }
 
-   /**
+  /**
    * Get envFrom
    * @return envFrom
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENV_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1EnvFromSource> getEnvFrom() {
     return envFrom;
   }
@@ -135,15 +134,13 @@ public class ContainerTemplate {
     return this;
   }
 
-   /**
+  /**
    * Get imagePullPolicy
    * @return imagePullPolicy
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IMAGE_PULL_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getImagePullPolicy() {
     return imagePullPolicy;
   }
@@ -161,15 +158,13 @@ public class ContainerTemplate {
     return this;
   }
 
-   /**
+  /**
    * Get resources
    * @return resources
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1ResourceRequirements getResources() {
     return resources;
   }
@@ -187,15 +182,13 @@ public class ContainerTemplate {
     return this;
   }
 
-   /**
+  /**
    * Get securityContext
    * @return securityContext
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY_CONTEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1SecurityContext getSecurityContext() {
     return securityContext;
   }
@@ -256,5 +249,76 @@ public class ContainerTemplate {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `env` to the URL query string
+    if (getEnv() != null) {
+      for (int i = 0; i < getEnv().size(); i++) {
+        if (getEnv().get(i) != null) {
+          joiner.add(String.format("%senv%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getEnv().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `envFrom` to the URL query string
+    if (getEnvFrom() != null) {
+      for (int i = 0; i < getEnvFrom().size(); i++) {
+        if (getEnvFrom().get(i) != null) {
+          joiner.add(String.format("%senvFrom%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getEnvFrom().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `imagePullPolicy` to the URL query string
+    if (getImagePullPolicy() != null) {
+      joiner.add(String.format("%simagePullPolicy%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getImagePullPolicy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `resources` to the URL query string
+    if (getResources() != null) {
+      joiner.add(String.format("%sresources%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getResources()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `securityContext` to the URL query string
+    if (getSecurityContext() != null) {
+      joiner.add(String.format("%ssecurityContext%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSecurityContext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

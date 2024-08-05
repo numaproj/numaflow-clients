@@ -22,26 +22,24 @@ import io.kubernetes.client.openapi.models.V1EnvFromSource;
 import io.kubernetes.client.openapi.models.V1EnvVar;
 import io.kubernetes.client.openapi.models.V1ResourceRequirements;
 import io.kubernetes.client.openapi.models.V1SecurityContext;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for ContainerTemplate
  */
-public class ContainerTemplateTest {
+class ContainerTemplateTest {
     private final ContainerTemplate model = new ContainerTemplate();
 
     /**
      * Model tests for ContainerTemplate
      */
     @Test
-    public void testContainerTemplate() {
+    void testContainerTemplate() {
         // TODO: test ContainerTemplate
     }
 
@@ -49,7 +47,7 @@ public class ContainerTemplateTest {
      * Test the property 'env'
      */
     @Test
-    public void envTest() {
+    void envTest() {
         // TODO: test env
     }
 
@@ -57,7 +55,7 @@ public class ContainerTemplateTest {
      * Test the property 'envFrom'
      */
     @Test
-    public void envFromTest() {
+    void envFromTest() {
         // TODO: test envFrom
     }
 
@@ -65,7 +63,7 @@ public class ContainerTemplateTest {
      * Test the property 'imagePullPolicy'
      */
     @Test
-    public void imagePullPolicyTest() {
+    void imagePullPolicyTest() {
         // TODO: test imagePullPolicy
     }
 
@@ -73,7 +71,7 @@ public class ContainerTemplateTest {
      * Test the property 'resources'
      */
     @Test
-    public void resourcesTest() {
+    void resourcesTest() {
         // TODO: test resources
     }
 
@@ -81,7 +79,7 @@ public class ContainerTemplateTest {
      * Test the property 'securityContext'
      */
     @Test
-    public void securityContextTest() {
+    void securityContextTest() {
         // TODO: test securityContext
     }
 

@@ -19,27 +19,24 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1ResourceRequirements;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for GetRedisStatefulSetSpecReq
  */
-public class GetRedisStatefulSetSpecReqTest {
+class GetRedisStatefulSetSpecReqTest {
     private final GetRedisStatefulSetSpecReq model = new GetRedisStatefulSetSpecReq();
 
     /**
      * Model tests for GetRedisStatefulSetSpecReq
      */
     @Test
-    public void testGetRedisStatefulSetSpecReq() {
+    void testGetRedisStatefulSetSpecReq() {
         // TODO: test GetRedisStatefulSetSpecReq
     }
 
@@ -47,7 +44,7 @@ public class GetRedisStatefulSetSpecReqTest {
      * Test the property 'confConfigMapName'
      */
     @Test
-    public void confConfigMapNameTest() {
+    void confConfigMapNameTest() {
         // TODO: test confConfigMapName
     }
 
@@ -55,7 +52,7 @@ public class GetRedisStatefulSetSpecReqTest {
      * Test the property 'credentialSecretName'
      */
     @Test
-    public void credentialSecretNameTest() {
+    void credentialSecretNameTest() {
         // TODO: test credentialSecretName
     }
 
@@ -63,7 +60,7 @@ public class GetRedisStatefulSetSpecReqTest {
      * Test the property 'defaultResources'
      */
     @Test
-    public void defaultResourcesTest() {
+    void defaultResourcesTest() {
         // TODO: test defaultResources
     }
 
@@ -71,7 +68,7 @@ public class GetRedisStatefulSetSpecReqTest {
      * Test the property 'healthConfigMapName'
      */
     @Test
-    public void healthConfigMapNameTest() {
+    void healthConfigMapNameTest() {
         // TODO: test healthConfigMapName
     }
 
@@ -79,7 +76,7 @@ public class GetRedisStatefulSetSpecReqTest {
      * Test the property 'initContainerImage'
      */
     @Test
-    public void initContainerImageTest() {
+    void initContainerImageTest() {
         // TODO: test initContainerImage
     }
 
@@ -87,7 +84,7 @@ public class GetRedisStatefulSetSpecReqTest {
      * Test the property 'labels'
      */
     @Test
-    public void labelsTest() {
+    void labelsTest() {
         // TODO: test labels
     }
 
@@ -95,7 +92,7 @@ public class GetRedisStatefulSetSpecReqTest {
      * Test the property 'metricsExporterImage'
      */
     @Test
-    public void metricsExporterImageTest() {
+    void metricsExporterImageTest() {
         // TODO: test metricsExporterImage
     }
 
@@ -103,7 +100,7 @@ public class GetRedisStatefulSetSpecReqTest {
      * Test the property 'pvcNameIfNeeded'
      */
     @Test
-    public void pvcNameIfNeededTest() {
+    void pvcNameIfNeededTest() {
         // TODO: test pvcNameIfNeeded
     }
 
@@ -111,7 +108,7 @@ public class GetRedisStatefulSetSpecReqTest {
      * Test the property 'redisContainerPort'
      */
     @Test
-    public void redisContainerPortTest() {
+    void redisContainerPortTest() {
         // TODO: test redisContainerPort
     }
 
@@ -119,7 +116,7 @@ public class GetRedisStatefulSetSpecReqTest {
      * Test the property 'redisImage'
      */
     @Test
-    public void redisImageTest() {
+    void redisImageTest() {
         // TODO: test redisImage
     }
 
@@ -127,7 +124,7 @@ public class GetRedisStatefulSetSpecReqTest {
      * Test the property 'redisMetricsContainerPort'
      */
     @Test
-    public void redisMetricsContainerPortTest() {
+    void redisMetricsContainerPortTest() {
         // TODO: test redisMetricsContainerPort
     }
 
@@ -135,7 +132,7 @@ public class GetRedisStatefulSetSpecReqTest {
      * Test the property 'scriptsConfigMapName'
      */
     @Test
-    public void scriptsConfigMapNameTest() {
+    void scriptsConfigMapNameTest() {
         // TODO: test scriptsConfigMapName
     }
 
@@ -143,7 +140,7 @@ public class GetRedisStatefulSetSpecReqTest {
      * Test the property 'sentinelContainerPort'
      */
     @Test
-    public void sentinelContainerPortTest() {
+    void sentinelContainerPortTest() {
         // TODO: test sentinelContainerPort
     }
 
@@ -151,7 +148,7 @@ public class GetRedisStatefulSetSpecReqTest {
      * Test the property 'sentinelImage'
      */
     @Test
-    public void sentinelImageTest() {
+    void sentinelImageTest() {
         // TODO: test sentinelImage
     }
 
@@ -159,7 +156,7 @@ public class GetRedisStatefulSetSpecReqTest {
      * Test the property 'serviceName'
      */
     @Test
-    public void serviceNameTest() {
+    void serviceNameTest() {
         // TODO: test serviceName
     }
 
@@ -167,7 +164,7 @@ public class GetRedisStatefulSetSpecReqTest {
      * Test the property 'tlSEnabled'
      */
     @Test
-    public void tlSEnabledTest() {
+    void tlSEnabledTest() {
         // TODO: test tlSEnabled
     }
 

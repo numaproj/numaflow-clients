@@ -18,24 +18,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for IdleSource
  */
-public class IdleSourceTest {
+class IdleSourceTest {
     private final IdleSource model = new IdleSource();
 
     /**
      * Model tests for IdleSource
      */
     @Test
-    public void testIdleSource() {
+    void testIdleSource() {
         // TODO: test IdleSource
     }
 
@@ -43,7 +41,7 @@ public class IdleSourceTest {
      * Test the property 'incrementBy'
      */
     @Test
-    public void incrementByTest() {
+    void incrementByTest() {
         // TODO: test incrementBy
     }
 
@@ -51,7 +49,7 @@ public class IdleSourceTest {
      * Test the property 'stepInterval'
      */
     @Test
-    public void stepIntervalTest() {
+    void stepIntervalTest() {
         // TODO: test stepInterval
     }
 
@@ -59,7 +57,7 @@ public class IdleSourceTest {
      * Test the property 'threshold'
      */
     @Test
-    public void thresholdTest() {
+    void thresholdTest() {
         // TODO: test threshold
     }
 

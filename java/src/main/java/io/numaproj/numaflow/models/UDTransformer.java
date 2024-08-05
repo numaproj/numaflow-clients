@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -24,11 +26,11 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.Container;
 import io.numaproj.numaflow.models.Transformer;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * UDTransformer
  */
@@ -36,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UDTransformer.JSON_PROPERTY_BUILTIN,
   UDTransformer.JSON_PROPERTY_CONTAINER
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class UDTransformer {
   public static final String JSON_PROPERTY_BUILTIN = "builtin";
   private Transformer builtin;
@@ -44,21 +46,21 @@ public class UDTransformer {
   public static final String JSON_PROPERTY_CONTAINER = "container";
   private Container container;
 
+  public UDTransformer() { 
+  }
 
   public UDTransformer builtin(Transformer builtin) {
     this.builtin = builtin;
     return this;
   }
 
-   /**
+  /**
    * Get builtin
    * @return builtin
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BUILTIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Transformer getBuiltin() {
     return builtin;
   }
@@ -76,15 +78,13 @@ public class UDTransformer {
     return this;
   }
 
-   /**
+  /**
    * Get container
    * @return container
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONTAINER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Container getContainer() {
     return container;
   }
@@ -139,5 +139,49 @@ public class UDTransformer {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `builtin` to the URL query string
+    if (getBuiltin() != null) {
+      joiner.add(getBuiltin().toUrlQueryString(prefix + "builtin" + suffix));
+    }
+
+    // add `container` to the URL query string
+    if (getContainer() != null) {
+      joiner.add(getContainer().toUrlQueryString(prefix + "container" + suffix));
+    }
+
+    return joiner.toString();
+  }
 }
 

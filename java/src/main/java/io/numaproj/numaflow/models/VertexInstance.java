@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -23,21 +25,20 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.Vertex;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * VertexInstance is a wrapper of a vertex instance, which contains the vertex spec and the instance information such as hostname and replica index.
  */
-@ApiModel(description = "VertexInstance is a wrapper of a vertex instance, which contains the vertex spec and the instance information such as hostname and replica index.")
 @JsonPropertyOrder({
   VertexInstance.JSON_PROPERTY_HOSTNAME,
   VertexInstance.JSON_PROPERTY_REPLICA,
   VertexInstance.JSON_PROPERTY_VERTEX
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class VertexInstance {
   public static final String JSON_PROPERTY_HOSTNAME = "hostname";
   private String hostname;
@@ -48,21 +49,21 @@ public class VertexInstance {
   public static final String JSON_PROPERTY_VERTEX = "vertex";
   private Vertex vertex;
 
+  public VertexInstance() { 
+  }
 
   public VertexInstance hostname(String hostname) {
     this.hostname = hostname;
     return this;
   }
 
-   /**
+  /**
    * Get hostname
    * @return hostname
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HOSTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getHostname() {
     return hostname;
   }
@@ -80,15 +81,13 @@ public class VertexInstance {
     return this;
   }
 
-   /**
+  /**
    * Get replica
    * @return replica
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REPLICA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getReplica() {
     return replica;
   }
@@ -106,15 +105,13 @@ public class VertexInstance {
     return this;
   }
 
-   /**
+  /**
    * Get vertex
    * @return vertex
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VERTEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Vertex getVertex() {
     return vertex;
   }
@@ -171,5 +168,54 @@ public class VertexInstance {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `hostname` to the URL query string
+    if (getHostname() != null) {
+      joiner.add(String.format("%shostname%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getHostname()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `replica` to the URL query string
+    if (getReplica() != null) {
+      joiner.add(String.format("%sreplica%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReplica()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `vertex` to the URL query string
+    if (getVertex() != null) {
+      joiner.add(getVertex().toUrlQueryString(prefix + "vertex" + suffix));
+    }
+
+    return joiner.toString();
+  }
 }
 

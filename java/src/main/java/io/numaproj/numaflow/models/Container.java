@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -27,17 +29,16 @@ import io.kubernetes.client.openapi.models.V1EnvVar;
 import io.kubernetes.client.openapi.models.V1ResourceRequirements;
 import io.kubernetes.client.openapi.models.V1SecurityContext;
 import io.kubernetes.client.openapi.models.V1VolumeMount;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * Container is used to define the container properties for user-defined functions, sinks, etc.
  */
-@ApiModel(description = "Container is used to define the container properties for user-defined functions, sinks, etc.")
 @JsonPropertyOrder({
   Container.JSON_PROPERTY_ARGS,
   Container.JSON_PROPERTY_COMMAND,
@@ -49,19 +50,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Container.JSON_PROPERTY_SECURITY_CONTEXT,
   Container.JSON_PROPERTY_VOLUME_MOUNTS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Container {
   public static final String JSON_PROPERTY_ARGS = "args";
-  private List<String> args = null;
+  private List<String> args = new ArrayList<>();
 
   public static final String JSON_PROPERTY_COMMAND = "command";
-  private List<String> command = null;
+  private List<String> command = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ENV = "env";
-  private List<V1EnvVar> env = null;
+  private List<V1EnvVar> env = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ENV_FROM = "envFrom";
-  private List<V1EnvFromSource> envFrom = null;
+  private List<V1EnvFromSource> envFrom = new ArrayList<>();
 
   public static final String JSON_PROPERTY_IMAGE = "image";
   private String image;
@@ -76,8 +77,10 @@ public class Container {
   private V1SecurityContext securityContext = null;
 
   public static final String JSON_PROPERTY_VOLUME_MOUNTS = "volumeMounts";
-  private List<V1VolumeMount> volumeMounts = null;
+  private List<V1VolumeMount> volumeMounts = new ArrayList<>();
 
+  public Container() { 
+  }
 
   public Container args(List<String> args) {
     this.args = args;
@@ -92,15 +95,13 @@ public class Container {
     return this;
   }
 
-   /**
+  /**
    * Get args
    * @return args
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ARGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getArgs() {
     return args;
   }
@@ -126,15 +127,13 @@ public class Container {
     return this;
   }
 
-   /**
+  /**
    * Get command
    * @return command
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMMAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getCommand() {
     return command;
   }
@@ -160,15 +159,13 @@ public class Container {
     return this;
   }
 
-   /**
+  /**
    * Get env
    * @return env
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1EnvVar> getEnv() {
     return env;
   }
@@ -194,15 +191,13 @@ public class Container {
     return this;
   }
 
-   /**
+  /**
    * Get envFrom
    * @return envFrom
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENV_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1EnvFromSource> getEnvFrom() {
     return envFrom;
   }
@@ -220,15 +215,13 @@ public class Container {
     return this;
   }
 
-   /**
+  /**
    * Get image
    * @return image
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IMAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getImage() {
     return image;
   }
@@ -246,15 +239,13 @@ public class Container {
     return this;
   }
 
-   /**
+  /**
    * Get imagePullPolicy
    * @return imagePullPolicy
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IMAGE_PULL_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getImagePullPolicy() {
     return imagePullPolicy;
   }
@@ -272,15 +263,13 @@ public class Container {
     return this;
   }
 
-   /**
+  /**
    * Get resources
    * @return resources
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1ResourceRequirements getResources() {
     return resources;
   }
@@ -298,15 +287,13 @@ public class Container {
     return this;
   }
 
-   /**
+  /**
    * Get securityContext
    * @return securityContext
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY_CONTEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1SecurityContext getSecurityContext() {
     return securityContext;
   }
@@ -332,15 +319,13 @@ public class Container {
     return this;
   }
 
-   /**
+  /**
    * Get volumeMounts
    * @return volumeMounts
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VOLUME_MOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1VolumeMount> getVolumeMounts() {
     return volumeMounts;
   }
@@ -409,5 +394,110 @@ public class Container {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `args` to the URL query string
+    if (getArgs() != null) {
+      for (int i = 0; i < getArgs().size(); i++) {
+        joiner.add(String.format("%sargs%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(ApiClient.valueToString(getArgs().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    // add `command` to the URL query string
+    if (getCommand() != null) {
+      for (int i = 0; i < getCommand().size(); i++) {
+        joiner.add(String.format("%scommand%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(ApiClient.valueToString(getCommand().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    // add `env` to the URL query string
+    if (getEnv() != null) {
+      for (int i = 0; i < getEnv().size(); i++) {
+        if (getEnv().get(i) != null) {
+          joiner.add(String.format("%senv%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getEnv().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `envFrom` to the URL query string
+    if (getEnvFrom() != null) {
+      for (int i = 0; i < getEnvFrom().size(); i++) {
+        if (getEnvFrom().get(i) != null) {
+          joiner.add(String.format("%senvFrom%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getEnvFrom().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `image` to the URL query string
+    if (getImage() != null) {
+      joiner.add(String.format("%simage%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getImage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `imagePullPolicy` to the URL query string
+    if (getImagePullPolicy() != null) {
+      joiner.add(String.format("%simagePullPolicy%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getImagePullPolicy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `resources` to the URL query string
+    if (getResources() != null) {
+      joiner.add(String.format("%sresources%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getResources()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `securityContext` to the URL query string
+    if (getSecurityContext() != null) {
+      joiner.add(String.format("%ssecurityContext%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSecurityContext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `volumeMounts` to the URL query string
+    if (getVolumeMounts() != null) {
+      for (int i = 0; i < getVolumeMounts().size(); i++) {
+        if (getVolumeMounts().get(i) != null) {
+          joiner.add(String.format("%svolumeMounts%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getVolumeMounts().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    return joiner.toString();
+  }
 }
 

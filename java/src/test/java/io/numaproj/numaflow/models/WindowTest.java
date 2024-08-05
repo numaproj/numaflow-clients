@@ -21,24 +21,22 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.FixedWindow;
 import io.numaproj.numaflow.models.SessionWindow;
 import io.numaproj.numaflow.models.SlidingWindow;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for Window
  */
-public class WindowTest {
+class WindowTest {
     private final Window model = new Window();
 
     /**
      * Model tests for Window
      */
     @Test
-    public void testWindow() {
+    void testWindow() {
         // TODO: test Window
     }
 
@@ -46,7 +44,7 @@ public class WindowTest {
      * Test the property 'fixed'
      */
     @Test
-    public void fixedTest() {
+    void fixedTest() {
         // TODO: test fixed
     }
 
@@ -54,7 +52,7 @@ public class WindowTest {
      * Test the property 'session'
      */
     @Test
-    public void sessionTest() {
+    void sessionTest() {
         // TODO: test session
     }
 
@@ -62,7 +60,7 @@ public class WindowTest {
      * Test the property 'sliding'
      */
     @Test
-    public void slidingTest() {
+    void slidingTest() {
         // TODO: test sliding
     }
 

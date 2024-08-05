@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -23,21 +25,20 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.custom.Quantity;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * PersistenceStrategy defines the strategy of persistence
  */
-@ApiModel(description = "PersistenceStrategy defines the strategy of persistence")
 @JsonPropertyOrder({
   PersistenceStrategy.JSON_PROPERTY_ACCESS_MODE,
   PersistenceStrategy.JSON_PROPERTY_STORAGE_CLASS_NAME,
   PersistenceStrategy.JSON_PROPERTY_VOLUME_SIZE
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class PersistenceStrategy {
   public static final String JSON_PROPERTY_ACCESS_MODE = "accessMode";
   private String accessMode;
@@ -48,21 +49,21 @@ public class PersistenceStrategy {
   public static final String JSON_PROPERTY_VOLUME_SIZE = "volumeSize";
   private io.kubernetes.client.custom.Quantity volumeSize = null;
 
+  public PersistenceStrategy() { 
+  }
 
   public PersistenceStrategy accessMode(String accessMode) {
     this.accessMode = accessMode;
     return this;
   }
 
-   /**
+  /**
    * Available access modes such as ReadWriteOnce, ReadWriteMany https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
    * @return accessMode
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Available access modes such as ReadWriteOnce, ReadWriteMany https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes")
   @JsonProperty(JSON_PROPERTY_ACCESS_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccessMode() {
     return accessMode;
   }
@@ -80,15 +81,13 @@ public class PersistenceStrategy {
     return this;
   }
 
-   /**
+  /**
    * Name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
    * @return storageClassName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1")
   @JsonProperty(JSON_PROPERTY_STORAGE_CLASS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStorageClassName() {
     return storageClassName;
   }
@@ -106,15 +105,13 @@ public class PersistenceStrategy {
     return this;
   }
 
-   /**
+  /**
    * Get volumeSize
    * @return volumeSize
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VOLUME_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public io.kubernetes.client.custom.Quantity getVolumeSize() {
     return volumeSize;
   }
@@ -171,5 +168,54 @@ public class PersistenceStrategy {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `accessMode` to the URL query string
+    if (getAccessMode() != null) {
+      joiner.add(String.format("%saccessMode%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAccessMode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `storageClassName` to the URL query string
+    if (getStorageClassName() != null) {
+      joiner.add(String.format("%sstorageClassName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStorageClassName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `volumeSize` to the URL query string
+    if (getVolumeSize() != null) {
+      joiner.add(String.format("%svolumeSize%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getVolumeSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

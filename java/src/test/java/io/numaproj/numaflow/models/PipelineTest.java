@@ -21,24 +21,22 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.numaproj.numaflow.models.PipelineSpec;
 import io.numaproj.numaflow.models.PipelineStatus;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for Pipeline
  */
-public class PipelineTest {
+class PipelineTest {
     private final Pipeline model = new Pipeline();
 
     /**
      * Model tests for Pipeline
      */
     @Test
-    public void testPipeline() {
+    void testPipeline() {
         // TODO: test Pipeline
     }
 
@@ -46,7 +44,7 @@ public class PipelineTest {
      * Test the property 'apiVersion'
      */
     @Test
-    public void apiVersionTest() {
+    void apiVersionTest() {
         // TODO: test apiVersion
     }
 
@@ -54,7 +52,7 @@ public class PipelineTest {
      * Test the property 'kind'
      */
     @Test
-    public void kindTest() {
+    void kindTest() {
         // TODO: test kind
     }
 
@@ -62,7 +60,7 @@ public class PipelineTest {
      * Test the property 'metadata'
      */
     @Test
-    public void metadataTest() {
+    void metadataTest() {
         // TODO: test metadata
     }
 
@@ -70,7 +68,7 @@ public class PipelineTest {
      * Test the property 'spec'
      */
     @Test
-    public void specTest() {
+    void specTest() {
         // TODO: test spec
     }
 
@@ -78,7 +76,7 @@ public class PipelineTest {
      * Test the property 'status'
      */
     @Test
-    public void statusTest() {
+    void statusTest() {
         // TODO: test status
     }
 

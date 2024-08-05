@@ -19,24 +19,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.IdleSource;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for Watermark
  */
-public class WatermarkTest {
+class WatermarkTest {
     private final Watermark model = new Watermark();
 
     /**
      * Model tests for Watermark
      */
     @Test
-    public void testWatermark() {
+    void testWatermark() {
         // TODO: test Watermark
     }
 
@@ -44,7 +42,7 @@ public class WatermarkTest {
      * Test the property 'disabled'
      */
     @Test
-    public void disabledTest() {
+    void disabledTest() {
         // TODO: test disabled
     }
 
@@ -52,7 +50,7 @@ public class WatermarkTest {
      * Test the property 'idleSource'
      */
     @Test
-    public void idleSourceTest() {
+    void idleSourceTest() {
         // TODO: test idleSource
     }
 
@@ -60,7 +58,7 @@ public class WatermarkTest {
      * Test the property 'maxDelay'
      */
     @Test
-    public void maxDelayTest() {
+    void maxDelayTest() {
         // TODO: test maxDelay
     }
 

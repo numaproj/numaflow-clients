@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -29,13 +31,13 @@ import io.numaproj.numaflow.models.PipelineLimits;
 import io.numaproj.numaflow.models.SideInput;
 import io.numaproj.numaflow.models.Templates;
 import io.numaproj.numaflow.models.Watermark;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * PipelineSpec
  */
@@ -49,10 +51,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   PipelineSpec.JSON_PROPERTY_VERTICES,
   PipelineSpec.JSON_PROPERTY_WATERMARK
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class PipelineSpec {
   public static final String JSON_PROPERTY_EDGES = "edges";
-  private List<Edge> edges = null;
+  private List<Edge> edges = new ArrayList<>();
 
   public static final String JSON_PROPERTY_INTER_STEP_BUFFER_SERVICE_NAME = "interStepBufferServiceName";
   private String interStepBufferServiceName;
@@ -64,17 +66,19 @@ public class PipelineSpec {
   private PipelineLimits limits;
 
   public static final String JSON_PROPERTY_SIDE_INPUTS = "sideInputs";
-  private List<SideInput> sideInputs = null;
+  private List<SideInput> sideInputs = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TEMPLATES = "templates";
   private Templates templates;
 
   public static final String JSON_PROPERTY_VERTICES = "vertices";
-  private List<AbstractVertex> vertices = null;
+  private List<AbstractVertex> vertices = new ArrayList<>();
 
   public static final String JSON_PROPERTY_WATERMARK = "watermark";
   private Watermark watermark;
 
+  public PipelineSpec() { 
+  }
 
   public PipelineSpec edges(List<Edge> edges) {
     this.edges = edges;
@@ -89,15 +93,13 @@ public class PipelineSpec {
     return this;
   }
 
-   /**
+  /**
    * Edges define the relationships between vertices
    * @return edges
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Edges define the relationships between vertices")
   @JsonProperty(JSON_PROPERTY_EDGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Edge> getEdges() {
     return edges;
   }
@@ -115,15 +117,13 @@ public class PipelineSpec {
     return this;
   }
 
-   /**
+  /**
    * Get interStepBufferServiceName
    * @return interStepBufferServiceName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INTER_STEP_BUFFER_SERVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getInterStepBufferServiceName() {
     return interStepBufferServiceName;
   }
@@ -141,15 +141,13 @@ public class PipelineSpec {
     return this;
   }
 
-   /**
+  /**
    * Get lifecycle
    * @return lifecycle
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIFECYCLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Lifecycle getLifecycle() {
     return lifecycle;
   }
@@ -167,15 +165,13 @@ public class PipelineSpec {
     return this;
   }
 
-   /**
+  /**
    * Get limits
    * @return limits
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PipelineLimits getLimits() {
     return limits;
   }
@@ -201,15 +197,13 @@ public class PipelineSpec {
     return this;
   }
 
-   /**
+  /**
    * SideInputs defines the Side Inputs of a pipeline.
    * @return sideInputs
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "SideInputs defines the Side Inputs of a pipeline.")
   @JsonProperty(JSON_PROPERTY_SIDE_INPUTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SideInput> getSideInputs() {
     return sideInputs;
   }
@@ -227,15 +221,13 @@ public class PipelineSpec {
     return this;
   }
 
-   /**
+  /**
    * Get templates
    * @return templates
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEMPLATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Templates getTemplates() {
     return templates;
   }
@@ -261,15 +253,13 @@ public class PipelineSpec {
     return this;
   }
 
-   /**
+  /**
    * Get vertices
    * @return vertices
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VERTICES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<AbstractVertex> getVertices() {
     return vertices;
   }
@@ -287,15 +277,13 @@ public class PipelineSpec {
     return this;
   }
 
-   /**
+  /**
    * Get watermark
    * @return watermark
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WATERMARK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Watermark getWatermark() {
     return watermark;
   }
@@ -362,5 +350,94 @@ public class PipelineSpec {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `edges` to the URL query string
+    if (getEdges() != null) {
+      for (int i = 0; i < getEdges().size(); i++) {
+        if (getEdges().get(i) != null) {
+          joiner.add(getEdges().get(i).toUrlQueryString(String.format("%sedges%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `interStepBufferServiceName` to the URL query string
+    if (getInterStepBufferServiceName() != null) {
+      joiner.add(String.format("%sinterStepBufferServiceName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getInterStepBufferServiceName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `lifecycle` to the URL query string
+    if (getLifecycle() != null) {
+      joiner.add(getLifecycle().toUrlQueryString(prefix + "lifecycle" + suffix));
+    }
+
+    // add `limits` to the URL query string
+    if (getLimits() != null) {
+      joiner.add(getLimits().toUrlQueryString(prefix + "limits" + suffix));
+    }
+
+    // add `sideInputs` to the URL query string
+    if (getSideInputs() != null) {
+      for (int i = 0; i < getSideInputs().size(); i++) {
+        if (getSideInputs().get(i) != null) {
+          joiner.add(getSideInputs().get(i).toUrlQueryString(String.format("%ssideInputs%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `templates` to the URL query string
+    if (getTemplates() != null) {
+      joiner.add(getTemplates().toUrlQueryString(prefix + "templates" + suffix));
+    }
+
+    // add `vertices` to the URL query string
+    if (getVertices() != null) {
+      for (int i = 0; i < getVertices().size(); i++) {
+        if (getVertices().get(i) != null) {
+          joiner.add(getVertices().get(i).toUrlQueryString(String.format("%svertices%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `watermark` to the URL query string
+    if (getWatermark() != null) {
+      joiner.add(getWatermark().toUrlQueryString(prefix + "watermark" + suffix));
+    }
+
+    return joiner.toString();
+  }
 }
 

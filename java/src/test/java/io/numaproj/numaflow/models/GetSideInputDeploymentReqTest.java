@@ -20,26 +20,24 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1EnvVar;
 import io.kubernetes.client.openapi.models.V1ResourceRequirements;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for GetSideInputDeploymentReq
  */
-public class GetSideInputDeploymentReqTest {
+class GetSideInputDeploymentReqTest {
     private final GetSideInputDeploymentReq model = new GetSideInputDeploymentReq();
 
     /**
      * Model tests for GetSideInputDeploymentReq
      */
     @Test
-    public void testGetSideInputDeploymentReq() {
+    void testGetSideInputDeploymentReq() {
         // TODO: test GetSideInputDeploymentReq
     }
 
@@ -47,7 +45,7 @@ public class GetSideInputDeploymentReqTest {
      * Test the property 'defaultResources'
      */
     @Test
-    public void defaultResourcesTest() {
+    void defaultResourcesTest() {
         // TODO: test defaultResources
     }
 
@@ -55,7 +53,7 @@ public class GetSideInputDeploymentReqTest {
      * Test the property 'env'
      */
     @Test
-    public void envTest() {
+    void envTest() {
         // TODO: test env
     }
 
@@ -63,7 +61,7 @@ public class GetSideInputDeploymentReqTest {
      * Test the property 'isBSvcType'
      */
     @Test
-    public void isBSvcTypeTest() {
+    void isBSvcTypeTest() {
         // TODO: test isBSvcType
     }
 
@@ -71,7 +69,7 @@ public class GetSideInputDeploymentReqTest {
      * Test the property 'image'
      */
     @Test
-    public void imageTest() {
+    void imageTest() {
         // TODO: test image
     }
 
@@ -79,7 +77,7 @@ public class GetSideInputDeploymentReqTest {
      * Test the property 'pullPolicy'
      */
     @Test
-    public void pullPolicyTest() {
+    void pullPolicyTest() {
         // TODO: test pullPolicy
     }
 

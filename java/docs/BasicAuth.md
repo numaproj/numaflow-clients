@@ -6,10 +6,10 @@ BasicAuth represents the basic authentication approach which contains a user nam
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**password** | **V1SecretKeySelector** |  |  [optional]
-**user** | **V1SecretKeySelector** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**password** | **V1SecretKeySelector** |  |  [optional] |
+|**user** | **V1SecretKeySelector** |  |  [optional] |
 
 
 

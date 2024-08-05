@@ -18,25 +18,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.Instant;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for VertexStatus
  */
-public class VertexStatusTest {
+class VertexStatusTest {
     private final VertexStatus model = new VertexStatus();
 
     /**
      * Model tests for VertexStatus
      */
     @Test
-    public void testVertexStatus() {
+    void testVertexStatus() {
         // TODO: test VertexStatus
     }
 
@@ -44,7 +42,7 @@ public class VertexStatusTest {
      * Test the property 'lastScaledAt'
      */
     @Test
-    public void lastScaledAtTest() {
+    void lastScaledAtTest() {
         // TODO: test lastScaledAt
     }
 
@@ -52,7 +50,7 @@ public class VertexStatusTest {
      * Test the property 'message'
      */
     @Test
-    public void messageTest() {
+    void messageTest() {
         // TODO: test message
     }
 
@@ -60,7 +58,7 @@ public class VertexStatusTest {
      * Test the property 'phase'
      */
     @Test
-    public void phaseTest() {
+    void phaseTest() {
         // TODO: test phase
     }
 
@@ -68,7 +66,7 @@ public class VertexStatusTest {
      * Test the property 'reason'
      */
     @Test
-    public void reasonTest() {
+    void reasonTest() {
         // TODO: test reason
     }
 
@@ -76,7 +74,7 @@ public class VertexStatusTest {
      * Test the property 'replicas'
      */
     @Test
-    public void replicasTest() {
+    void replicasTest() {
         // TODO: test replicas
     }
 
@@ -84,7 +82,7 @@ public class VertexStatusTest {
      * Test the property 'selector'
      */
     @Test
-    public void selectorTest() {
+    void selectorTest() {
         // TODO: test selector
     }
 

@@ -19,27 +19,24 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1ResourceRequirements;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for GetJetStreamStatefulSetSpecReq
  */
-public class GetJetStreamStatefulSetSpecReqTest {
+class GetJetStreamStatefulSetSpecReqTest {
     private final GetJetStreamStatefulSetSpecReq model = new GetJetStreamStatefulSetSpecReq();
 
     /**
      * Model tests for GetJetStreamStatefulSetSpecReq
      */
     @Test
-    public void testGetJetStreamStatefulSetSpecReq() {
+    void testGetJetStreamStatefulSetSpecReq() {
         // TODO: test GetJetStreamStatefulSetSpecReq
     }
 
@@ -47,7 +44,7 @@ public class GetJetStreamStatefulSetSpecReqTest {
      * Test the property 'clientPort'
      */
     @Test
-    public void clientPortTest() {
+    void clientPortTest() {
         // TODO: test clientPort
     }
 
@@ -55,7 +52,7 @@ public class GetJetStreamStatefulSetSpecReqTest {
      * Test the property 'clusterPort'
      */
     @Test
-    public void clusterPortTest() {
+    void clusterPortTest() {
         // TODO: test clusterPort
     }
 
@@ -63,7 +60,7 @@ public class GetJetStreamStatefulSetSpecReqTest {
      * Test the property 'configMapName'
      */
     @Test
-    public void configMapNameTest() {
+    void configMapNameTest() {
         // TODO: test configMapName
     }
 
@@ -71,7 +68,7 @@ public class GetJetStreamStatefulSetSpecReqTest {
      * Test the property 'configReloaderImage'
      */
     @Test
-    public void configReloaderImageTest() {
+    void configReloaderImageTest() {
         // TODO: test configReloaderImage
     }
 
@@ -79,7 +76,7 @@ public class GetJetStreamStatefulSetSpecReqTest {
      * Test the property 'defaultResources'
      */
     @Test
-    public void defaultResourcesTest() {
+    void defaultResourcesTest() {
         // TODO: test defaultResources
     }
 
@@ -87,7 +84,7 @@ public class GetJetStreamStatefulSetSpecReqTest {
      * Test the property 'labels'
      */
     @Test
-    public void labelsTest() {
+    void labelsTest() {
         // TODO: test labels
     }
 
@@ -95,7 +92,7 @@ public class GetJetStreamStatefulSetSpecReqTest {
      * Test the property 'metricsExporterImage'
      */
     @Test
-    public void metricsExporterImageTest() {
+    void metricsExporterImageTest() {
         // TODO: test metricsExporterImage
     }
 
@@ -103,7 +100,7 @@ public class GetJetStreamStatefulSetSpecReqTest {
      * Test the property 'metricsPort'
      */
     @Test
-    public void metricsPortTest() {
+    void metricsPortTest() {
         // TODO: test metricsPort
     }
 
@@ -111,7 +108,7 @@ public class GetJetStreamStatefulSetSpecReqTest {
      * Test the property 'monitorPort'
      */
     @Test
-    public void monitorPortTest() {
+    void monitorPortTest() {
         // TODO: test monitorPort
     }
 
@@ -119,7 +116,7 @@ public class GetJetStreamStatefulSetSpecReqTest {
      * Test the property 'natsImage'
      */
     @Test
-    public void natsImageTest() {
+    void natsImageTest() {
         // TODO: test natsImage
     }
 
@@ -127,7 +124,7 @@ public class GetJetStreamStatefulSetSpecReqTest {
      * Test the property 'pvcNameIfNeeded'
      */
     @Test
-    public void pvcNameIfNeededTest() {
+    void pvcNameIfNeededTest() {
         // TODO: test pvcNameIfNeeded
     }
 
@@ -135,7 +132,7 @@ public class GetJetStreamStatefulSetSpecReqTest {
      * Test the property 'serverAuthSecretName'
      */
     @Test
-    public void serverAuthSecretNameTest() {
+    void serverAuthSecretNameTest() {
         // TODO: test serverAuthSecretName
     }
 
@@ -143,7 +140,7 @@ public class GetJetStreamStatefulSetSpecReqTest {
      * Test the property 'serverEncryptionSecretName'
      */
     @Test
-    public void serverEncryptionSecretNameTest() {
+    void serverEncryptionSecretNameTest() {
         // TODO: test serverEncryptionSecretName
     }
 
@@ -151,7 +148,7 @@ public class GetJetStreamStatefulSetSpecReqTest {
      * Test the property 'serviceName'
      */
     @Test
-    public void serviceNameTest() {
+    void serviceNameTest() {
         // TODO: test serviceName
     }
 
@@ -159,7 +156,7 @@ public class GetJetStreamStatefulSetSpecReqTest {
      * Test the property 'startCommand'
      */
     @Test
-    public void startCommandTest() {
+    void startCommandTest() {
         // TODO: test startCommand
     }
 

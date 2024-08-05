@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -24,13 +26,13 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1Condition;
 import io.numaproj.numaflow.models.BufferServiceConfig;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * InterStepBufferServiceStatus
  */
@@ -41,10 +43,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   InterStepBufferServiceStatus.JSON_PROPERTY_PHASE,
   InterStepBufferServiceStatus.JSON_PROPERTY_TYPE
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class InterStepBufferServiceStatus {
   public static final String JSON_PROPERTY_CONDITIONS = "conditions";
-  private List<V1Condition> conditions = null;
+  private List<V1Condition> conditions = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CONFIG = "config";
   private BufferServiceConfig config;
@@ -58,6 +60,8 @@ public class InterStepBufferServiceStatus {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
+  public InterStepBufferServiceStatus() { 
+  }
 
   public InterStepBufferServiceStatus conditions(List<V1Condition> conditions) {
     this.conditions = conditions;
@@ -72,15 +76,13 @@ public class InterStepBufferServiceStatus {
     return this;
   }
 
-   /**
+  /**
    * Conditions are the latest available observations of a resource&#39;s current state.
    * @return conditions
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Conditions are the latest available observations of a resource's current state.")
   @JsonProperty(JSON_PROPERTY_CONDITIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1Condition> getConditions() {
     return conditions;
   }
@@ -98,15 +100,13 @@ public class InterStepBufferServiceStatus {
     return this;
   }
 
-   /**
+  /**
    * Get config
    * @return config
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BufferServiceConfig getConfig() {
     return config;
   }
@@ -124,15 +124,13 @@ public class InterStepBufferServiceStatus {
     return this;
   }
 
-   /**
+  /**
    * Get message
    * @return message
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMessage() {
     return message;
   }
@@ -150,15 +148,13 @@ public class InterStepBufferServiceStatus {
     return this;
   }
 
-   /**
+  /**
    * Get phase
    * @return phase
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PHASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPhase() {
     return phase;
   }
@@ -176,15 +172,13 @@ public class InterStepBufferServiceStatus {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
@@ -245,5 +239,70 @@ public class InterStepBufferServiceStatus {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `conditions` to the URL query string
+    if (getConditions() != null) {
+      for (int i = 0; i < getConditions().size(); i++) {
+        if (getConditions().get(i) != null) {
+          joiner.add(String.format("%sconditions%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getConditions().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `config` to the URL query string
+    if (getConfig() != null) {
+      joiner.add(getConfig().toUrlQueryString(prefix + "config" + suffix));
+    }
+
+    // add `message` to the URL query string
+    if (getMessage() != null) {
+      joiner.add(String.format("%smessage%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMessage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `phase` to the URL query string
+    if (getPhase() != null) {
+      joiner.add(String.format("%sphase%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPhase()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `type` to the URL query string
+    if (getType() != null) {
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

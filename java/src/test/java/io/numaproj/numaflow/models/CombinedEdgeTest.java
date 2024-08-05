@@ -20,24 +20,22 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.ForwardConditions;
 import io.numaproj.numaflow.models.VertexLimits;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for CombinedEdge
  */
-public class CombinedEdgeTest {
+class CombinedEdgeTest {
     private final CombinedEdge model = new CombinedEdge();
 
     /**
      * Model tests for CombinedEdge
      */
     @Test
-    public void testCombinedEdge() {
+    void testCombinedEdge() {
         // TODO: test CombinedEdge
     }
 
@@ -45,7 +43,7 @@ public class CombinedEdgeTest {
      * Test the property 'conditions'
      */
     @Test
-    public void conditionsTest() {
+    void conditionsTest() {
         // TODO: test conditions
     }
 
@@ -53,7 +51,7 @@ public class CombinedEdgeTest {
      * Test the property 'from'
      */
     @Test
-    public void fromTest() {
+    void fromTest() {
         // TODO: test from
     }
 
@@ -61,7 +59,7 @@ public class CombinedEdgeTest {
      * Test the property 'fromVertexLimits'
      */
     @Test
-    public void fromVertexLimitsTest() {
+    void fromVertexLimitsTest() {
         // TODO: test fromVertexLimits
     }
 
@@ -69,7 +67,7 @@ public class CombinedEdgeTest {
      * Test the property 'fromVertexPartitionCount'
      */
     @Test
-    public void fromVertexPartitionCountTest() {
+    void fromVertexPartitionCountTest() {
         // TODO: test fromVertexPartitionCount
     }
 
@@ -77,7 +75,7 @@ public class CombinedEdgeTest {
      * Test the property 'fromVertexType'
      */
     @Test
-    public void fromVertexTypeTest() {
+    void fromVertexTypeTest() {
         // TODO: test fromVertexType
     }
 
@@ -85,7 +83,7 @@ public class CombinedEdgeTest {
      * Test the property 'onFull'
      */
     @Test
-    public void onFullTest() {
+    void onFullTest() {
         // TODO: test onFull
     }
 
@@ -93,7 +91,7 @@ public class CombinedEdgeTest {
      * Test the property 'to'
      */
     @Test
-    public void toTest() {
+    void toTest() {
         // TODO: test to
     }
 
@@ -101,7 +99,7 @@ public class CombinedEdgeTest {
      * Test the property 'toVertexLimits'
      */
     @Test
-    public void toVertexLimitsTest() {
+    void toVertexLimitsTest() {
         // TODO: test toVertexLimits
     }
 
@@ -109,7 +107,7 @@ public class CombinedEdgeTest {
      * Test the property 'toVertexPartitionCount'
      */
     @Test
-    public void toVertexPartitionCountTest() {
+    void toVertexPartitionCountTest() {
         // TODO: test toVertexPartitionCount
     }
 
@@ -117,7 +115,7 @@ public class CombinedEdgeTest {
      * Test the property 'toVertexType'
      */
     @Test
-    public void toVertexTypeTest() {
+    void toVertexTypeTest() {
         // TODO: test toVertexType
     }
 

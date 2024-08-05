@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -28,19 +30,18 @@ import io.kubernetes.client.openapi.models.V1PodDNSConfig;
 import io.kubernetes.client.openapi.models.V1PodSecurityContext;
 import io.kubernetes.client.openapi.models.V1Toleration;
 import io.numaproj.numaflow.models.Metadata;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * AbstractPodTemplate provides a template for pod customization in vertices, daemon deployments and so on.
  */
-@ApiModel(description = "AbstractPodTemplate provides a template for pod customization in vertices, daemon deployments and so on.")
 @JsonPropertyOrder({
   AbstractPodTemplate.JSON_PROPERTY_AFFINITY,
   AbstractPodTemplate.JSON_PROPERTY_AUTOMOUNT_SERVICE_ACCOUNT_TOKEN,
@@ -56,7 +57,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AbstractPodTemplate.JSON_PROPERTY_SERVICE_ACCOUNT_NAME,
   AbstractPodTemplate.JSON_PROPERTY_TOLERATIONS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class AbstractPodTemplate {
   public static final String JSON_PROPERTY_AFFINITY = "affinity";
   private V1Affinity affinity = null;
@@ -71,13 +72,13 @@ public class AbstractPodTemplate {
   private String dnsPolicy;
 
   public static final String JSON_PROPERTY_IMAGE_PULL_SECRETS = "imagePullSecrets";
-  private List<V1LocalObjectReference> imagePullSecrets = null;
+  private List<V1LocalObjectReference> imagePullSecrets = new ArrayList<>();
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private Metadata metadata;
 
   public static final String JSON_PROPERTY_NODE_SELECTOR = "nodeSelector";
-  private Map<String, String> nodeSelector = null;
+  private Map<String, String> nodeSelector = new HashMap<>();
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private Integer priority;
@@ -95,23 +96,23 @@ public class AbstractPodTemplate {
   private String serviceAccountName;
 
   public static final String JSON_PROPERTY_TOLERATIONS = "tolerations";
-  private List<V1Toleration> tolerations = null;
+  private List<V1Toleration> tolerations = new ArrayList<>();
 
+  public AbstractPodTemplate() { 
+  }
 
   public AbstractPodTemplate affinity(V1Affinity affinity) {
     this.affinity = affinity;
     return this;
   }
 
-   /**
+  /**
    * Get affinity
    * @return affinity
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AFFINITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1Affinity getAffinity() {
     return affinity;
   }
@@ -129,15 +130,13 @@ public class AbstractPodTemplate {
     return this;
   }
 
-   /**
+  /**
    * AutomountServiceAccountToken indicates whether a service account token should be automatically mounted.
    * @return automountServiceAccountToken
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "AutomountServiceAccountToken indicates whether a service account token should be automatically mounted.")
   @JsonProperty(JSON_PROPERTY_AUTOMOUNT_SERVICE_ACCOUNT_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAutomountServiceAccountToken() {
     return automountServiceAccountToken;
   }
@@ -155,15 +154,13 @@ public class AbstractPodTemplate {
     return this;
   }
 
-   /**
+  /**
    * Get dnsConfig
    * @return dnsConfig
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DNS_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1PodDNSConfig getDnsConfig() {
     return dnsConfig;
   }
@@ -181,15 +178,13 @@ public class AbstractPodTemplate {
     return this;
   }
 
-   /**
+  /**
    * Set DNS policy for the pod. Defaults to \&quot;ClusterFirst\&quot;. Valid values are &#39;ClusterFirstWithHostNet&#39;, &#39;ClusterFirst&#39;, &#39;Default&#39; or &#39;None&#39;. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to &#39;ClusterFirstWithHostNet&#39;.
    * @return dnsPolicy
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Set DNS policy for the pod. Defaults to \"ClusterFirst\". Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'.")
   @JsonProperty(JSON_PROPERTY_DNS_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDnsPolicy() {
     return dnsPolicy;
   }
@@ -215,15 +210,13 @@ public class AbstractPodTemplate {
     return this;
   }
 
-   /**
+  /**
    * ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. For example, in the case of docker, only DockerConfig type secrets are honored. More info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod
    * @return imagePullSecrets
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. For example, in the case of docker, only DockerConfig type secrets are honored. More info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod")
   @JsonProperty(JSON_PROPERTY_IMAGE_PULL_SECRETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1LocalObjectReference> getImagePullSecrets() {
     return imagePullSecrets;
   }
@@ -241,15 +234,13 @@ public class AbstractPodTemplate {
     return this;
   }
 
-   /**
+  /**
    * Get metadata
    * @return metadata
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Metadata getMetadata() {
     return metadata;
   }
@@ -275,15 +266,13 @@ public class AbstractPodTemplate {
     return this;
   }
 
-   /**
+  /**
    * NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node&#39;s labels for the pod to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
    * @return nodeSelector
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node's labels for the pod to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/")
   @JsonProperty(JSON_PROPERTY_NODE_SELECTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getNodeSelector() {
     return nodeSelector;
   }
@@ -301,15 +290,13 @@ public class AbstractPodTemplate {
     return this;
   }
 
-   /**
+  /**
    * The priority value. Various system components use this field to find the priority of the Redis pod. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority. More info: https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/
    * @return priority
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The priority value. Various system components use this field to find the priority of the Redis pod. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority. More info: https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/")
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getPriority() {
     return priority;
   }
@@ -327,15 +314,13 @@ public class AbstractPodTemplate {
     return this;
   }
 
-   /**
+  /**
    * If specified, indicates the Redis pod&#39;s priority. \&quot;system-node-critical\&quot; and \&quot;system-cluster-critical\&quot; are two special keywords which indicate the highest priorities with the former being the highest priority. Any other name must be defined by creating a PriorityClass object with that name. If not specified, the pod priority will be default or zero if there is no default. More info: https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/
    * @return priorityClassName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If specified, indicates the Redis pod's priority. \"system-node-critical\" and \"system-cluster-critical\" are two special keywords which indicate the highest priorities with the former being the highest priority. Any other name must be defined by creating a PriorityClass object with that name. If not specified, the pod priority will be default or zero if there is no default. More info: https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/")
   @JsonProperty(JSON_PROPERTY_PRIORITY_CLASS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPriorityClassName() {
     return priorityClassName;
   }
@@ -353,15 +338,13 @@ public class AbstractPodTemplate {
     return this;
   }
 
-   /**
+  /**
    * RuntimeClassName refers to a RuntimeClass object in the node.k8s.io group, which should be used to run this pod.  If no RuntimeClass resource matches the named class, the pod will not be run. If unset or empty, the \&quot;legacy\&quot; RuntimeClass will be used, which is an implicit class with an empty definition that uses the default runtime handler. More info: https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class
    * @return runtimeClassName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "RuntimeClassName refers to a RuntimeClass object in the node.k8s.io group, which should be used to run this pod.  If no RuntimeClass resource matches the named class, the pod will not be run. If unset or empty, the \"legacy\" RuntimeClass will be used, which is an implicit class with an empty definition that uses the default runtime handler. More info: https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class")
   @JsonProperty(JSON_PROPERTY_RUNTIME_CLASS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRuntimeClassName() {
     return runtimeClassName;
   }
@@ -379,15 +362,13 @@ public class AbstractPodTemplate {
     return this;
   }
 
-   /**
+  /**
    * Get securityContext
    * @return securityContext
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY_CONTEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public V1PodSecurityContext getSecurityContext() {
     return securityContext;
   }
@@ -405,15 +386,13 @@ public class AbstractPodTemplate {
     return this;
   }
 
-   /**
+  /**
    * ServiceAccountName applied to the pod
    * @return serviceAccountName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ServiceAccountName applied to the pod")
   @JsonProperty(JSON_PROPERTY_SERVICE_ACCOUNT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getServiceAccountName() {
     return serviceAccountName;
   }
@@ -439,15 +418,13 @@ public class AbstractPodTemplate {
     return this;
   }
 
-   /**
+  /**
    * If specified, the pod&#39;s tolerations.
    * @return tolerations
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If specified, the pod's tolerations.")
   @JsonProperty(JSON_PROPERTY_TOLERATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<V1Toleration> getTolerations() {
     return tolerations;
   }
@@ -524,5 +501,120 @@ public class AbstractPodTemplate {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `affinity` to the URL query string
+    if (getAffinity() != null) {
+      joiner.add(String.format("%saffinity%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAffinity()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `automountServiceAccountToken` to the URL query string
+    if (getAutomountServiceAccountToken() != null) {
+      joiner.add(String.format("%sautomountServiceAccountToken%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAutomountServiceAccountToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `dnsConfig` to the URL query string
+    if (getDnsConfig() != null) {
+      joiner.add(String.format("%sdnsConfig%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDnsConfig()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `dnsPolicy` to the URL query string
+    if (getDnsPolicy() != null) {
+      joiner.add(String.format("%sdnsPolicy%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDnsPolicy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `imagePullSecrets` to the URL query string
+    if (getImagePullSecrets() != null) {
+      for (int i = 0; i < getImagePullSecrets().size(); i++) {
+        if (getImagePullSecrets().get(i) != null) {
+          joiner.add(String.format("%simagePullSecrets%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getImagePullSecrets().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    // add `metadata` to the URL query string
+    if (getMetadata() != null) {
+      joiner.add(getMetadata().toUrlQueryString(prefix + "metadata" + suffix));
+    }
+
+    // add `nodeSelector` to the URL query string
+    if (getNodeSelector() != null) {
+      for (String _key : getNodeSelector().keySet()) {
+        joiner.add(String.format("%snodeSelector%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+            getNodeSelector().get(_key), URLEncoder.encode(ApiClient.valueToString(getNodeSelector().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    // add `priority` to the URL query string
+    if (getPriority() != null) {
+      joiner.add(String.format("%spriority%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPriority()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `priorityClassName` to the URL query string
+    if (getPriorityClassName() != null) {
+      joiner.add(String.format("%spriorityClassName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPriorityClassName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `runtimeClassName` to the URL query string
+    if (getRuntimeClassName() != null) {
+      joiner.add(String.format("%sruntimeClassName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRuntimeClassName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `securityContext` to the URL query string
+    if (getSecurityContext() != null) {
+      joiner.add(String.format("%ssecurityContext%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSecurityContext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `serviceAccountName` to the URL query string
+    if (getServiceAccountName() != null) {
+      joiner.add(String.format("%sserviceAccountName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getServiceAccountName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `tolerations` to the URL query string
+    if (getTolerations() != null) {
+      for (int i = 0; i < getTolerations().size(); i++) {
+        if (getTolerations().get(i) != null) {
+          joiner.add(String.format("%stolerations%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(getTolerations().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+
+    return joiner.toString();
+  }
 }
 

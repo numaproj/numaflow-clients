@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,11 +24,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * SideInputTrigger
  */
@@ -34,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SideInputTrigger.JSON_PROPERTY_SCHEDULE,
   SideInputTrigger.JSON_PROPERTY_TIMEZONE
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class SideInputTrigger {
   public static final String JSON_PROPERTY_SCHEDULE = "schedule";
   private String schedule;
@@ -42,21 +44,21 @@ public class SideInputTrigger {
   public static final String JSON_PROPERTY_TIMEZONE = "timezone";
   private String timezone;
 
+  public SideInputTrigger() { 
+  }
 
   public SideInputTrigger schedule(String schedule) {
     this.schedule = schedule;
     return this;
   }
 
-   /**
+  /**
    * The schedule to trigger the retrievement of the side input data. It supports cron format, for example, \&quot;0 30 * * * *\&quot;. Or interval based format, such as \&quot;@hourly\&quot;, \&quot;@every 1h30m\&quot;, etc.
    * @return schedule
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The schedule to trigger the retrievement of the side input data. It supports cron format, for example, \"0 30 * * * *\". Or interval based format, such as \"@hourly\", \"@every 1h30m\", etc.")
   @JsonProperty(JSON_PROPERTY_SCHEDULE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getSchedule() {
     return schedule;
   }
@@ -74,15 +76,13 @@ public class SideInputTrigger {
     return this;
   }
 
-   /**
+  /**
    * Get timezone
    * @return timezone
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTimezone() {
     return timezone;
   }
@@ -137,5 +137,49 @@ public class SideInputTrigger {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `schedule` to the URL query string
+    if (getSchedule() != null) {
+      joiner.add(String.format("%sschedule%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSchedule()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `timezone` to the URL query string
+    if (getTimezone() != null) {
+      joiner.add(String.format("%stimezone%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTimezone()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

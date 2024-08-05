@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -23,11 +25,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.NatsAuth;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * JetStreamConfig
  */
@@ -37,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   JetStreamConfig.JSON_PROPERTY_TLS_ENABLED,
   JetStreamConfig.JSON_PROPERTY_URL
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class JetStreamConfig {
   public static final String JSON_PROPERTY_AUTH = "auth";
   private NatsAuth auth;
@@ -51,21 +53,21 @@ public class JetStreamConfig {
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
+  public JetStreamConfig() { 
+  }
 
   public JetStreamConfig auth(NatsAuth auth) {
     this.auth = auth;
     return this;
   }
 
-   /**
+  /**
    * Get auth
    * @return auth
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AUTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public NatsAuth getAuth() {
     return auth;
   }
@@ -83,15 +85,13 @@ public class JetStreamConfig {
     return this;
   }
 
-   /**
+  /**
    * Get streamConfig
    * @return streamConfig
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STREAM_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStreamConfig() {
     return streamConfig;
   }
@@ -109,15 +109,13 @@ public class JetStreamConfig {
     return this;
   }
 
-   /**
+  /**
    * TLS enabled or not
    * @return tlsEnabled
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TLS enabled or not")
   @JsonProperty(JSON_PROPERTY_TLS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getTlsEnabled() {
     return tlsEnabled;
   }
@@ -135,15 +133,13 @@ public class JetStreamConfig {
     return this;
   }
 
-   /**
+  /**
    * JetStream (NATS) URL
    * @return url
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "JetStream (NATS) URL")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUrl() {
     return url;
   }
@@ -202,5 +198,59 @@ public class JetStreamConfig {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `auth` to the URL query string
+    if (getAuth() != null) {
+      joiner.add(getAuth().toUrlQueryString(prefix + "auth" + suffix));
+    }
+
+    // add `streamConfig` to the URL query string
+    if (getStreamConfig() != null) {
+      joiner.add(String.format("%sstreamConfig%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStreamConfig()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `tlsEnabled` to the URL query string
+    if (getTlsEnabled() != null) {
+      joiner.add(String.format("%stlsEnabled%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTlsEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `url` to the URL query string
+    if (getUrl() != null) {
+      joiner.add(String.format("%surl%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

@@ -19,24 +19,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.ForwardConditions;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for Edge
  */
-public class EdgeTest {
+class EdgeTest {
     private final Edge model = new Edge();
 
     /**
      * Model tests for Edge
      */
     @Test
-    public void testEdge() {
+    void testEdge() {
         // TODO: test Edge
     }
 
@@ -44,7 +42,7 @@ public class EdgeTest {
      * Test the property 'conditions'
      */
     @Test
-    public void conditionsTest() {
+    void conditionsTest() {
         // TODO: test conditions
     }
 
@@ -52,7 +50,7 @@ public class EdgeTest {
      * Test the property 'from'
      */
     @Test
-    public void fromTest() {
+    void fromTest() {
         // TODO: test from
     }
 
@@ -60,7 +58,7 @@ public class EdgeTest {
      * Test the property 'onFull'
      */
     @Test
-    public void onFullTest() {
+    void onFullTest() {
         // TODO: test onFull
     }
 
@@ -68,7 +66,7 @@ public class EdgeTest {
      * Test the property 'to'
      */
     @Test
-    public void toTest() {
+    void toTest() {
         // TODO: test to
     }
 

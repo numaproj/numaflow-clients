@@ -5,10 +5,10 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**external** | [**RedisConfig**](RedisConfig.md) |  |  [optional]
-**_native** | [**NativeRedis**](NativeRedis.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**external** | [**RedisConfig**](RedisConfig.md) |  |  [optional] |
+|**_native** | [**NativeRedis**](NativeRedis.md) |  |  [optional] |
 
 
 

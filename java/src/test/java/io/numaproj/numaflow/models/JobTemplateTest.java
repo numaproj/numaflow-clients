@@ -25,28 +25,26 @@ import io.kubernetes.client.openapi.models.V1PodSecurityContext;
 import io.kubernetes.client.openapi.models.V1Toleration;
 import io.numaproj.numaflow.models.ContainerTemplate;
 import io.numaproj.numaflow.models.Metadata;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for JobTemplate
  */
-public class JobTemplateTest {
+class JobTemplateTest {
     private final JobTemplate model = new JobTemplate();
 
     /**
      * Model tests for JobTemplate
      */
     @Test
-    public void testJobTemplate() {
+    void testJobTemplate() {
         // TODO: test JobTemplate
     }
 
@@ -54,7 +52,7 @@ public class JobTemplateTest {
      * Test the property 'affinity'
      */
     @Test
-    public void affinityTest() {
+    void affinityTest() {
         // TODO: test affinity
     }
 
@@ -62,7 +60,7 @@ public class JobTemplateTest {
      * Test the property 'automountServiceAccountToken'
      */
     @Test
-    public void automountServiceAccountTokenTest() {
+    void automountServiceAccountTokenTest() {
         // TODO: test automountServiceAccountToken
     }
 
@@ -70,7 +68,7 @@ public class JobTemplateTest {
      * Test the property 'backoffLimit'
      */
     @Test
-    public void backoffLimitTest() {
+    void backoffLimitTest() {
         // TODO: test backoffLimit
     }
 
@@ -78,7 +76,7 @@ public class JobTemplateTest {
      * Test the property 'containerTemplate'
      */
     @Test
-    public void containerTemplateTest() {
+    void containerTemplateTest() {
         // TODO: test containerTemplate
     }
 
@@ -86,7 +84,7 @@ public class JobTemplateTest {
      * Test the property 'dnsConfig'
      */
     @Test
-    public void dnsConfigTest() {
+    void dnsConfigTest() {
         // TODO: test dnsConfig
     }
 
@@ -94,7 +92,7 @@ public class JobTemplateTest {
      * Test the property 'dnsPolicy'
      */
     @Test
-    public void dnsPolicyTest() {
+    void dnsPolicyTest() {
         // TODO: test dnsPolicy
     }
 
@@ -102,7 +100,7 @@ public class JobTemplateTest {
      * Test the property 'imagePullSecrets'
      */
     @Test
-    public void imagePullSecretsTest() {
+    void imagePullSecretsTest() {
         // TODO: test imagePullSecrets
     }
 
@@ -110,7 +108,7 @@ public class JobTemplateTest {
      * Test the property 'metadata'
      */
     @Test
-    public void metadataTest() {
+    void metadataTest() {
         // TODO: test metadata
     }
 
@@ -118,7 +116,7 @@ public class JobTemplateTest {
      * Test the property 'nodeSelector'
      */
     @Test
-    public void nodeSelectorTest() {
+    void nodeSelectorTest() {
         // TODO: test nodeSelector
     }
 
@@ -126,7 +124,7 @@ public class JobTemplateTest {
      * Test the property 'priority'
      */
     @Test
-    public void priorityTest() {
+    void priorityTest() {
         // TODO: test priority
     }
 
@@ -134,7 +132,7 @@ public class JobTemplateTest {
      * Test the property 'priorityClassName'
      */
     @Test
-    public void priorityClassNameTest() {
+    void priorityClassNameTest() {
         // TODO: test priorityClassName
     }
 
@@ -142,7 +140,7 @@ public class JobTemplateTest {
      * Test the property 'runtimeClassName'
      */
     @Test
-    public void runtimeClassNameTest() {
+    void runtimeClassNameTest() {
         // TODO: test runtimeClassName
     }
 
@@ -150,7 +148,7 @@ public class JobTemplateTest {
      * Test the property 'securityContext'
      */
     @Test
-    public void securityContextTest() {
+    void securityContextTest() {
         // TODO: test securityContext
     }
 
@@ -158,7 +156,7 @@ public class JobTemplateTest {
      * Test the property 'serviceAccountName'
      */
     @Test
-    public void serviceAccountNameTest() {
+    void serviceAccountNameTest() {
         // TODO: test serviceAccountName
     }
 
@@ -166,7 +164,7 @@ public class JobTemplateTest {
      * Test the property 'tolerations'
      */
     @Test
-    public void tolerationsTest() {
+    void tolerationsTest() {
         // TODO: test tolerations
     }
 
@@ -174,7 +172,7 @@ public class JobTemplateTest {
      * Test the property 'ttlSecondsAfterFinished'
      */
     @Test
-    public void ttlSecondsAfterFinishedTest() {
+    void ttlSecondsAfterFinishedTest() {
         // TODO: test ttlSecondsAfterFinished
     }
 

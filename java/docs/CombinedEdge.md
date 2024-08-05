@@ -6,18 +6,18 @@ CombinedEdge is a combination of Edge and some other properties such as vertex t
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**conditions** | [**ForwardConditions**](ForwardConditions.md) |  |  [optional]
-**from** | **String** |  | 
-**fromVertexLimits** | [**VertexLimits**](VertexLimits.md) |  |  [optional]
-**fromVertexPartitionCount** | **Integer** | The number of partitions of the from vertex, if not provided, the default value is set to \&quot;1\&quot;. |  [optional]
-**fromVertexType** | **String** | From vertex type. | 
-**onFull** | **String** | OnFull specifies the behaviour for the write actions when the inter step buffer is full. There are currently two options, retryUntilSuccess and discardLatest. if not provided, the default value is set to \&quot;retryUntilSuccess\&quot; |  [optional]
-**to** | **String** |  | 
-**toVertexLimits** | [**VertexLimits**](VertexLimits.md) |  |  [optional]
-**toVertexPartitionCount** | **Integer** | The number of partitions of the to vertex, if not provided, the default value is set to \&quot;1\&quot;. |  [optional]
-**toVertexType** | **String** | To vertex type. | 
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**conditions** | [**ForwardConditions**](ForwardConditions.md) |  |  [optional] |
+|**from** | **String** |  |  |
+|**fromVertexLimits** | [**VertexLimits**](VertexLimits.md) |  |  [optional] |
+|**fromVertexPartitionCount** | **Integer** | The number of partitions of the from vertex, if not provided, the default value is set to \&quot;1\&quot;. |  [optional] |
+|**fromVertexType** | **String** | From vertex type. |  |
+|**onFull** | **String** | OnFull specifies the behaviour for the write actions when the inter step buffer is full. There are currently two options, retryUntilSuccess and discardLatest. if not provided, the default value is set to \&quot;retryUntilSuccess\&quot; |  [optional] |
+|**to** | **String** |  |  |
+|**toVertexLimits** | [**VertexLimits**](VertexLimits.md) |  |  [optional] |
+|**toVertexPartitionCount** | **Integer** | The number of partitions of the to vertex, if not provided, the default value is set to \&quot;1\&quot;. |  [optional] |
+|**toVertexType** | **String** | To vertex type. |  |
 
 
 

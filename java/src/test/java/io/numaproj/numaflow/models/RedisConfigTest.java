@@ -19,24 +19,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1SecretKeySelector;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for RedisConfig
  */
-public class RedisConfigTest {
+class RedisConfigTest {
     private final RedisConfig model = new RedisConfig();
 
     /**
      * Model tests for RedisConfig
      */
     @Test
-    public void testRedisConfig() {
+    void testRedisConfig() {
         // TODO: test RedisConfig
     }
 
@@ -44,7 +42,7 @@ public class RedisConfigTest {
      * Test the property 'masterName'
      */
     @Test
-    public void masterNameTest() {
+    void masterNameTest() {
         // TODO: test masterName
     }
 
@@ -52,7 +50,7 @@ public class RedisConfigTest {
      * Test the property 'password'
      */
     @Test
-    public void passwordTest() {
+    void passwordTest() {
         // TODO: test password
     }
 
@@ -60,7 +58,7 @@ public class RedisConfigTest {
      * Test the property 'sentinelPassword'
      */
     @Test
-    public void sentinelPasswordTest() {
+    void sentinelPasswordTest() {
         // TODO: test sentinelPassword
     }
 
@@ -68,7 +66,7 @@ public class RedisConfigTest {
      * Test the property 'sentinelUrl'
      */
     @Test
-    public void sentinelUrlTest() {
+    void sentinelUrlTest() {
         // TODO: test sentinelUrl
     }
 
@@ -76,7 +74,7 @@ public class RedisConfigTest {
      * Test the property 'url'
      */
     @Test
-    public void urlTest() {
+    void urlTest() {
         // TODO: test url
     }
 
@@ -84,7 +82,7 @@ public class RedisConfigTest {
      * Test the property 'user'
      */
     @Test
-    public void userTest() {
+    void userTest() {
         // TODO: test user
     }
 

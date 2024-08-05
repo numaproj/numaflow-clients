@@ -20,26 +20,24 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1Condition;
 import io.numaproj.numaflow.models.BufferServiceConfig;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for InterStepBufferServiceStatus
  */
-public class InterStepBufferServiceStatusTest {
+class InterStepBufferServiceStatusTest {
     private final InterStepBufferServiceStatus model = new InterStepBufferServiceStatus();
 
     /**
      * Model tests for InterStepBufferServiceStatus
      */
     @Test
-    public void testInterStepBufferServiceStatus() {
+    void testInterStepBufferServiceStatus() {
         // TODO: test InterStepBufferServiceStatus
     }
 
@@ -47,7 +45,7 @@ public class InterStepBufferServiceStatusTest {
      * Test the property 'conditions'
      */
     @Test
-    public void conditionsTest() {
+    void conditionsTest() {
         // TODO: test conditions
     }
 
@@ -55,7 +53,7 @@ public class InterStepBufferServiceStatusTest {
      * Test the property 'config'
      */
     @Test
-    public void configTest() {
+    void configTest() {
         // TODO: test config
     }
 
@@ -63,7 +61,7 @@ public class InterStepBufferServiceStatusTest {
      * Test the property 'message'
      */
     @Test
-    public void messageTest() {
+    void messageTest() {
         // TODO: test message
     }
 
@@ -71,7 +69,7 @@ public class InterStepBufferServiceStatusTest {
      * Test the property 'phase'
      */
     @Test
-    public void phaseTest() {
+    void phaseTest() {
         // TODO: test phase
     }
 
@@ -79,7 +77,7 @@ public class InterStepBufferServiceStatusTest {
      * Test the property 'type'
      */
     @Test
-    public void typeTest() {
+    void typeTest() {
         // TODO: test type
     }
 

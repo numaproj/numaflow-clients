@@ -20,24 +20,22 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.NatsAuth;
 import io.numaproj.numaflow.models.TLS;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for NatsSource
  */
-public class NatsSourceTest {
+class NatsSourceTest {
     private final NatsSource model = new NatsSource();
 
     /**
      * Model tests for NatsSource
      */
     @Test
-    public void testNatsSource() {
+    void testNatsSource() {
         // TODO: test NatsSource
     }
 
@@ -45,7 +43,7 @@ public class NatsSourceTest {
      * Test the property 'auth'
      */
     @Test
-    public void authTest() {
+    void authTest() {
         // TODO: test auth
     }
 
@@ -53,7 +51,7 @@ public class NatsSourceTest {
      * Test the property 'queue'
      */
     @Test
-    public void queueTest() {
+    void queueTest() {
         // TODO: test queue
     }
 
@@ -61,7 +59,7 @@ public class NatsSourceTest {
      * Test the property 'subject'
      */
     @Test
-    public void subjectTest() {
+    void subjectTest() {
         // TODO: test subject
     }
 
@@ -69,7 +67,7 @@ public class NatsSourceTest {
      * Test the property 'tls'
      */
     @Test
-    public void tlsTest() {
+    void tlsTest() {
         // TODO: test tls
     }
 
@@ -77,7 +75,7 @@ public class NatsSourceTest {
      * Test the property 'url'
      */
     @Test
-    public void urlTest() {
+    void urlTest() {
         // TODO: test url
     }
 

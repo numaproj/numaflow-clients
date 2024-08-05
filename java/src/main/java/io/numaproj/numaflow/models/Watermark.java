@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -23,11 +25,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.IdleSource;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * Watermark
  */
@@ -36,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Watermark.JSON_PROPERTY_IDLE_SOURCE,
   Watermark.JSON_PROPERTY_MAX_DELAY
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class Watermark {
   public static final String JSON_PROPERTY_DISABLED = "disabled";
   private Boolean disabled;
@@ -47,21 +49,21 @@ public class Watermark {
   public static final String JSON_PROPERTY_MAX_DELAY = "maxDelay";
   private String maxDelay = null;
 
+  public Watermark() { 
+  }
 
   public Watermark disabled(Boolean disabled) {
     this.disabled = disabled;
     return this;
   }
 
-   /**
+  /**
    * Disabled toggles the watermark propagation, defaults to false.
    * @return disabled
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Disabled toggles the watermark propagation, defaults to false.")
   @JsonProperty(JSON_PROPERTY_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getDisabled() {
     return disabled;
   }
@@ -79,15 +81,13 @@ public class Watermark {
     return this;
   }
 
-   /**
+  /**
    * Get idleSource
    * @return idleSource
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IDLE_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public IdleSource getIdleSource() {
     return idleSource;
   }
@@ -105,15 +105,13 @@ public class Watermark {
     return this;
   }
 
-   /**
+  /**
    * Get maxDelay
    * @return maxDelay
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MAX_DELAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMaxDelay() {
     return maxDelay;
   }
@@ -170,5 +168,54 @@ public class Watermark {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `disabled` to the URL query string
+    if (getDisabled() != null) {
+      joiner.add(String.format("%sdisabled%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDisabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `idleSource` to the URL query string
+    if (getIdleSource() != null) {
+      joiner.add(getIdleSource().toUrlQueryString(prefix + "idleSource" + suffix));
+    }
+
+    // add `maxDelay` to the URL query string
+    if (getMaxDelay() != null) {
+      joiner.add(String.format("%smaxDelay%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMaxDelay()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -24,11 +26,11 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.NatsAuth;
 import io.numaproj.numaflow.models.TLS;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * NatsSource
  */
@@ -39,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   NatsSource.JSON_PROPERTY_TLS,
   NatsSource.JSON_PROPERTY_URL
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class NatsSource {
   public static final String JSON_PROPERTY_AUTH = "auth";
   private NatsAuth auth;
@@ -56,21 +58,21 @@ public class NatsSource {
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
+  public NatsSource() { 
+  }
 
   public NatsSource auth(NatsAuth auth) {
     this.auth = auth;
     return this;
   }
 
-   /**
+  /**
    * Get auth
    * @return auth
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AUTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public NatsAuth getAuth() {
     return auth;
   }
@@ -88,15 +90,13 @@ public class NatsSource {
     return this;
   }
 
-   /**
+  /**
    * Queue is used for queue subscription.
    * @return queue
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Queue is used for queue subscription.")
   @JsonProperty(JSON_PROPERTY_QUEUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getQueue() {
     return queue;
   }
@@ -114,15 +114,13 @@ public class NatsSource {
     return this;
   }
 
-   /**
+  /**
    * Subject holds the name of the subject onto which messages are published.
    * @return subject
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Subject holds the name of the subject onto which messages are published.")
   @JsonProperty(JSON_PROPERTY_SUBJECT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getSubject() {
     return subject;
   }
@@ -140,15 +138,13 @@ public class NatsSource {
     return this;
   }
 
-   /**
+  /**
    * Get tls
    * @return tls
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TLS getTls() {
     return tls;
   }
@@ -166,15 +162,13 @@ public class NatsSource {
     return this;
   }
 
-   /**
+  /**
    * URL to connect to NATS cluster, multiple urls could be separated by comma.
    * @return url
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "URL to connect to NATS cluster, multiple urls could be separated by comma.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getUrl() {
     return url;
   }
@@ -235,5 +229,64 @@ public class NatsSource {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `auth` to the URL query string
+    if (getAuth() != null) {
+      joiner.add(getAuth().toUrlQueryString(prefix + "auth" + suffix));
+    }
+
+    // add `queue` to the URL query string
+    if (getQueue() != null) {
+      joiner.add(String.format("%squeue%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getQueue()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `subject` to the URL query string
+    if (getSubject() != null) {
+      joiner.add(String.format("%ssubject%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSubject()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `tls` to the URL query string
+    if (getTls() != null) {
+      joiner.add(getTls().toUrlQueryString(prefix + "tls" + suffix));
+    }
+
+    // add `url` to the URL query string
+    if (getUrl() != null) {
+      joiner.add(String.format("%surl%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
+  }
 }
 

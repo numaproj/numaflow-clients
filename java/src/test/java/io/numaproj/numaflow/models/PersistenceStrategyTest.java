@@ -19,24 +19,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.custom.Quantity;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for PersistenceStrategy
  */
-public class PersistenceStrategyTest {
+class PersistenceStrategyTest {
     private final PersistenceStrategy model = new PersistenceStrategy();
 
     /**
      * Model tests for PersistenceStrategy
      */
     @Test
-    public void testPersistenceStrategy() {
+    void testPersistenceStrategy() {
         // TODO: test PersistenceStrategy
     }
 
@@ -44,7 +42,7 @@ public class PersistenceStrategyTest {
      * Test the property 'accessMode'
      */
     @Test
-    public void accessModeTest() {
+    void accessModeTest() {
         // TODO: test accessMode
     }
 
@@ -52,7 +50,7 @@ public class PersistenceStrategyTest {
      * Test the property 'storageClassName'
      */
     @Test
-    public void storageClassNameTest() {
+    void storageClassNameTest() {
         // TODO: test storageClassName
     }
 
@@ -60,7 +58,7 @@ public class PersistenceStrategyTest {
      * Test the property 'volumeSize'
      */
     @Test
-    public void volumeSizeTest() {
+    void volumeSizeTest() {
         // TODO: test volumeSize
     }
 

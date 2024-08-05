@@ -13,8 +13,10 @@
 
 package io.numaproj.numaflow.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -24,11 +26,11 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.NativeRedis;
 import io.numaproj.numaflow.models.RedisConfig;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import io.numaproj.numaflow.ApiClient;
 /**
  * RedisBufferService
  */
@@ -36,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RedisBufferService.JSON_PROPERTY_EXTERNAL,
   RedisBufferService.JSON_PROPERTY_NATIVE
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class RedisBufferService {
   public static final String JSON_PROPERTY_EXTERNAL = "external";
   private RedisConfig external;
@@ -44,21 +46,21 @@ public class RedisBufferService {
   public static final String JSON_PROPERTY_NATIVE = "native";
   private NativeRedis _native;
 
+  public RedisBufferService() { 
+  }
 
   public RedisBufferService external(RedisConfig external) {
     this.external = external;
     return this;
   }
 
-   /**
+  /**
    * Get external
    * @return external
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXTERNAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RedisConfig getExternal() {
     return external;
   }
@@ -76,15 +78,13 @@ public class RedisBufferService {
     return this;
   }
 
-   /**
+  /**
    * Get _native
    * @return _native
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NATIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public NativeRedis getNative() {
     return _native;
   }
@@ -139,5 +139,49 @@ public class RedisBufferService {
     return o.toString().replace("\n", "\n    ");
   }
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `external` to the URL query string
+    if (getExternal() != null) {
+      joiner.add(getExternal().toUrlQueryString(prefix + "external" + suffix));
+    }
+
+    // add `native` to the URL query string
+    if (getNative() != null) {
+      joiner.add(getNative().toUrlQueryString(prefix + "native" + suffix));
+    }
+
+    return joiner.toString();
+  }
 }
 

@@ -20,24 +20,22 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.NativeRedis;
 import io.numaproj.numaflow.models.RedisConfig;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for RedisBufferService
  */
-public class RedisBufferServiceTest {
+class RedisBufferServiceTest {
     private final RedisBufferService model = new RedisBufferService();
 
     /**
      * Model tests for RedisBufferService
      */
     @Test
-    public void testRedisBufferService() {
+    void testRedisBufferService() {
         // TODO: test RedisBufferService
     }
 
@@ -45,7 +43,7 @@ public class RedisBufferServiceTest {
      * Test the property 'external'
      */
     @Test
-    public void externalTest() {
+    void externalTest() {
         // TODO: test external
     }
 
@@ -53,7 +51,7 @@ public class RedisBufferServiceTest {
      * Test the property '_native'
      */
     @Test
-    public void _nativeTest() {
+    void _nativeTest() {
         // TODO: test _native
     }
 

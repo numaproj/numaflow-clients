@@ -20,24 +20,22 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1SecretKeySelector;
 import io.numaproj.numaflow.models.BasicAuth;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for NatsAuth
  */
-public class NatsAuthTest {
+class NatsAuthTest {
     private final NatsAuth model = new NatsAuth();
 
     /**
      * Model tests for NatsAuth
      */
     @Test
-    public void testNatsAuth() {
+    void testNatsAuth() {
         // TODO: test NatsAuth
     }
 
@@ -45,7 +43,7 @@ public class NatsAuthTest {
      * Test the property 'basic'
      */
     @Test
-    public void basicTest() {
+    void basicTest() {
         // TODO: test basic
     }
 
@@ -53,7 +51,7 @@ public class NatsAuthTest {
      * Test the property 'nkey'
      */
     @Test
-    public void nkeyTest() {
+    void nkeyTest() {
         // TODO: test nkey
     }
 
@@ -61,7 +59,7 @@ public class NatsAuthTest {
      * Test the property 'token'
      */
     @Test
-    public void tokenTest() {
+    void tokenTest() {
         // TODO: test token
     }
 

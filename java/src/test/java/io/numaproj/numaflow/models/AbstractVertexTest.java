@@ -32,28 +32,26 @@ import io.numaproj.numaflow.models.Sink;
 import io.numaproj.numaflow.models.Source;
 import io.numaproj.numaflow.models.UDF;
 import io.numaproj.numaflow.models.VertexLimits;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for AbstractVertex
  */
-public class AbstractVertexTest {
+class AbstractVertexTest {
     private final AbstractVertex model = new AbstractVertex();
 
     /**
      * Model tests for AbstractVertex
      */
     @Test
-    public void testAbstractVertex() {
+    void testAbstractVertex() {
         // TODO: test AbstractVertex
     }
 
@@ -61,7 +59,7 @@ public class AbstractVertexTest {
      * Test the property 'affinity'
      */
     @Test
-    public void affinityTest() {
+    void affinityTest() {
         // TODO: test affinity
     }
 
@@ -69,7 +67,7 @@ public class AbstractVertexTest {
      * Test the property 'automountServiceAccountToken'
      */
     @Test
-    public void automountServiceAccountTokenTest() {
+    void automountServiceAccountTokenTest() {
         // TODO: test automountServiceAccountToken
     }
 
@@ -77,7 +75,7 @@ public class AbstractVertexTest {
      * Test the property 'containerTemplate'
      */
     @Test
-    public void containerTemplateTest() {
+    void containerTemplateTest() {
         // TODO: test containerTemplate
     }
 
@@ -85,7 +83,7 @@ public class AbstractVertexTest {
      * Test the property 'dnsConfig'
      */
     @Test
-    public void dnsConfigTest() {
+    void dnsConfigTest() {
         // TODO: test dnsConfig
     }
 
@@ -93,7 +91,7 @@ public class AbstractVertexTest {
      * Test the property 'dnsPolicy'
      */
     @Test
-    public void dnsPolicyTest() {
+    void dnsPolicyTest() {
         // TODO: test dnsPolicy
     }
 
@@ -101,7 +99,7 @@ public class AbstractVertexTest {
      * Test the property 'imagePullSecrets'
      */
     @Test
-    public void imagePullSecretsTest() {
+    void imagePullSecretsTest() {
         // TODO: test imagePullSecrets
     }
 
@@ -109,7 +107,7 @@ public class AbstractVertexTest {
      * Test the property 'initContainerTemplate'
      */
     @Test
-    public void initContainerTemplateTest() {
+    void initContainerTemplateTest() {
         // TODO: test initContainerTemplate
     }
 
@@ -117,7 +115,7 @@ public class AbstractVertexTest {
      * Test the property 'initContainers'
      */
     @Test
-    public void initContainersTest() {
+    void initContainersTest() {
         // TODO: test initContainers
     }
 
@@ -125,7 +123,7 @@ public class AbstractVertexTest {
      * Test the property 'limits'
      */
     @Test
-    public void limitsTest() {
+    void limitsTest() {
         // TODO: test limits
     }
 
@@ -133,7 +131,7 @@ public class AbstractVertexTest {
      * Test the property 'metadata'
      */
     @Test
-    public void metadataTest() {
+    void metadataTest() {
         // TODO: test metadata
     }
 
@@ -141,7 +139,7 @@ public class AbstractVertexTest {
      * Test the property 'name'
      */
     @Test
-    public void nameTest() {
+    void nameTest() {
         // TODO: test name
     }
 
@@ -149,7 +147,7 @@ public class AbstractVertexTest {
      * Test the property 'nodeSelector'
      */
     @Test
-    public void nodeSelectorTest() {
+    void nodeSelectorTest() {
         // TODO: test nodeSelector
     }
 
@@ -157,7 +155,7 @@ public class AbstractVertexTest {
      * Test the property 'partitions'
      */
     @Test
-    public void partitionsTest() {
+    void partitionsTest() {
         // TODO: test partitions
     }
 
@@ -165,7 +163,7 @@ public class AbstractVertexTest {
      * Test the property 'priority'
      */
     @Test
-    public void priorityTest() {
+    void priorityTest() {
         // TODO: test priority
     }
 
@@ -173,7 +171,7 @@ public class AbstractVertexTest {
      * Test the property 'priorityClassName'
      */
     @Test
-    public void priorityClassNameTest() {
+    void priorityClassNameTest() {
         // TODO: test priorityClassName
     }
 
@@ -181,7 +179,7 @@ public class AbstractVertexTest {
      * Test the property 'runtimeClassName'
      */
     @Test
-    public void runtimeClassNameTest() {
+    void runtimeClassNameTest() {
         // TODO: test runtimeClassName
     }
 
@@ -189,7 +187,7 @@ public class AbstractVertexTest {
      * Test the property 'scale'
      */
     @Test
-    public void scaleTest() {
+    void scaleTest() {
         // TODO: test scale
     }
 
@@ -197,7 +195,7 @@ public class AbstractVertexTest {
      * Test the property 'securityContext'
      */
     @Test
-    public void securityContextTest() {
+    void securityContextTest() {
         // TODO: test securityContext
     }
 
@@ -205,7 +203,7 @@ public class AbstractVertexTest {
      * Test the property 'serviceAccountName'
      */
     @Test
-    public void serviceAccountNameTest() {
+    void serviceAccountNameTest() {
         // TODO: test serviceAccountName
     }
 
@@ -213,7 +211,7 @@ public class AbstractVertexTest {
      * Test the property 'sideInputs'
      */
     @Test
-    public void sideInputsTest() {
+    void sideInputsTest() {
         // TODO: test sideInputs
     }
 
@@ -221,7 +219,7 @@ public class AbstractVertexTest {
      * Test the property 'sideInputsContainerTemplate'
      */
     @Test
-    public void sideInputsContainerTemplateTest() {
+    void sideInputsContainerTemplateTest() {
         // TODO: test sideInputsContainerTemplate
     }
 
@@ -229,7 +227,7 @@ public class AbstractVertexTest {
      * Test the property 'sidecars'
      */
     @Test
-    public void sidecarsTest() {
+    void sidecarsTest() {
         // TODO: test sidecars
     }
 
@@ -237,7 +235,7 @@ public class AbstractVertexTest {
      * Test the property 'sink'
      */
     @Test
-    public void sinkTest() {
+    void sinkTest() {
         // TODO: test sink
     }
 
@@ -245,7 +243,7 @@ public class AbstractVertexTest {
      * Test the property 'source'
      */
     @Test
-    public void sourceTest() {
+    void sourceTest() {
         // TODO: test source
     }
 
@@ -253,7 +251,7 @@ public class AbstractVertexTest {
      * Test the property 'tolerations'
      */
     @Test
-    public void tolerationsTest() {
+    void tolerationsTest() {
         // TODO: test tolerations
     }
 
@@ -261,7 +259,7 @@ public class AbstractVertexTest {
      * Test the property 'udf'
      */
     @Test
-    public void udfTest() {
+    void udfTest() {
         // TODO: test udf
     }
 
@@ -269,7 +267,7 @@ public class AbstractVertexTest {
      * Test the property 'volumes'
      */
     @Test
-    public void volumesTest() {
+    void volumesTest() {
         // TODO: test volumes
     }
 

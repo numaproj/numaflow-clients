@@ -18,24 +18,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for Scale
  */
-public class ScaleTest {
+class ScaleTest {
     private final Scale model = new Scale();
 
     /**
      * Model tests for Scale
      */
     @Test
-    public void testScale() {
+    void testScale() {
         // TODO: test Scale
     }
 
@@ -43,7 +41,7 @@ public class ScaleTest {
      * Test the property 'cooldownSeconds'
      */
     @Test
-    public void cooldownSecondsTest() {
+    void cooldownSecondsTest() {
         // TODO: test cooldownSeconds
     }
 
@@ -51,7 +49,7 @@ public class ScaleTest {
      * Test the property 'disabled'
      */
     @Test
-    public void disabledTest() {
+    void disabledTest() {
         // TODO: test disabled
     }
 
@@ -59,7 +57,7 @@ public class ScaleTest {
      * Test the property 'lookbackSeconds'
      */
     @Test
-    public void lookbackSecondsTest() {
+    void lookbackSecondsTest() {
         // TODO: test lookbackSeconds
     }
 
@@ -67,7 +65,7 @@ public class ScaleTest {
      * Test the property 'max'
      */
     @Test
-    public void maxTest() {
+    void maxTest() {
         // TODO: test max
     }
 
@@ -75,7 +73,7 @@ public class ScaleTest {
      * Test the property 'min'
      */
     @Test
-    public void minTest() {
+    void minTest() {
         // TODO: test min
     }
 
@@ -83,7 +81,7 @@ public class ScaleTest {
      * Test the property 'replicasPerScale'
      */
     @Test
-    public void replicasPerScaleTest() {
+    void replicasPerScaleTest() {
         // TODO: test replicasPerScale
     }
 
@@ -91,7 +89,7 @@ public class ScaleTest {
      * Test the property 'scaleDownCooldownSeconds'
      */
     @Test
-    public void scaleDownCooldownSecondsTest() {
+    void scaleDownCooldownSecondsTest() {
         // TODO: test scaleDownCooldownSeconds
     }
 
@@ -99,7 +97,7 @@ public class ScaleTest {
      * Test the property 'scaleUpCooldownSeconds'
      */
     @Test
-    public void scaleUpCooldownSecondsTest() {
+    void scaleUpCooldownSecondsTest() {
         // TODO: test scaleUpCooldownSeconds
     }
 
@@ -107,7 +105,7 @@ public class ScaleTest {
      * Test the property 'targetBufferAvailability'
      */
     @Test
-    public void targetBufferAvailabilityTest() {
+    void targetBufferAvailabilityTest() {
         // TODO: test targetBufferAvailability
     }
 
@@ -115,7 +113,7 @@ public class ScaleTest {
      * Test the property 'targetProcessingSeconds'
      */
     @Test
-    public void targetProcessingSecondsTest() {
+    void targetProcessingSecondsTest() {
         // TODO: test targetProcessingSeconds
     }
 
@@ -123,7 +121,7 @@ public class ScaleTest {
      * Test the property 'zeroReplicaSleepSeconds'
      */
     @Test
-    public void zeroReplicaSleepSecondsTest() {
+    void zeroReplicaSleepSecondsTest() {
         // TODO: test zeroReplicaSleepSeconds
     }
 

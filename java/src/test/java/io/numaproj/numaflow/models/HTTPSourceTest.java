@@ -19,24 +19,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.numaproj.numaflow.models.Authorization;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for HTTPSource
  */
-public class HTTPSourceTest {
+class HTTPSourceTest {
     private final HTTPSource model = new HTTPSource();
 
     /**
      * Model tests for HTTPSource
      */
     @Test
-    public void testHTTPSource() {
+    void testHTTPSource() {
         // TODO: test HTTPSource
     }
 
@@ -44,7 +42,7 @@ public class HTTPSourceTest {
      * Test the property 'auth'
      */
     @Test
-    public void authTest() {
+    void authTest() {
         // TODO: test auth
     }
 
@@ -52,7 +50,7 @@ public class HTTPSourceTest {
      * Test the property 'service'
      */
     @Test
-    public void serviceTest() {
+    void serviceTest() {
         // TODO: test service
     }
 

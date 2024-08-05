@@ -19,24 +19,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1SecretKeySelector;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for Authorization
  */
-public class AuthorizationTest {
+class AuthorizationTest {
     private final Authorization model = new Authorization();
 
     /**
      * Model tests for Authorization
      */
     @Test
-    public void testAuthorization() {
+    void testAuthorization() {
         // TODO: test Authorization
     }
 
@@ -44,7 +42,7 @@ public class AuthorizationTest {
      * Test the property 'token'
      */
     @Test
-    public void tokenTest() {
+    void tokenTest() {
         // TODO: test token
     }
 

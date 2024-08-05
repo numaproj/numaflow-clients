@@ -19,24 +19,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kubernetes.client.openapi.models.V1SecretKeySelector;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TLS
  */
-public class TLSTest {
+class TLSTest {
     private final TLS model = new TLS();
 
     /**
      * Model tests for TLS
      */
     @Test
-    public void testTLS() {
+    void testTLS() {
         // TODO: test TLS
     }
 
@@ -44,7 +42,7 @@ public class TLSTest {
      * Test the property 'caCertSecret'
      */
     @Test
-    public void caCertSecretTest() {
+    void caCertSecretTest() {
         // TODO: test caCertSecret
     }
 
@@ -52,7 +50,7 @@ public class TLSTest {
      * Test the property 'certSecret'
      */
     @Test
-    public void certSecretTest() {
+    void certSecretTest() {
         // TODO: test certSecret
     }
 
@@ -60,7 +58,7 @@ public class TLSTest {
      * Test the property 'insecureSkipVerify'
      */
     @Test
-    public void insecureSkipVerifyTest() {
+    void insecureSkipVerifyTest() {
         // TODO: test insecureSkipVerify
     }
 
@@ -68,7 +66,7 @@ public class TLSTest {
      * Test the property 'keySecret'
      */
     @Test
-    public void keySecretTest() {
+    void keySecretTest() {
         // TODO: test keySecret
     }
 
